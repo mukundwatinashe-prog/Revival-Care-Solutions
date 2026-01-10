@@ -155,8 +155,8 @@ export default function CareersPage() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=500&h=600&fit=crop"
-                alt="Group of carers smiling at camera"
+                src="https://source.unsplash.com/Sj0iMtq_Z4w/500x600"
+                alt="Team of carers together"
                 className="rounded-2xl shadow-lg w-full max-w-md mx-auto"
               />
             </div>
