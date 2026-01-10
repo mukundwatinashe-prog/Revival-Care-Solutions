@@ -71,7 +71,7 @@ export function Footer() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-primary-800 border-primary-700 text-white placeholder:text-primary-400 sm:w-72"
+                className="bg-primary-800 border-primary-700 text-white placeholder:text-white/50 sm:w-72"
                 required
               />
               <Button variant="secondary" rightIcon={<ArrowRight className="w-4 h-4" />}>

@@ -152,8 +152,8 @@ export default function HomePage() {
                 {/* Main image */}
                 <div className="absolute top-0 right-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1516307365426-bea591f05011?w=600&h=600&fit=crop"
-                    alt="Caregiver helping elderly woman with daily activities at home"
+                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&h=600&fit=crop"
+                    alt="Professional caregiver assisting elderly woman at home"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -161,8 +161,8 @@ export default function HomePage() {
                 {/* Secondary image */}
                 <div className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <img
-                    src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=400&h=400&fit=crop"
-                    alt="Elderly person receiving care and support at home"
+                    src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=400&h=400&fit=crop"
+                    alt="Caregiver providing companionship to elderly person"
                     className="w-full h-full object-cover"
                   />
                 </div>

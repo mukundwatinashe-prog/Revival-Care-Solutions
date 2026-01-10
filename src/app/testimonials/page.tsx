@@ -162,7 +162,7 @@ export default function TestimonialsPage() {
                 hover 
                 className={`relative ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
-                <Quote className="absolute top-6 right-6 w-10 h-10 text-primary-100" />
+                <Quote className="absolute top-6 right-6 w-10 h-10 text-primary-200" />
                 
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (

@@ -50,34 +50,37 @@ const resourceCategories = [
 
 const featuredArticles = [
   {
-    title: 'Understanding the Signs: When Your Parent Needs Home Care',
-    excerpt: 'Learn to recognize the key indicators that suggest a loved one may benefit from professional home care assistance.',
+    title: 'Care Inspectorate Hub - Quality Improvement Resources',
+    excerpt: 'Access official guidance, publications, and quality frameworks for social care in Scotland from the Care Inspectorate.',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
-    category: 'Getting Started',
-    date: 'January 3, 2026',
-    readTime: '8 min read',
-    author: 'Dr. Sarah Chen',
-    href: '/resources/blog/signs-parent-needs-home-care',
+    category: 'Official Resource',
+    date: 'Updated Regularly',
+    readTime: 'External Site',
+    author: 'Care Inspectorate',
+    href: 'https://hub.careinspectorate.com/',
+    external: true,
   },
   {
-    title: 'How to Talk to Your Aging Parent About Accepting Help',
-    excerpt: 'Sensitive strategies for approaching the difficult conversation about accepting care assistance.',
+    title: 'NHS Inform - Care at Home Services',
+    excerpt: 'Comprehensive information from NHS Scotland about care at home services, what to expect, and how to access support.',
     image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop',
-    category: 'Family Support',
-    date: 'December 28, 2025',
-    readTime: '6 min read',
-    author: 'Elena Rodriguez',
-    href: '/resources/blog/talking-to-aging-parent',
+    category: 'NHS Scotland',
+    date: 'Updated Regularly',
+    readTime: 'External Site',
+    author: 'NHS Inform',
+    href: 'https://www.nhsinform.scot/care-support-and-rights/care-at-home',
+    external: true,
   },
   {
-    title: 'The Complete Guide to Medicare and Home Care Coverage',
-    excerpt: 'Navigate the complexities of Medicare coverage for home care services and understand your options.',
+    title: 'Age Scotland - Support for Older People',
+    excerpt: 'Advice and support for older people in Scotland, including information about care options, rights and benefits.',
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop',
-    category: 'Insurance & Finances',
-    date: 'December 20, 2025',
-    readTime: '12 min read',
-    author: 'Marcus Williams',
-    href: '/resources/blog/medicare-home-care-coverage',
+    category: 'Charity',
+    date: 'Updated Regularly',
+    readTime: 'External Site',
+    author: 'Age Scotland',
+    href: 'https://www.ageuk.org.uk/scotland/',
+    external: true,
   },
 ];
 
@@ -177,7 +180,7 @@ export default function ResourcesPage() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {featuredArticles.map((article) => (
-              <Link key={article.title} href={article.href}>
+              <a key={article.title} href={article.href} target="_blank" rel="noopener noreferrer">
                 <Card hover padding="none" className="h-full overflow-hidden group">
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -206,7 +209,7 @@ export default function ResourcesPage() {
                     </div>
                   </div>
                 </Card>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
