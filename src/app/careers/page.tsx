@@ -72,19 +72,16 @@ const testimonials = [
     quote: "Working at Revival Care has been the most rewarding job I've ever had. The support from the team and the relationships I build with clients are incredible.",
     name: "Maria S.",
     role: "Caregiver, 3 years",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&h=100&fit=crop&crop=faces",
   },
   {
     quote: "The flexible scheduling allows me to balance work with my family. And the training I've received has made me a much better caregiver.",
     name: "James T.",
-    role: "CNA, 2 years",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces",
+    role: "Carer, 2 years",
   },
   {
     quote: "Revival Care truly cares about their employees. They invested in my professional development and I've grown so much in my career here.",
     name: "Priya M.",
-    role: "Senior Caregiver, 5 years",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=faces",
+    role: "Senior Carer, 5 years",
   },
 ];
 
@@ -157,25 +154,11 @@ export default function CareersPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <img
-                  src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=300&h=400&fit=crop"
-                  alt="Caregiver with client"
-                  className="rounded-2xl shadow-lg w-full"
-                />
-                <div className="space-y-4 pt-8">
-                  <img
-                    src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=180&fit=crop"
-                    alt="Care team meeting"
-                    className="rounded-2xl shadow-lg w-full"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=300&h=180&fit=crop"
-                    alt="Caregiver training"
-                    className="rounded-2xl shadow-lg w-full"
-                  />
-                </div>
-              </div>
+              <img
+                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=500&h=600&fit=crop"
+                alt="Smiling carer providing compassionate care"
+                className="rounded-2xl shadow-lg w-full max-w-md mx-auto"
+              />
             </div>
           </div>
         </div>
@@ -458,11 +441,9 @@ export default function CareersPage() {
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                    <Users className="w-6 h-6 text-primary-600" />
+                  </div>
                   <div>
                     <div className="font-semibold">{testimonial.name}</div>
                     <div className="text-sm text-neutral-500">{testimonial.role}</div>
