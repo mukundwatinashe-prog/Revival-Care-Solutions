@@ -153,7 +153,7 @@ export default function HomePage() {
                 <div className="absolute top-0 right-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl">
                   <img
                     src="/images/caregiver-elderly-couple.jpg"
-                    alt="Caregiver assisting elderly couple with activities"
+                    alt="Caregiver assisting elderly couple with coloring"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -162,7 +162,7 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <img
                     src="/images/nurse-laughing.jpg"
-                    alt="Nurse and elderly woman laughing together"
+                    alt="Two women laughing together indoors"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -268,14 +268,14 @@ export default function HomePage() {
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/images/healthcare-worker.jpg"
-                      alt="Healthcare worker providing care"
+                      alt="Healthcare worker with mask"
                       className="w-full h-60 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/elderly-care-hands.jpg"
-                      alt="Caring hands supporting elderly person"
+                      src="/images/women-talking-chairs.jpg"
+                      alt="Two women talking in comfortable chairs"
                       className="w-full h-40 object-cover"
                     />
                   </div>
@@ -283,15 +283,15 @@ export default function HomePage() {
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/senior-care-support.jpg"
-                      alt="Senior receiving care support"
+                      src="/images/nurse-smiling-patient.jpg"
+                      alt="Nurse smiling with elderly patient in room"
                       className="w-full h-40 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/elderly-woman-smiling.jpg"
-                      alt="Elderly woman smiling"
+                      src="/images/caregiver-knitting.jpg"
+                      alt="Caregiver assisting elderly women with knitting activity"
                       className="w-full h-60 object-cover"
                     />
                   </div>
