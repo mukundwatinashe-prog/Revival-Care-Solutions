@@ -30,6 +30,7 @@ interface ServiceData {
   benefits: { title: string; description: string }[];
   faqs: { question: string; answer: string }[];
   color: 'primary' | 'secondary' | 'accent';
+  image: string;
 }
 
 const servicesData: Record<string, ServiceData> = {
@@ -38,6 +39,7 @@ const servicesData: Record<string, ServiceData> = {
     icon: HandHeart,
     title: 'Personal Care Assistance',
     subtitle: 'Dignified support for daily living activities',
+    image: '/images/personal-care.jpg',
     heroDescription: 'Our personal care services help seniors maintain their independence and dignity while receiving compassionate assistance with essential daily activities.',
     fullDescription: [
       'Personal care is at the heart of what we do. Our trained caregivers provide respectful, dignified assistance with the activities of daily living that many seniors find challenging as they age.',
@@ -71,6 +73,7 @@ const servicesData: Record<string, ServiceData> = {
     icon: MessageCircle,
     title: 'Companionship Services',
     subtitle: 'Meaningful connection and social engagement',
+    image: '/images/companionship.jpg',
     heroDescription: 'Combat loneliness and enhance quality of life with our compassionate companionship services that provide meaningful social interaction and emotional support.',
     fullDescription: [
       'Social isolation and loneliness can have serious impacts on senior health, contributing to depression, cognitive decline, and even physical health problems. Our companionship services address these concerns with meaningful, engaging care.',
@@ -104,6 +107,7 @@ const servicesData: Record<string, ServiceData> = {
     icon: Pill,
     title: 'Medication Management',
     subtitle: 'Safe and reliable medication support',
+    image: '/images/medication.jpg',
     heroDescription: 'Ensure medication adherence and safety with our comprehensive medication management services that provide reminders, organization, and monitoring.',
     fullDescription: [
       'Managing multiple medications can be overwhelming and confusing, especially for seniors with complex health conditions. Our medication management services help ensure medications are taken correctly and on time.',
@@ -137,6 +141,7 @@ const servicesData: Record<string, ServiceData> = {
     icon: Footprints,
     title: 'Mobility Assistance',
     subtitle: 'Safe movement and fall prevention',
+    image: '/images/caregiver-elderly-couple.jpg',
     heroDescription: 'Maintain independence and safety with our mobility assistance services that provide support with walking, transfers, and physical activity.',
     fullDescription: [
       'Mobility challenges are one of the leading causes of falls among seniors. Our mobility assistance services help clients move safely while maintaining as much independence as possible.',
@@ -170,6 +175,7 @@ const servicesData: Record<string, ServiceData> = {
     icon: UtensilsCrossed,
     title: 'Meal Preparation',
     subtitle: 'Nutritious and delicious home-cooked meals',
+    image: '/images/meal-prep.jpg',
     heroDescription: 'Ensure proper nutrition with our meal preparation services that provide healthy, delicious meals tailored to dietary needs and personal preferences.',
     fullDescription: [
       'Good nutrition is essential for senior health, but many seniors struggle with meal preparation due to physical limitations, lack of energy, or simply losing interest in cooking for one. Our meal preparation services solve these challenges.',
@@ -203,6 +209,7 @@ const servicesData: Record<string, ServiceData> = {
     icon: Sparkles,
     title: 'Light Housekeeping',
     subtitle: 'A clean, safe, and comfortable home',
+    image: '/images/nurse-laughing.jpg',
     heroDescription: 'Maintain a healthy living environment with our light housekeeping services that keep homes clean, organized, and safe.',
     fullDescription: [
       'A clean home isn\'t just about appearances – it\'s about health and safety. Clutter can create fall hazards, while poor hygiene can lead to illness. Our light housekeeping services address these concerns.',
@@ -311,21 +318,30 @@ export default async function ServicePage({ params }: PageProps) {
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-b from-neutral-50 to-white">
         <div className="container-custom">
-          <div className="max-w-4xl">
-            <Link 
-              href="/services"
-              className="inline-flex items-center gap-2 text-primary-600 hover:gap-3 transition-all mb-6"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to All Services
-            </Link>
-            
-            <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${colors.bg} mb-6`}>
-              <Icon className={`w-8 h-8 ${colors.text}`} />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl">
+              <Link 
+                href="/services"
+                className="inline-flex items-center gap-2 text-primary-600 hover:gap-3 transition-all mb-6"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to All Services
+              </Link>
+              
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${colors.bg} mb-6`}>
+                <Icon className={`w-8 h-8 ${colors.text}`} />
+              </div>
+              
+              <h1 className="mb-4">{service.title}</h1>
+              <p className="text-2xl text-neutral-600 font-light">{service.subtitle}</p>
             </div>
-            
-            <h1 className="mb-4">{service.title}</h1>
-            <p className="text-2xl text-neutral-600 font-light">{service.subtitle}</p>
+            <div className="hidden lg:block">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="rounded-2xl shadow-lg w-full h-80 object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
