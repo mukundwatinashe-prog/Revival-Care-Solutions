@@ -152,8 +152,8 @@ export default function HomePage() {
                 {/* Main image */}
                 <div className="absolute top-0 right-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl">
                   <img
-                    src="https://source.unsplash.com/bSXk1lOp8T0/600x600"
-                    alt="Caregiver assisting elderly couple with activities"
+                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&h=600&fit=crop"
+                    alt="Caregiver assisting elderly person at home"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -161,8 +161,8 @@ export default function HomePage() {
                 {/* Secondary image */}
                 <div className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <img
-                    src="https://source.unsplash.com/GPrh_GLiWCI/400x400"
-                    alt="Nurse and elderly woman laughing together"
+                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop"
+                    alt="Healthcare professional with elderly patient"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -267,15 +267,15 @@ export default function HomePage() {
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://source.unsplash.com/bSXk1lOp8T0/400x500"
-                      alt="Caregiver assisting elderly couple with activities"
+                      src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=400&h=500&fit=crop"
+                      alt="Caregiver providing companionship to elderly person"
                       className="w-full h-60 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://source.unsplash.com/GPrh_GLiWCI/400x300"
-                      alt="Nurse and elderly woman laughing together"
+                      src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop"
+                      alt="Senior receiving care at home"
                       className="w-full h-40 object-cover"
                     />
                   </div>
@@ -283,15 +283,15 @@ export default function HomePage() {
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://source.unsplash.com/sX24JW-9tkU/400x300"
-                      alt="Healthcare worker providing care"
+                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop"
+                      alt="Caring for elderly patient"
                       className="w-full h-40 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://source.unsplash.com/bSXk1lOp8T0/400x500"
-                      alt="Caregiver helping elderly with crafts"
+                      src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=400&h=500&fit=crop"
+                      alt="Elderly care moment"
                       className="w-full h-60 object-cover"
                     />
                   </div>
