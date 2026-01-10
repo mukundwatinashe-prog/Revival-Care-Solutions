@@ -213,74 +213,64 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ============================================
    FORCE WHITE TEXT ON BLUE BACKGROUNDS
+   Only applies to section-level blue backgrounds, 
+   not nested white containers like navigation
    ============================================ */
 
-/* Force white text for all elements inside blue background sections */
-.bg-primary-500 h1,
-.bg-primary-500 h2,
-.bg-primary-500 h3,
-.bg-primary-500 h4,
-.bg-primary-500 h5,
-.bg-primary-500 h6,
-.bg-primary-500 p,
-.bg-primary-500 span,
-.bg-primary-500 a,
-.bg-primary-500 div,
-.bg-primary-600 h1,
-.bg-primary-600 h2,
-.bg-primary-600 h3,
-.bg-primary-600 h4,
-.bg-primary-600 h5,
-.bg-primary-600 h6,
-.bg-primary-600 p,
-.bg-primary-600 span,
-.bg-primary-600 a,
-.bg-primary-600 div,
-.bg-primary-700 h1,
-.bg-primary-700 h2,
-.bg-primary-700 h3,
-.bg-primary-700 h4,
-.bg-primary-700 h5,
-.bg-primary-700 h6,
-.bg-primary-700 p,
-.bg-primary-700 span,
-.bg-primary-700 a,
-.bg-primary-700 div,
-.bg-primary-800 h1,
-.bg-primary-800 h2,
-.bg-primary-800 h3,
-.bg-primary-800 h4,
-.bg-primary-800 h5,
-.bg-primary-800 h6,
-.bg-primary-800 p,
-.bg-primary-800 span,
-.bg-primary-800 a,
-.bg-primary-800 div,
-.bg-primary-900 h1,
-.bg-primary-900 h2,
-.bg-primary-900 h3,
-.bg-primary-900 h4,
-.bg-primary-900 h5,
-.bg-primary-900 h6,
-.bg-primary-900 p,
-.bg-primary-900 span,
-.bg-primary-900 a,
-.bg-primary-900 div {
+/* Force white text for elements directly in blue background sections */
+section.bg-primary-500 h1,
+section.bg-primary-500 h2,
+section.bg-primary-500 h3,
+section.bg-primary-500 h4,
+section.bg-primary-500 p,
+section.bg-primary-500 > div h1,
+section.bg-primary-500 > div h2,
+section.bg-primary-500 > div h3,
+section.bg-primary-500 > div p,
+section.bg-primary-500 > div span,
+section.bg-primary-600 h1,
+section.bg-primary-600 h2,
+section.bg-primary-600 h3,
+section.bg-primary-600 h4,
+section.bg-primary-600 p,
+section.bg-primary-600 > div h1,
+section.bg-primary-600 > div h2,
+section.bg-primary-600 > div p,
+section.bg-primary-700 h1,
+section.bg-primary-700 h2,
+section.bg-primary-700 h3,
+section.bg-primary-700 h4,
+section.bg-primary-700 p,
+section.bg-primary-700 > div h1,
+section.bg-primary-700 > div h2,
+section.bg-primary-700 > div h3,
+section.bg-primary-700 > div p,
+section.bg-primary-700 > div span,
+section.bg-primary-800 h1,
+section.bg-primary-800 h2,
+section.bg-primary-800 h3,
+section.bg-primary-800 h4,
+section.bg-primary-800 p,
+section.bg-primary-900 h1,
+section.bg-primary-900 h2,
+section.bg-primary-900 h3,
+section.bg-primary-900 h4,
+section.bg-primary-900 p {
   color: white !important;
 }
 
-/* Slightly transparent white for secondary text */
-.bg-primary-500 .text-white\/90,
-.bg-primary-500 .text-white\/80,
-.bg-primary-600 .text-white\/90,
-.bg-primary-600 .text-white\/80,
-.bg-primary-700 .text-white\/90,
-.bg-primary-700 .text-white\/80,
-.bg-primary-800 .text-white\/90,
-.bg-primary-800 .text-white\/80,
-.bg-primary-900 .text-white\/90,
-.bg-primary-900 .text-white\/80 {
-  color: rgba(255, 255, 255, 0.9) !important;
+/* Footer white text */
+footer.bg-primary-900 p,
+footer.bg-primary-900 span,
+footer.bg-primary-900 h3,
+footer.bg-primary-900 h4 {
+  color: white !important;
+}
+
+/* Top bar white text */
+.bg-primary-500.text-white span,
+.bg-primary-500.text-white a {
+  color: white !important;
 }
 
 h1 {
