@@ -267,15 +267,15 @@ export default function HomePage() {
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/caregiver-elderly-couple.jpg"
-                      alt="Caregiver assisting elderly couple with activities"
+                      src="/images/healthcare-worker.jpg"
+                      alt="Healthcare worker providing care"
                       className="w-full h-60 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/nurse-laughing.jpg"
-                      alt="Nurse and elderly woman laughing together"
+                      src="/images/elderly-care-hands.jpg"
+                      alt="Caring hands supporting elderly person"
                       className="w-full h-40 object-cover"
                     />
                   </div>
@@ -283,15 +283,15 @@ export default function HomePage() {
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/nurse-laughing.jpg"
-                      alt="Carer providing companionship"
+                      src="/images/senior-care-support.jpg"
+                      alt="Senior receiving care support"
                       className="w-full h-40 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/images/caregiver-elderly-couple.jpg"
-                      alt="Elderly care moment"
+                      src="/images/elderly-woman-smiling.jpg"
+                      alt="Elderly woman smiling"
                       className="w-full h-60 object-cover"
                     />
                   </div>
