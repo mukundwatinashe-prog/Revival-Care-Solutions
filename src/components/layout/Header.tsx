@@ -185,12 +185,16 @@ export function Header() {
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button variant="outline" size="md">
-                Free Consultation
-              </Button>
-              <Button variant="primary" size="md" leftIcon={<Phone className="w-4 h-4" />}>
-                Call Now
-              </Button>
+              <Link href="/consultation">
+                <Button variant="outline" size="md">
+                  Free Consultation
+                </Button>
+              </Link>
+              <a href="tel:+447544152585">
+                <Button variant="primary" size="md" leftIcon={<Phone className="w-4 h-4" />}>
+                  Call Now
+                </Button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -280,12 +284,16 @@ export function Header() {
                 </div>
 
                 <div className="mt-8 space-y-3">
-                  <Button variant="outline" fullWidth>
-                    Free Consultation
-                  </Button>
-                  <Button variant="primary" fullWidth leftIcon={<Phone className="w-4 h-4" />}>
-                    Call Now
-                  </Button>
+                  <Link href="/consultation" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="outline" fullWidth>
+                      Free Consultation
+                    </Button>
+                  </Link>
+                  <a href="tel:+447544152585">
+                    <Button variant="primary" fullWidth leftIcon={<Phone className="w-4 h-4" />}>
+                      Call Now
+                    </Button>
+                  </a>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-neutral-200">

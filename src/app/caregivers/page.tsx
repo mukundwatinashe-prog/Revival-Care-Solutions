@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import {
   Shield,
   Award,
@@ -352,17 +353,21 @@ export default function CaregiversPage() {
               professional care that makes a real difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Request Care Today
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                leftIcon={<Phone className="w-5 h-5" />}
-                className="border-white text-white hover:bg-white/10"
-              >
-                07544 152585
-              </Button>
+              <Link href="/consultation">
+                <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Request Care Today
+                </Button>
+              </Link>
+              <a href="tel:+447544152585">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  leftIcon={<Phone className="w-5 h-5" />}
+                  className="border-white text-white hover:bg-white/10"
+                >
+                  07544 152585
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -401,7 +406,7 @@ export default function CaregiversPage() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=600&h=400&fit=crop"
+                  src="https://images.unsplash.com/photo-1516307365426-bea591f05011?w=600&h=400&fit=crop"
                   alt="Revival Care team meeting"
                   className="w-full h-80 object-cover"
                 />

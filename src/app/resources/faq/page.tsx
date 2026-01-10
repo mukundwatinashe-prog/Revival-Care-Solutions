@@ -315,12 +315,16 @@ export default function FAQPage() {
               answers to your questions about home care.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Contact Us
-              </Button>
-              <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
-                07544 152585
-              </Button>
+              <Link href="/consultation">
+                <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Contact Us
+                </Button>
+              </Link>
+              <a href="tel:+447544152585">
+                <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
+                  07544 152585
+                </Button>
+              </a>
             </div>
           </div>
         </div>

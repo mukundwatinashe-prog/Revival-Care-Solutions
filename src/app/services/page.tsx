@@ -242,17 +242,21 @@ export default function ServicesPage() {
               and create a personalized care plan. Schedule a free, no-obligation consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Schedule Free Consultation
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                leftIcon={<Phone className="w-5 h-5" />}
-                className="border-white text-white hover:bg-white/10"
-              >
-                Call Us Now
-              </Button>
+              <Link href="/consultation">
+                <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Schedule Free Consultation
+                </Button>
+              </Link>
+              <a href="tel:+447544152585">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  leftIcon={<Phone className="w-5 h-5" />}
+                  className="border-white text-white hover:bg-white/10"
+                >
+                  Call Us Now
+                </Button>
+              </a>
             </div>
           </div>
         </div>

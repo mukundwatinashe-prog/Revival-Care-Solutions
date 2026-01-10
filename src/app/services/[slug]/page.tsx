@@ -396,12 +396,16 @@ export default async function ServicePage({ params }: PageProps) {
                   services can help your loved one.
                 </p>
                 <div className="space-y-3">
-                  <Button fullWidth rightIcon={<ArrowRight className="w-4 h-4" />}>
-                    Free Consultation
-                  </Button>
-                  <Button variant="outline" fullWidth leftIcon={<Phone className="w-4 h-4" />}>
-                    07544 152585
-                  </Button>
+                  <Link href="/consultation">
+                    <Button fullWidth rightIcon={<ArrowRight className="w-4 h-4" />}>
+                      Free Consultation
+                    </Button>
+                  </Link>
+                  <a href="tel:+447544152585">
+                    <Button variant="outline" fullWidth leftIcon={<Phone className="w-4 h-4" />}>
+                      07544 152585
+                    </Button>
+                  </a>
                 </div>
                 <div className="mt-6 pt-6 border-t border-primary-200 space-y-3">
                   <div className="flex items-center gap-3 text-sm text-neutral-600">
@@ -451,17 +455,21 @@ export default async function ServicePage({ params }: PageProps) {
               and learn how we can help your family.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Schedule Consultation
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                leftIcon={<Phone className="w-5 h-5" />}
-                className="border-white text-white hover:bg-white/10"
-              >
-                07544 152585
-              </Button>
+              <Link href="/consultation">
+                <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Schedule Consultation
+                </Button>
+              </Link>
+              <a href="tel:+447544152585">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  leftIcon={<Phone className="w-5 h-5" />}
+                  className="border-white text-white hover:bg-white/10"
+                >
+                  07544 152585
+                </Button>
+              </a>
             </div>
           </div>
         </div>

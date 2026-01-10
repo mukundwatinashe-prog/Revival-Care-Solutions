@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import {
   Star,
   Quote,
@@ -245,19 +246,19 @@ export default function TestimonialsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <img
-                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=300&h=200&fit=crop"
+                    src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=300&h=200&fit=crop"
                     alt="Caregiver with client"
                     className="rounded-2xl shadow-lg w-full"
                   />
                   <img
-                    src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=300&h=250&fit=crop"
+                    src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=300&h=250&fit=crop"
                     alt="Happy senior"
                     className="rounded-2xl shadow-lg w-full"
                   />
                 </div>
                 <div className="pt-8">
                   <img
-                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&h=400&fit=crop"
+                    src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=300&h=400&fit=crop"
                     alt="Care team"
                     className="rounded-2xl shadow-lg w-full"
                   />
@@ -278,17 +279,21 @@ export default function TestimonialsPage() {
               Schedule a free consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Schedule Free Consultation
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                leftIcon={<Phone className="w-5 h-5" />}
-                className="border-white text-white hover:bg-white/10"
-              >
-                07544 152585
-              </Button>
+              <Link href="/consultation">
+                <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Schedule Free Consultation
+                </Button>
+              </Link>
+              <a href="tel:+447544152585">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  leftIcon={<Phone className="w-5 h-5" />}
+                  className="border-white text-white hover:bg-white/10"
+                >
+                  07544 152585
+                </Button>
+              </a>
             </div>
           </div>
         </div>

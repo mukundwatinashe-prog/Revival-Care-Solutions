@@ -296,16 +296,20 @@ export default function AboutPage() {
               team of compassionate caregivers, we&apos;d love to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Request Care
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-white text-white hover:bg-white/10"
-              >
-                Join Our Team
-              </Button>
+              <Link href="/consultation">
+                <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Request Care
+                </Button>
+              </Link>
+              <Link href="/careers">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-white text-white hover:bg-white/10"
+                >
+                  Join Our Team
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

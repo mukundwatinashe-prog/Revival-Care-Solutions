@@ -64,7 +64,7 @@ export function Footer() {
               <h3 className="font-serif text-2xl font-semibold mb-2">
                 Stay Updated with Care Tips
               </h3>
-              <p className="text-primary-200">
+              <p className="text-white/80">
                 Subscribe to our newsletter for caregiving resources and company updates.
               </p>
             </div>
@@ -98,26 +98,26 @@ export function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-primary-200 mb-6 max-w-sm">
+            <p className="text-white/80 mb-6 max-w-sm">
               Providing compassionate, professional home care services that enhance the quality 
               of life for seniors and their families. Trusted care since 2023.
             </p>
             
             <div className="space-y-4 mb-8">
               <a href="tel:+447544152585" className="flex items-center gap-3 text-white hover:text-secondary-400 transition-colors">
-                <Phone className="w-5 h-5 text-secondary-500" />
+                <Phone className="w-5 h-5 text-secondary-400" />
                 <span>07544 152585</span>
               </a>
               <a href="mailto:milton@revivalcare.co.uk" className="flex items-center gap-3 text-white hover:text-secondary-400 transition-colors">
-                <Mail className="w-5 h-5 text-secondary-500" />
+                <Mail className="w-5 h-5 text-secondary-400" />
                 <span>milton@revivalcare.co.uk</span>
               </a>
-              <div className="flex items-start gap-3 text-primary-200">
-                <MapPin className="w-5 h-5 text-secondary-500 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 text-white/80">
+                <MapPin className="w-5 h-5 text-secondary-400 flex-shrink-0 mt-0.5" />
                 <span>Office 3 Marchmont Avenue<br />Polmont, Falkirk, FK2 0NZ</span>
               </div>
-              <div className="flex items-center gap-3 text-primary-200">
-                <Clock className="w-5 h-5 text-secondary-500" />
+              <div className="flex items-center gap-3 text-white/80">
+                <Clock className="w-5 h-5 text-secondary-400" />
                 <span>24/7 Care Available</span>
               </div>
             </div>
@@ -146,7 +146,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link 
                     href={item.href}
-                    className="text-primary-200 hover:text-secondary-400 transition-colors"
+                    className="text-white/80 hover:text-secondary-400 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -163,7 +163,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link 
                     href={item.href}
-                    className="text-primary-200 hover:text-secondary-400 transition-colors"
+                    className="text-white/80 hover:text-secondary-400 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -180,7 +180,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link 
                     href={item.href}
-                    className="text-primary-200 hover:text-secondary-400 transition-colors"
+                    className="text-white/80 hover:text-secondary-400 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -195,7 +195,7 @@ export function Footer() {
       <div className="border-t border-primary-800">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-primary-300 text-sm text-center md:text-left">
+            <p className="text-white/70 text-sm text-center md:text-left">
               © {new Date().getFullYear()} Revival Care Solutions. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
@@ -203,7 +203,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-primary-300 hover:text-secondary-400 transition-colors"
+                  className="text-sm text-white/70 hover:text-secondary-400 transition-colors"
                 >
                   {item.label}
                 </Link>

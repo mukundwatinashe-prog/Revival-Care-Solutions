@@ -52,7 +52,7 @@ const featuredArticles = [
   {
     title: 'Understanding the Signs: When Your Parent Needs Home Care',
     excerpt: 'Learn to recognize the key indicators that suggest a loved one may benefit from professional home care assistance.',
-    image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
     category: 'Getting Started',
     date: 'January 3, 2026',
     readTime: '8 min read',
@@ -62,7 +62,7 @@ const featuredArticles = [
   {
     title: 'How to Talk to Your Aging Parent About Accepting Help',
     excerpt: 'Sensitive strategies for approaching the difficult conversation about accepting care assistance.',
-    image: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=600&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop',
     category: 'Family Support',
     date: 'December 28, 2025',
     readTime: '6 min read',

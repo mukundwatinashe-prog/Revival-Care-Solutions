@@ -171,18 +171,18 @@ export default function CareersPage() {
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <img
-                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=300&h=400&fit=crop"
+                  src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=300&h=400&fit=crop"
                   alt="Caregiver with client"
                   className="rounded-2xl shadow-lg w-full"
                 />
                 <div className="space-y-4 pt-8">
                   <img
-                    src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=300&h=180&fit=crop"
+                    src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=180&fit=crop"
                     alt="Care team meeting"
                     className="rounded-2xl shadow-lg w-full"
                   />
                   <img
-                    src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=300&h=180&fit=crop"
+                    src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=300&h=180&fit=crop"
                     alt="Caregiver training"
                     className="rounded-2xl shadow-lg w-full"
                   />
