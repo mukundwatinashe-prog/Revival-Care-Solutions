@@ -8,7 +8,6 @@ import {
   Clock,
   Send,
   CheckCircle,
-  MessageCircle,
   Calendar,
 } from 'lucide-react';
 import { Button, Card, Badge, Input, Textarea } from '@/components/ui';
@@ -31,14 +30,6 @@ const contactMethods = [
     action: 'Email Us',
   },
   {
-    icon: MessageCircle,
-    title: 'Live Chat',
-    description: 'Chat with our team online',
-    value: 'Available 8am-8pm',
-    href: '#chat',
-    action: 'Start Chat',
-  },
-  {
     icon: Calendar,
     title: 'Schedule',
     description: 'Book a consultation',
@@ -53,10 +44,8 @@ const officeInfo = {
   phone: '07544 152585',
   email: 'milton@revivalcare.co.uk',
   hours: [
-    { day: 'Monday - Friday', hours: '8:00 AM - 8:00 PM' },
-    { day: 'Saturday', hours: '9:00 AM - 5:00 PM' },
-    { day: 'Sunday', hours: '10:00 AM - 4:00 PM' },
-    { day: 'Emergency Line', hours: '24/7' },
+    { day: 'Monday - Friday', hours: '9:00 AM - 5:30 PM' },
+    { day: 'Saturday - Sunday', hours: 'Closed' },
   ],
 };
 

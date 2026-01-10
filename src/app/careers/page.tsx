@@ -1,4 +1,6 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
 import {
   Heart,
   DollarSign,
@@ -10,13 +12,11 @@ import {
   CheckCircle,
   MapPin,
   Briefcase,
+  Upload,
+  FileText,
 } from 'lucide-react';
-import { Button, Card, Badge } from '@/components/ui';
+import { Button, Card, Badge, Input, Textarea } from '@/components/ui';
 
-export const metadata: Metadata = {
-  title: 'Careers',
-  description: 'Join the Revival Care team. We\'re hiring compassionate caregivers who want to make a difference in the lives of seniors.',
-};
 
 const benefits = [
   {
@@ -53,63 +53,16 @@ const benefits = [
 
 const openPositions = [
   {
-    title: 'Caregiver / Home Health Aide',
+    title: 'Carer',
     type: 'Full-time / Part-time',
-    location: 'Multiple Locations',
-    description: 'Provide personal care, companionship, and assistance with daily activities for seniors in their homes.',
+    location: 'Falkirk & Surrounding Areas',
+    description: 'Provide personal care, companionship, and assistance with daily activities for elderly clients in their homes. Join our compassionate team making a real difference in people\'s lives.',
     requirements: [
-      'High school diploma or equivalent',
-      'Valid driver\'s license and reliable transportation',
-      'Ability to pass background check',
       'Compassionate and patient demeanor',
-    ],
-  },
-  {
-    title: 'Certified Nursing Assistant (CNA)',
-    type: 'Full-time / Part-time',
-    location: 'Multiple Locations',
-    description: 'Provide skilled personal care and support under the direction of our care management team.',
-    requirements: [
-      'Current CNA certification',
-      'Minimum 1 year experience preferred',
-      'Valid driver\'s license',
-      'Strong communication skills',
-    ],
-  },
-  {
-    title: 'Live-In Caregiver',
-    type: 'Full-time',
-    location: 'Various Client Homes',
-    description: 'Provide round-the-clock care and companionship for clients requiring 24-hour support.',
-    requirements: [
-      '2+ years caregiving experience',
-      'Ability to stay overnight at client homes',
-      'Experience with complex care needs',
-      'Flexibility and adaptability',
-    ],
-  },
-  {
-    title: 'Dementia Care Specialist',
-    type: 'Full-time / Part-time',
-    location: 'Multiple Locations',
-    description: 'Specialized care for clients with Alzheimer\'s disease and other forms of dementia.',
-    requirements: [
-      'Dementia care certification or training',
-      '2+ years relevant experience',
-      'Patience and specialized communication skills',
-      'Understanding of dementia progression',
-    ],
-  },
-  {
-    title: 'Care Coordinator',
-    type: 'Full-time',
-    location: 'Healthcare City Office',
-    description: 'Coordinate care services, manage caregiver schedules, and maintain client relationships.',
-    requirements: [
-      'Bachelor\'s degree in healthcare or related field',
-      '3+ years healthcare experience',
-      'Strong organizational skills',
-      'Excellent communication abilities',
+      'Valid driver\'s license and reliable transportation',
+      'Ability to pass PVG check',
+      'Good communication skills',
+      'Right to work in the UK',
     ],
   },
 ];
@@ -145,6 +98,41 @@ const process = [
 ];
 
 export default function CareersPage() {
+  const [showApplicationForm, setShowApplicationForm] = useState(false);
+  const [cvFile, setCvFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setCvFile(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      // Submit to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setShowApplicationForm(false);
+      }
+    } catch (error) {
+      console.error('Error submitting application:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -229,40 +217,197 @@ export default function CareersPage() {
             </p>
           </div>
 
-          <div className="space-y-6">
-            {openPositions.map((position) => (
-              <Card key={position.title} className="group">
-                <div className="flex flex-col lg:flex-row lg:items-center gap-6">
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <h3 className="text-xl font-semibold group-hover:text-primary-600 transition-colors">
-                        {position.title}
-                      </h3>
-                      <Badge variant="primary" size="sm">{position.type}</Badge>
-                    </div>
-                    <div className="flex items-center gap-2 text-neutral-600 mb-3">
-                      <MapPin className="w-4 h-4" />
-                      <span className="text-sm">{position.location}</span>
-                    </div>
-                    <p className="text-neutral-600 mb-4">{position.description}</p>
-                    <div className="flex flex-wrap gap-4">
-                      {position.requirements.slice(0, 3).map((req) => (
-                        <div key={req} className="flex items-center gap-2 text-sm text-neutral-500">
-                          <CheckCircle className="w-4 h-4 text-primary-500" />
-                          <span>{req}</span>
-                        </div>
-                      ))}
-                    </div>
+          {submitted ? (
+            <Card className="max-w-2xl mx-auto text-center py-12">
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Application Submitted!</h3>
+              <p className="text-neutral-600 mb-6">
+                Thank you for your interest in joining Revival Care. We&apos;ll review your application 
+                and get back to you within 5 working days.
+              </p>
+              <Button onClick={() => setSubmitted(false)}>
+                Submit Another Application
+              </Button>
+            </Card>
+          ) : showApplicationForm ? (
+            <Card className="max-w-2xl mx-auto">
+              <h3 className="text-2xl font-semibold mb-6">Apply for Carer Position</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="access_key" value="da9ddbe9-204a-4d74-8327-d53182cd71ec" />
+                <input type="hidden" name="subject" value="New Job Application - Carer Position" />
+                <input type="hidden" name="from_name" value="Revival Care Careers" />
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
+                      First Name *
+                    </label>
+                    <Input name="first_name" required placeholder="Your first name" />
                   </div>
-                  <div className="lg:flex-shrink-0">
-                    <Button rightIcon={<ArrowRight className="w-4 h-4" />}>
-                      Apply Now
-                    </Button>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
+                      Last Name *
+                    </label>
+                    <Input name="last_name" required placeholder="Your last name" />
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
+                      Email Address *
+                    </label>
+                    <Input type="email" name="email" required placeholder="your@email.com" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
+                      Phone Number *
+                    </label>
+                    <Input type="tel" name="phone" required placeholder="Your phone number" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                    Your Area / Town *
+                  </label>
+                  <Input name="area" required placeholder="e.g. Falkirk, Denny, Larbert" />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                    Do you have a valid UK driving licence? *
+                  </label>
+                  <select
+                    name="driving_licence"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+                  >
+                    <option value="">Please select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Learning">Currently learning</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                    Do you have previous care experience?
+                  </label>
+                  <select
+                    name="experience"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+                  >
+                    <option value="">Please select</option>
+                    <option value="No experience">No experience (training provided)</option>
+                    <option value="Less than 1 year">Less than 1 year</option>
+                    <option value="1-2 years">1-2 years</option>
+                    <option value="2-5 years">2-5 years</option>
+                    <option value="5+ years">5+ years</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                    Upload Your CV *
+                  </label>
+                  <div className="border-2 border-dashed border-neutral-300 rounded-xl p-6 text-center hover:border-primary-400 transition-colors">
+                    <input
+                      type="file"
+                      name="cv"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileChange}
+                      required
+                      className="hidden"
+                      id="cv-upload"
+                    />
+                    <label htmlFor="cv-upload" className="cursor-pointer">
+                      {cvFile ? (
+                        <div className="flex items-center justify-center gap-3">
+                          <FileText className="w-8 h-8 text-primary-600" />
+                          <span className="text-neutral-700 font-medium">{cvFile.name}</span>
+                        </div>
+                      ) : (
+                        <>
+                          <Upload className="w-10 h-10 text-neutral-400 mx-auto mb-3" />
+                          <p className="text-neutral-600 mb-1">Click to upload your CV</p>
+                          <p className="text-sm text-neutral-400">PDF, DOC or DOCX (max 5MB)</p>
+                        </>
+                      )}
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                    Why do you want to work as a Carer?
+                  </label>
+                  <Textarea
+                    name="motivation"
+                    rows={4}
+                    placeholder="Tell us about yourself and why you'd like to join our team..."
+                  />
+                </div>
+
+                <div className="flex gap-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setShowApplicationForm(false)}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    rightIcon={<ArrowRight className="w-4 h-4" />}
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                  </Button>
+                </div>
+              </form>
+            </Card>
+          ) : (
+            <div className="space-y-6">
+              {openPositions.map((position) => (
+                <Card key={position.title} className="group">
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <h3 className="text-xl font-semibold group-hover:text-primary-600 transition-colors">
+                          {position.title}
+                        </h3>
+                        <Badge variant="primary" size="sm">{position.type}</Badge>
+                      </div>
+                      <div className="flex items-center gap-2 text-neutral-600 mb-3">
+                        <MapPin className="w-4 h-4" />
+                        <span className="text-sm">{position.location}</span>
+                      </div>
+                      <p className="text-neutral-600 mb-4">{position.description}</p>
+                      <div className="flex flex-wrap gap-4">
+                        {position.requirements.map((req) => (
+                          <div key={req} className="flex items-center gap-2 text-sm text-neutral-500">
+                            <CheckCircle className="w-4 h-4 text-primary-500" />
+                            <span>{req}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="lg:flex-shrink-0">
+                      <Button 
+                        onClick={() => setShowApplicationForm(true)}
+                        rightIcon={<ArrowRight className="w-4 h-4" />}
+                      >
+                        Apply Now
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
