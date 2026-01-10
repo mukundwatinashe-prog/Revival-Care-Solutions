@@ -139,11 +139,12 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={clsx(
-                      'flex items-center gap-1.5 px-4 py-2 rounded-lg font-medium text-neutral-700',
-                      'hover:bg-primary-50 hover:text-primary-700 transition-colors'
+                      'flex items-center gap-1.5 px-4 py-2 rounded-lg font-medium',
+                      'hover:bg-primary-50 transition-colors'
                     )}
+                    style={{ color: '#1f7aa8' }}
                   >
-                    {item.label}
+                    <span style={{ color: '#1f7aa8' }}>{item.label}</span>
                     {item.children && (
                       <ChevronDown
                         className={clsx(
@@ -169,9 +170,10 @@ export function Header() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-4 py-3 text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                              className="block px-4 py-3 hover:bg-primary-50 transition-colors"
+                              style={{ color: '#1f7aa8' }}
                             >
-                              {child.label}
+                              <span style={{ color: '#1f7aa8' }}>{child.label}</span>
                             </Link>
                           ))}
                         </div>
@@ -259,10 +261,11 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => !item.children && setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-50 transition-colors"
+                        style={{ color: '#1f7aa8' }}
                       >
                         {item.icon}
-                        <span className="font-medium">{item.label}</span>
+                        <span className="font-medium" style={{ color: '#1f7aa8' }}>{item.label}</span>
                       </Link>
                       {item.children && (
                         <div className="ml-8 mt-1 space-y-1">
@@ -271,9 +274,10 @@ export function Header() {
                               key={child.href}
                               href={child.href}
                               onClick={() => setIsMobileMenuOpen(false)}
-                              className="block px-4 py-2 text-sm text-neutral-600 hover:text-primary-700 transition-colors"
+                              className="block px-4 py-2 text-sm hover:bg-primary-50 transition-colors"
+                              style={{ color: '#1f7aa8' }}
                             >
-                              {child.label}
+                              <span style={{ color: '#1f7aa8' }}>{child.label}</span>
                             </Link>
                           ))}
                         </div>
