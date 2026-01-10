@@ -80,7 +80,7 @@ export function Header() {
           <div className="flex items-center gap-6">
             <a 
               href="tel:+447544152585" 
-              className="flex items-center gap-2 hover:text-white/80 transition-colors"
+              className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">07544 152585</span>
@@ -94,7 +94,7 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Link 
               href="/careers" 
-              className="flex items-center gap-2 hover:text-white/80 transition-colors"
+              className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
             >
               <Briefcase className="w-4 h-4" />
               <span className="hidden sm:inline">Careers</span>
@@ -116,7 +116,7 @@ export function Header() {
           <nav className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-28 h-28 transition-transform group-hover:scale-105">
+              <div className="relative w-40 h-40 transition-transform group-hover:scale-105">
                 <Image
                   src="/logo.png"
                   alt="Revival Care Solutions"
