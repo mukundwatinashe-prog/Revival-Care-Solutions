@@ -201,8 +201,8 @@ export default function HomePage() {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/10 mb-4">
                   <stat.icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-white/80">{stat.label}</div>
+                <div className="text-4xl font-bold text-white mb-1" style={{ color: 'white' }}>{stat.value}</div>
+                <div className="text-white/80" style={{ color: 'rgba(255,255,255,0.8)' }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -355,10 +355,10 @@ export default function HomePage() {
             <Badge variant="secondary" size="lg" className="mb-6">
               Start Your Care Journey
             </Badge>
-            <h2 className="text-white mb-6">
+            <h2 className="!text-white mb-6" style={{ color: 'white' }}>
               Ready to Give Your Loved One the Care They Deserve?
             </h2>
-            <p className="text-xl text-white/90 mb-10">
+            <p className="text-xl !text-white/90 mb-10" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Schedule a free, no-obligation consultation with our care team. 
               We&apos;ll work together to create a personalized care plan that 
               meets your family&apos;s unique needs.
@@ -384,7 +384,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <p className="mt-8 text-white/80 text-sm">
+            <p className="mt-8 text-white/80 text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>
               Available 24/7 • Response within 1 hour • No commitment required
             </p>
           </div>

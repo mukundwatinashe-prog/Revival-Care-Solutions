@@ -65,8 +65,8 @@ export default function ServiceAreasPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-4xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-white/80">{stat.label}</div>
+                <div className="text-4xl font-bold text-white mb-1" style={{ color: 'white' }}>{stat.value}</div>
+                <div className="text-white/80" style={{ color: 'rgba(255,255,255,0.8)' }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -256,8 +256,8 @@ export default function ServiceAreasPage() {
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Ready to Get Started?</h2>
+            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Contact us today to confirm service availability in your area 
               and schedule a free consultation.
             </p>

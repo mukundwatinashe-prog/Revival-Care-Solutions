@@ -449,8 +449,8 @@ export default async function ServicePage({ params }: PageProps) {
       <section className="py-16 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="!text-white mb-4" style={{ color: 'white' }}>Ready to Get Started?</h2>
+            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Contact us today to schedule a free, no-obligation consultation 
               and learn how we can help your family.
             </p>

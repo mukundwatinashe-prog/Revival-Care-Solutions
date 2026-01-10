@@ -389,8 +389,8 @@ export default function ContactPage() {
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Prefer to Talk Now?</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Prefer to Talk Now?</h2>
+            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Our care coordinators are standing by to answer your questions 
               and help you get started with a free consultation.
             </p>

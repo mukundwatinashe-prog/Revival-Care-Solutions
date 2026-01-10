@@ -281,8 +281,8 @@ export default function ResourcesPage() {
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Stay Informed</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Stay Informed</h2>
+            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Subscribe to our newsletter for the latest caregiving tips, resources, 
               and updates delivered to your inbox.
             </p>

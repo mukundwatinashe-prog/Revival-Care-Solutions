@@ -236,8 +236,8 @@ export default function ServicesPage() {
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Not Sure Which Services You Need?</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Not Sure Which Services You Need?</h2>
+            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Our care coordinators will work with you to assess your loved one&apos;s needs 
               and create a personalized care plan. Schedule a free, no-obligation consultation today.
             </p>

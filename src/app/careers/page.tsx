@@ -333,8 +333,8 @@ export default function CareersPage() {
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Ready to Start Your Caregiving Career?</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Ready to Start Your Caregiving Career?</h2>
+            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Join a team that values your work and supports your growth. 
               Apply today and start making a difference.
             </p>

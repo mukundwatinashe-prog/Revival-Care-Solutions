@@ -187,8 +187,8 @@ export default function CareGuidesPage() {
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Need Personalised Guidance?</h2>
-            <p className="text-xl text-white/90 mb-8">
+            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Need Personalised Guidance?</h2>
+            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Our care team is here to help you understand your options and create 
               a care plan tailored to your family&apos;s unique needs.
             </p>
