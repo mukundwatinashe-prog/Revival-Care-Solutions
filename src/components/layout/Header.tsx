@@ -80,11 +80,11 @@ export function Header() {
           <div className="flex items-center gap-6">
             <a 
               href="tel:+447544152585" 
-              className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+              className="flex items-center gap-2 !text-white hover:!text-white/80 transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">07544 152585</span>
-              <span className="sm:hidden">Call Us</span>
+              <Phone className="w-4 h-4 text-white" />
+              <span className="hidden sm:inline text-white">07544 152585</span>
+              <span className="sm:hidden text-white">Call Us</span>
             </a>
             <div className="hidden md:flex items-center gap-2">
               <Clock className="w-4 h-4" />
@@ -94,10 +94,10 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Link 
               href="/careers" 
-              className="flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+              className="flex items-center gap-2 !text-white hover:!text-white/80 transition-colors"
             >
-              <Briefcase className="w-4 h-4" />
-              <span className="hidden sm:inline">Careers</span>
+              <Briefcase className="w-4 h-4 text-white" />
+              <span className="hidden sm:inline text-white">Careers</span>
             </Link>
           </div>
         </div>

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 const currentAreas = [
   'Falkirk',
+  'Camelon',
   'Denny',
   'Larbert',
   'Grangemouth',
@@ -25,7 +26,7 @@ const currentAreas = [
 ];
 
 const stats = [
-  { value: '5', label: 'Areas Served' },
+  { value: '6', label: 'Areas Served' },
   { value: '24/7', label: 'Service Availability' },
   { value: 'Local', label: 'Family-Owned' },
   { value: 'Care', label: 'Inspectorate Registered' },
@@ -116,21 +117,38 @@ export default function ServiceAreasPage() {
       {/* Map Section */}
       <section className="py-16">
         <div className="container-custom">
+          <div className="text-center mb-8">
+            <h2 className="mb-4">Our Service Coverage</h2>
+            <p className="text-neutral-600">View our service areas across Central Scotland</p>
+          </div>
+          
+          {/* OpenStreetMap Embed */}
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d142073.95385252043!2d-3.8732!3d55.9833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887d0f1d1f1c4f1%3A0x5f0c1f1f1f1f1f1f!2sFalkirk%2C%20UK!5e0!3m2!1sen!2suk!4v1704672000000!5m2!1sen!2suk"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-4.0%2C55.85%2C-3.5%2C56.1&layer=mapnik&marker=56.0019%2C-3.7839"
               width="100%"
-              height="400"
+              height="450"
               style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Revival Care Solutions Service Area - Central Scotland"
+              title="Revival Care Solutions Service Areas - Central Scotland"
               className="w-full"
             />
           </div>
-          <p className="text-center text-neutral-600 mt-4">
-            Serving Falkirk, Denny, Larbert, Grangemouth, Linlithgow and surrounding areas
+          
+          {/* Service Area Cards */}
+          <div className="mt-8 bg-white rounded-xl shadow-md p-6">
+            <h3 className="text-center font-semibold text-lg mb-6">Our Service Locations</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {currentAreas.map((area) => (
+                <div key={area} className="flex items-center gap-2 justify-center p-4 bg-primary-50 rounded-xl border-2 border-primary-200 hover:border-primary-400 transition-colors">
+                  <MapPin className="w-5 h-5 text-primary-600" />
+                  <span className="font-semibold text-neutral-800">{area}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <p className="text-center text-neutral-600 mt-6">
+            Serving Falkirk, Camelon, Denny, Larbert, Grangemouth, Linlithgow and surrounding areas
           </p>
         </div>
       </section>
