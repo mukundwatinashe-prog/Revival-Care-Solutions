@@ -211,6 +211,78 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--neutral-950);
 }
 
+/* ============================================
+   FORCE WHITE TEXT ON BLUE BACKGROUNDS
+   ============================================ */
+
+/* Force white text for all elements inside blue background sections */
+.bg-primary-500 h1,
+.bg-primary-500 h2,
+.bg-primary-500 h3,
+.bg-primary-500 h4,
+.bg-primary-500 h5,
+.bg-primary-500 h6,
+.bg-primary-500 p,
+.bg-primary-500 span,
+.bg-primary-500 a,
+.bg-primary-500 div,
+.bg-primary-600 h1,
+.bg-primary-600 h2,
+.bg-primary-600 h3,
+.bg-primary-600 h4,
+.bg-primary-600 h5,
+.bg-primary-600 h6,
+.bg-primary-600 p,
+.bg-primary-600 span,
+.bg-primary-600 a,
+.bg-primary-600 div,
+.bg-primary-700 h1,
+.bg-primary-700 h2,
+.bg-primary-700 h3,
+.bg-primary-700 h4,
+.bg-primary-700 h5,
+.bg-primary-700 h6,
+.bg-primary-700 p,
+.bg-primary-700 span,
+.bg-primary-700 a,
+.bg-primary-700 div,
+.bg-primary-800 h1,
+.bg-primary-800 h2,
+.bg-primary-800 h3,
+.bg-primary-800 h4,
+.bg-primary-800 h5,
+.bg-primary-800 h6,
+.bg-primary-800 p,
+.bg-primary-800 span,
+.bg-primary-800 a,
+.bg-primary-800 div,
+.bg-primary-900 h1,
+.bg-primary-900 h2,
+.bg-primary-900 h3,
+.bg-primary-900 h4,
+.bg-primary-900 h5,
+.bg-primary-900 h6,
+.bg-primary-900 p,
+.bg-primary-900 span,
+.bg-primary-900 a,
+.bg-primary-900 div {
+  color: white !important;
+}
+
+/* Slightly transparent white for secondary text */
+.bg-primary-500 .text-white\/90,
+.bg-primary-500 .text-white\/80,
+.bg-primary-600 .text-white\/90,
+.bg-primary-600 .text-white\/80,
+.bg-primary-700 .text-white\/90,
+.bg-primary-700 .text-white\/80,
+.bg-primary-800 .text-white\/90,
+.bg-primary-800 .text-white\/80,
+.bg-primary-900 .text-white\/90,
+.bg-primary-900 .text-white\/80 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
 h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: -0.02em;
