@@ -26,7 +26,6 @@ const services = [
 
 const company = [
   { label: 'About Us', href: '/about' },
-  { label: 'Our Caregivers', href: '/caregivers' },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Careers', href: '/careers' },

@@ -44,7 +44,6 @@ const navigation: NavItem[] = [
     ],
   },
   { label: 'About Us', href: '/about', icon: <Users className="w-4 h-4" /> },
-  { label: 'Caregivers', href: '/caregivers', icon: <Shield className="w-4 h-4" /> },
   { label: 'Resources', href: '/resources', icon: <BookOpen className="w-4 h-4" /> },
   { label: 'Contact', href: '/contact', icon: <Mail className="w-4 h-4" /> },
 ];
