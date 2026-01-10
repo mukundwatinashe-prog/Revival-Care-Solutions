@@ -361,16 +361,25 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section (Placeholder) */}
+      {/* Map Section */}
       <section className="py-16 bg-neutral-100">
         <div className="container-custom">
-          <div className="rounded-2xl overflow-hidden shadow-lg bg-neutral-200 h-96 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-12 h-12 text-neutral-400 mx-auto mb-4" />
-              <p className="text-neutral-600 font-medium">Interactive Map</p>
-              <p className="text-neutral-500 text-sm">Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</p>
-            </div>
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps?q=Marchmont+Avenue,+Polmont,+Falkirk+FK2+0NZ,+UK&output=embed"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Revival Care Solutions Office Location - Polmont, Falkirk"
+              className="w-full"
+            />
           </div>
+          <p className="text-center text-neutral-600 mt-4">
+            Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ
+          </p>
         </div>
       </section>
 

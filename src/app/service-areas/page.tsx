@@ -122,13 +122,16 @@ export default function ServiceAreasPage() {
             <p className="text-neutral-600">View our service areas across Central Scotland</p>
           </div>
           
-          {/* OpenStreetMap Embed */}
+          {/* Google Maps Embed */}
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-4.0%2C55.85%2C-3.5%2C56.1&layer=mapnik&marker=56.0019%2C-3.7839"
+              src="https://www.google.com/maps?q=Falkirk,+Scotland,+UK&z=11&output=embed"
               width="100%"
               height="450"
               style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
               title="Revival Care Solutions Service Areas - Central Scotland"
               className="w-full"
             />
