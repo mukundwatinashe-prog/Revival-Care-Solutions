@@ -79,6 +79,7 @@ export default function ContactPage() {
     lastName: '',
     email: '',
     phone: '',
+    area: '',
     careType: '',
     relationship: '',
     message: '',
@@ -205,9 +206,18 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        placeholder="(555) 123-4567"
+                        placeholder="07XXX XXXXXX"
                       />
                     </div>
+
+                    <Input
+                      label="Your Area / Town"
+                      name="area"
+                      value={formData.area}
+                      onChange={handleChange}
+                      required
+                      placeholder="e.g. Falkirk, Denny, Larbert, Grangemouth, Linlithgow"
+                    />
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
