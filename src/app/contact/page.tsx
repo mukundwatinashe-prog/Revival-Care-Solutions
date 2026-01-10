@@ -380,7 +380,7 @@ export default function ContactPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-6">Prefer to Talk Now?</h2>
-            <p className="text-xl text-primary-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Our care coordinators are standing by to answer your questions 
               and help you get started with a free consultation.
             </p>

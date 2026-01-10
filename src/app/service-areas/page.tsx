@@ -65,7 +65,7 @@ export default function ServiceAreasPage() {
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-4xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-primary-200">{stat.label}</div>
+                <div className="text-white/80">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -239,7 +239,7 @@ export default function ServiceAreasPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-primary-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Contact us today to confirm service availability in your area 
               and schedule a free consultation.
             </p>

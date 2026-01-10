@@ -129,7 +129,7 @@ export default function AboutPage() {
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-4xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-primary-200">{stat.label}</div>
+                <div className="text-white/80">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -291,7 +291,7 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-6">Join the Revival Care Family</h2>
-            <p className="text-xl text-primary-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Whether you&apos;re seeking care for a loved one or looking to join our 
               team of compassionate caregivers, we&apos;d love to hear from you.
             </p>

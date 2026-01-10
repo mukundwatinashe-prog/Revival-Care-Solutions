@@ -450,7 +450,7 @@ export default async function ServicePage({ params }: PageProps) {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-primary-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Contact us today to schedule a free, no-obligation consultation 
               and learn how we can help your family.
             </p>

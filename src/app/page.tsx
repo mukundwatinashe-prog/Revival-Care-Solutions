@@ -202,7 +202,7 @@ export default function HomePage() {
                   <stat.icon className="w-7 h-7 text-white" />
                 </div>
                 <div className="text-4xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-primary-200">{stat.label}</div>
+                <div className="text-white/80">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -358,7 +358,7 @@ export default function HomePage() {
             <h2 className="text-white mb-6">
               Ready to Give Your Loved One the Care They Deserve?
             </h2>
-            <p className="text-xl text-primary-100 mb-10">
+            <p className="text-xl text-white/90 mb-10">
               Schedule a free, no-obligation consultation with our care team. 
               We&apos;ll work together to create a personalized care plan that 
               meets your family&apos;s unique needs.
@@ -384,7 +384,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <p className="mt-8 text-primary-200 text-sm">
+            <p className="mt-8 text-white/80 text-sm">
               Available 24/7 • Response within 1 hour • No commitment required
             </p>
           </div>

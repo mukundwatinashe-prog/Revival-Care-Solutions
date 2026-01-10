@@ -334,7 +334,7 @@ export default function CareersPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-6">Ready to Start Your Caregiving Career?</h2>
-            <p className="text-xl text-primary-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Join a team that values your work and supports your growth. 
               Apply today and start making a difference.
             </p>

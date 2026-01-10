@@ -279,7 +279,7 @@ export default function ResourcesPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-6">Stay Informed</h2>
-            <p className="text-xl text-primary-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Subscribe to our newsletter for the latest caregiving tips, resources, 
               and updates delivered to your inbox.
             </p>
