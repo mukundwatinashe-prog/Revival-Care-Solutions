@@ -234,13 +234,14 @@ p {
   max-width: 65ch;
 }
 
-a {
+/* Only apply default link color to links without explicit color classes */
+a:not([class*="text-"]) {
   color: var(--primary-600);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
-a:hover {
+a:not([class*="text-"]):hover {
   color: var(--primary-700);
 }
 
