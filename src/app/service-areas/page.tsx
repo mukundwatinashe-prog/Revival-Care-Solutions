@@ -7,82 +7,28 @@ import {
   CheckCircle,
   Clock,
   Users,
+  Sparkles,
 } from 'lucide-react';
 import { Button, Card, Badge } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Service Areas',
-  description: 'View the communities we serve. Revival Care Solutions provides home care services throughout the metropolitan area and surrounding counties.',
+  description: 'Revival Care Solutions provides home care services in Falkirk, Denny, Larbert, Grangemouth, Linlithgow and surrounding areas in Central Scotland.',
 };
 
-const serviceAreas = [
-  {
-    region: 'Healthcare City Metro',
-    description: 'Our main service area covering the entire metropolitan region.',
-    cities: [
-      'Downtown Healthcare City',
-      'Northgate',
-      'Southside',
-      'Eastview',
-      'Westlake',
-      'Central District',
-      'University Area',
-      'Medical District',
-    ],
-  },
-  {
-    region: 'Northern County',
-    description: 'Serving communities throughout Northern County.',
-    cities: [
-      'Northbrook',
-      'Highland Park',
-      'Lake Forest',
-      'Riverdale',
-      'Summit Grove',
-      'Oak Hills',
-    ],
-  },
-  {
-    region: 'Southern County',
-    description: 'Comprehensive coverage across Southern County.',
-    cities: [
-      'Southfield',
-      'Greenview',
-      'Parkside',
-      'Meadowbrook',
-      'Fairview Heights',
-      'Sunset Valley',
-    ],
-  },
-  {
-    region: 'Eastern Region',
-    description: 'Extending our care to Eastern communities.',
-    cities: [
-      'East Harbor',
-      'Seaside',
-      'Bay View',
-      'Coastal Heights',
-      'Marina District',
-    ],
-  },
-  {
-    region: 'Western Region',
-    description: 'Serving families in the Western corridor.',
-    cities: [
-      'Westwood',
-      'Mountain View',
-      'Valley Center',
-      'Hillcrest',
-      'Desert Springs',
-    ],
-  },
+const currentAreas = [
+  'Falkirk',
+  'Denny',
+  'Larbert',
+  'Grangemouth',
+  'Linlithgow',
 ];
 
 const stats = [
-  { value: '5', label: 'Counties Served' },
-  { value: '50+', label: 'Communities' },
-  { value: '200+', label: 'Active Caregivers' },
+  { value: '5', label: 'Areas Served' },
   { value: '24/7', label: 'Service Availability' },
+  { value: 'Local', label: 'Family-Owned' },
+  { value: 'Care', label: 'Inspectorate Registered' },
 ];
 
 export default function ServiceAreasPage() {
@@ -93,15 +39,17 @@ export default function ServiceAreasPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <Badge variant="primary" className="mb-4">Service Areas</Badge>
-            <h1 className="mb-6">Serving Communities Across the Region</h1>
+            <h1 className="mb-6">Serving Central Scotland</h1>
             <p className="text-xl text-neutral-600 mb-8">
               Revival Care Solutions proudly provides compassionate home care services 
-              throughout the greater metropolitan area and surrounding counties.
+              across Falkirk and the surrounding areas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Check Your Area
-              </Button>
+              <Link href="/consultation">
+                <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Schedule Free Consultation
+                </Button>
+              </Link>
               <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
                 07544 152585
               </Button>
@@ -124,53 +72,66 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="py-16">
-        <div className="container-custom">
-          <div className="rounded-2xl overflow-hidden shadow-lg bg-neutral-100 h-96 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-primary-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Interactive Service Area Map</h3>
-              <p className="text-neutral-600 max-w-md">
-                Our service area covers the entire metropolitan region. 
-                Enter your zip code above to confirm service availability.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Areas Grid */}
+      {/* Current Service Areas */}
       <section className="py-24 bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="mb-4">Areas We Serve</h2>
+            <h2 className="mb-4">Areas We Currently Serve</h2>
             <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              Find your community below. Don&apos;t see your area listed? 
-              Contact us – we may still be able to help.
+              We provide quality home care services in the following areas. 
+              Contact us to check availability for your specific location.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {serviceAreas.map((area) => (
-              <Card key={area.region} hover>
-                <div className="flex items-center gap-3 mb-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {currentAreas.map((area) => (
+              <Card key={area} hover className="text-center">
+                <div className="flex items-center justify-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-primary-600" />
                   </div>
-                  <h3 className="font-semibold text-lg">{area.region}</h3>
-                </div>
-                <p className="text-neutral-600 text-sm mb-4">{area.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {area.cities.map((city) => (
-                    <Badge key={city} variant="neutral" size="sm">
-                      {city}
-                    </Badge>
-                  ))}
+                  <h3 className="font-semibold text-xl">{area}</h3>
                 </div>
               </Card>
             ))}
           </div>
+
+          {/* Coming Soon Banner */}
+          <div className="mt-12 max-w-2xl mx-auto">
+            <Card className="bg-gradient-to-r from-secondary-50 to-accent-50 border-secondary-200 text-center">
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <Sparkles className="w-6 h-6 text-secondary-600" />
+                <h3 className="font-semibold text-lg text-neutral-900">More Areas Coming Soon!</h3>
+              </div>
+              <p className="text-neutral-600">
+                We&apos;re expanding our service coverage across Central Scotland. 
+                If you&apos;re in a nearby area not listed above, please get in touch – 
+                we may still be able to help or add your area to our expansion plans.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-16">
+        <div className="container-custom">
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d142073.95385252043!2d-3.8732!3d55.9833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887d0f1d1f1c4f1%3A0x5f0c1f1f1f1f1f1f!2sFalkirk%2C%20UK!5e0!3m2!1sen!2suk!4v1704672000000!5m2!1sen!2suk"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Revival Care Solutions Service Area - Central Scotland"
+              className="w-full"
+            />
+          </div>
+          <p className="text-center text-neutral-600 mt-4">
+            Serving Falkirk, Denny, Larbert, Grangemouth, Linlithgow and surrounding areas
+          </p>
         </div>
       </section>
 
@@ -182,9 +143,9 @@ export default function ServiceAreasPage() {
               <Badge variant="secondary" className="mb-4">Expanding Coverage</Badge>
               <h2 className="mb-6">Don&apos;t See Your Area?</h2>
               <p className="text-lg text-neutral-600 mb-6">
-                We&apos;re constantly expanding our service area to help more families. 
-                Even if your community isn&apos;t listed, we may still be able to 
-                provide care services.
+                We&apos;re actively expanding our service area to help more families across 
+                Central Scotland. Even if your community isn&apos;t listed, we may still be 
+                able to provide care services.
               </p>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3">
@@ -197,7 +158,7 @@ export default function ServiceAreasPage() {
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary-500" />
-                  <span className="text-neutral-700">Referrals to trusted partner agencies</span>
+                  <span className="text-neutral-700">Register interest to help us plan expansion</span>
                 </li>
               </ul>
               <Button size="lg" leftIcon={<Phone className="w-5 h-5" />}>
@@ -206,24 +167,20 @@ export default function ServiceAreasPage() {
             </div>
             <div className="relative">
               <Card className="bg-primary-50 border-primary-100">
-                <h3 className="font-semibold text-xl mb-6">Quick Area Check</h3>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">
-                      Enter Your Zip Code
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="12345"
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                    />
-                  </div>
-                  <Button fullWidth rightIcon={<ArrowRight className="w-4 h-4" />}>
-                    Check Availability
-                  </Button>
-                </form>
+                <h3 className="font-semibold text-xl mb-6">Quick Enquiry</h3>
+                <p className="text-neutral-600 mb-6">
+                  Want to know if we can provide care in your area? Get in touch and 
+                  we&apos;ll let you know right away.
+                </p>
+                <div className="space-y-4">
+                  <Link href="/consultation">
+                    <Button fullWidth rightIcon={<ArrowRight className="w-4 h-4" />}>
+                      Request Consultation
+                    </Button>
+                  </Link>
+                </div>
                 <p className="text-sm text-neutral-600 mt-4 text-center">
-                  Or call <a href="tel:07544 152585" className="text-primary-600 font-medium">07544 152585</a>
+                  Or call <a href="tel:+447544152585" className="text-primary-600 font-medium">07544 152585</a>
                 </p>
               </Card>
             </div>
@@ -238,7 +195,7 @@ export default function ServiceAreasPage() {
             <Badge variant="accent" className="mb-4">Local Care</Badge>
             <h2 className="mb-4">Benefits of Local Home Care</h2>
             <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              Our local presence means better care for your loved ones.
+              Our local presence in Falkirk means better care for your loved ones.
             </p>
           </div>
 
@@ -287,9 +244,11 @@ export default function ServiceAreasPage() {
               and schedule a free consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Schedule Consultation
-              </Button>
+              <Link href="/consultation">
+                <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Schedule Consultation
+                </Button>
+              </Link>
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -305,4 +264,3 @@ export default function ServiceAreasPage() {
     </div>
   );
 }
-

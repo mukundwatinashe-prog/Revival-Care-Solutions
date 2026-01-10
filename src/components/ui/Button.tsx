@@ -1,19 +1,20 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import { clsx } from 'clsx';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent';
 type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 
-interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size'> {
+interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size' | 'children'> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   isLoading?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   fullWidth?: boolean;
+  children?: ReactNode;
 }
 
 const variants: Record<ButtonVariant, string> = {

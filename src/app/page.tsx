@@ -8,8 +8,6 @@ import {
   CheckCircle,
   ArrowRight,
   Phone,
-  Star,
-  Quote,
   Pill,
   Footprints,
   UtensilsCrossed,
@@ -67,36 +65,12 @@ const services = [
 
 // Trust stats
 const stats = [
-  { value: '15+', label: 'Years of Experience', icon: Clock },
-  { value: '2,500+', label: 'Families Served', icon: Users },
-  { value: '98%', label: 'Client Satisfaction', icon: Star },
-  { value: '24/7', label: 'Care Available', icon: Shield },
+  { value: '24/7', label: 'Care Available', icon: Clock },
+  { value: '100%', label: 'Dedication', icon: Heart },
+  { value: 'Care', label: 'Inspectorate Registered', icon: Award },
+  { value: 'Local', label: 'Family-Owned', icon: Users },
 ];
 
-// Testimonials
-const testimonials = [
-  {
-    quote: "Revival Care has been a blessing for our family. The caregivers are not just professional, they genuinely care about my mother's wellbeing. She looks forward to their visits every day.",
-    author: "Maria Rodriguez",
-    role: "Daughter of Client",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=faces",
-    rating: 5,
-  },
-  {
-    quote: "After my father's stroke, we were overwhelmed. Revival Care stepped in with compassion and expertise. Their team helped him regain independence while giving us peace of mind.",
-    author: "James Chen",
-    role: "Son of Client",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces",
-    rating: 5,
-  },
-  {
-    quote: "The quality of care my husband receives is exceptional. The caregivers are trained, punctual, and treat him with such dignity. I can't recommend Revival Care enough.",
-    author: "Dorothy Williams",
-    role: "Wife of Client",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces",
-    rating: 5,
-  },
-];
 
 // Values
 const values = [
@@ -123,7 +97,7 @@ export default function HomePage() {
             {/* Left Content */}
             <div className="animate-fade-in">
               <Badge variant="primary" size="lg" className="mb-6">
-                Trusted Home Care Since 2010
+                Compassionate Home Care Services
               </Badge>
               
               <h1 className="text-balance mb-6">
@@ -138,12 +112,14 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Button 
-                  size="xl" 
-                  rightIcon={<ArrowRight className="w-5 h-5" />}
-                >
-                  Schedule Free Consultation
-                </Button>
+                <Link href="/consultation">
+                  <Button 
+                    size="xl" 
+                    rightIcon={<ArrowRight className="w-5 h-5" />}
+                  >
+                    Schedule Free Consultation
+                  </Button>
+                </Link>
                 <Button 
                   variant="outline" 
                   size="xl"
@@ -157,7 +133,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-6">
                 <div className="flex items-center gap-2 text-neutral-600">
                   <CheckCircle className="w-5 h-5 text-primary-600" />
-                  <span>Licensed & Insured</span>
+                  <span>Care Inspectorate Registered</span>
                 </div>
                 <div className="flex items-center gap-2 text-neutral-600">
                   <CheckCircle className="w-5 h-5 text-primary-600" />
@@ -177,7 +153,7 @@ export default function HomePage() {
                 <div className="absolute top-0 right-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl">
                   <img
                     src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&h=600&fit=crop"
-                    alt="Caregiver helping elderly woman with a warm smile"
+                    alt="Caregiver in blue scrubs helping elderly woman at home"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -186,7 +162,7 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                   <img
                     src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=400&h=400&fit=crop"
-                    alt="African American caregiver supporting senior client"
+                    alt="Home caregiver providing companionship to senior"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -197,19 +173,18 @@ export default function HomePage() {
                     <Heart className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <div className="font-bold text-neutral-900">2,500+</div>
-                    <div className="text-sm text-neutral-500">Families Served</div>
+                    <div className="font-bold text-neutral-900">24/7</div>
+                    <div className="text-sm text-neutral-500">Care Available</div>
                   </div>
                 </div>
 
-                {/* Rating badge */}
+                {/* Trust badge */}
                 <div className="absolute bottom-20 right-0 bg-white rounded-2xl shadow-xl p-4">
-                  <div className="flex items-center gap-1 mb-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-accent-400 text-accent-400" />
-                    ))}
+                  <div className="flex items-center gap-2 mb-1">
+                    <Shield className="w-5 h-5 text-primary-600" />
+                    <span className="font-semibold text-neutral-900">Fully Licensed</span>
                   </div>
-                  <div className="text-sm text-neutral-600">4.9/5 from 500+ reviews</div>
+                  <div className="text-sm text-neutral-600">Professional & Insured</div>
                 </div>
               </div>
             </div>
@@ -292,15 +267,15 @@ export default function HomePage() {
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop"
-                      alt="Asian caregiver with elderly patient"
+                      src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=400&h=500&fit=crop"
+                      alt="Caregiver in teal uniform assisting elderly patient at home"
                       className="w-full h-60 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=400&h=300&fit=crop"
-                      alt="Diverse care team meeting"
+                      src="https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?w=400&h=300&fit=crop"
+                      alt="Happy elderly woman smiling at home"
                       className="w-full h-40 object-cover"
                     />
                   </div>
@@ -308,25 +283,25 @@ export default function HomePage() {
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=300&fit=crop"
-                      alt="Healthcare professional smiling"
+                      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop"
+                      alt="Nurse in blue scrubs with elderly patient"
                       className="w-full h-40 object-cover"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=500&fit=crop"
-                      alt="Caregiver assisting with mobility"
+                      src="https://images.unsplash.com/photo-1542884748-2b87b36c6b90?w=400&h=500&fit=crop"
+                      alt="Senior enjoying time with caregiver at home"
                       className="w-full h-60 object-cover"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Experience badge */}
+              {/* Trust badge */}
               <div className="absolute -bottom-6 -right-6 bg-secondary-500 text-white rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-xl">
-                <span className="text-3xl font-bold">15+</span>
-                <span className="text-sm">Years</span>
+                <Shield className="w-8 h-8 mb-1" />
+                <span className="text-sm">Regulated</span>
               </div>
             </div>
 
@@ -335,9 +310,9 @@ export default function HomePage() {
               <Badge variant="secondary" className="mb-4">About Us</Badge>
               <h2 className="mb-6">Dedicated to Dignified Care</h2>
               <p className="text-lg text-neutral-600 mb-6">
-                Since 2010, Revival Care Solutions has been committed to providing 
-                exceptional home care services that enable seniors to age gracefully 
-                in the comfort of their own homes.
+                Revival Care Solutions is committed to providing exceptional home care 
+                services that enable seniors to age gracefully in the comfort of their 
+                own homes.
               </p>
               <p className="text-neutral-600 mb-8">
                 Our diverse team of compassionate caregivers represents the communities 
@@ -367,55 +342,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-24 bg-gradient-to-b from-primary-50 to-white">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <Badge variant="accent" className="mb-4">Testimonials</Badge>
-            <h2 className="mb-4">What Families Say About Us</h2>
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              Don&apos;t just take our word for it. Here&apos;s what the families 
-              we serve have to say about our care.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.author} variant="elevated" className="h-full relative">
-                <Quote className="absolute top-6 right-6 w-10 h-10 text-primary-100" />
-                
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent-400 text-accent-400" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-neutral-700 mb-6 relative z-10">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-                
-                <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="font-semibold text-neutral-900">{testimonial.author}</div>
-                    <div className="text-sm text-neutral-500">{testimonial.role}</div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-              Read More Reviews
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
@@ -439,13 +365,15 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="secondary" 
-                size="xl"
-                rightIcon={<ArrowRight className="w-5 h-5" />}
-              >
-                Schedule Free Consultation
-              </Button>
+              <Link href="/consultation">
+                <Button 
+                  variant="secondary" 
+                  size="xl"
+                  rightIcon={<ArrowRight className="w-5 h-5" />}
+                >
+                  Schedule Free Consultation
+                </Button>
+              </Link>
               <Button 
                 variant="outline" 
                 size="xl"
@@ -509,21 +437,43 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Care Inspectorate Registration */}
+      <section className="py-12 bg-primary-50 border-y border-primary-100">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
+            <div className="w-20 h-20 rounded-2xl bg-white shadow-lg flex items-center justify-center border border-primary-200">
+              <Award className="w-10 h-10 text-primary-600" />
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-1">
+                Registered with the Care Inspectorate
+              </h3>
+              <p className="text-neutral-600 max-w-xl">
+                Revival Care Solutions is proudly registered with the Care Inspectorate, 
+                ensuring we meet Scotland&apos;s national care standards for quality and safety.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Areas Preview */}
       <section className="py-16 bg-neutral-100">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div>
               <h3 className="text-2xl font-serif font-semibold mb-2">
-                Serving Communities Across the Region
+                Serving Falkirk & Surrounding Areas
               </h3>
               <p className="text-neutral-600">
-                We proudly provide care services throughout the greater metropolitan area and surrounding counties.
+                We proudly provide care services in Falkirk, Denny, Larbert, Grangemouth, Linlithgow and more areas coming soon.
               </p>
             </div>
-            <Button variant="outline" rightIcon={<ArrowRight className="w-4 h-4" />}>
-              View Service Areas
-            </Button>
+            <Link href="/service-areas">
+              <Button variant="outline" rightIcon={<ArrowRight className="w-4 h-4" />}>
+                View Service Areas
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -18,16 +18,14 @@ import { Button, Card, Badge } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about Revival Care Solutions - our mission, values, and commitment to providing compassionate home care services for seniors since 2010.',
+  description: 'Learn about Revival Care Solutions - our mission, values, and commitment to providing compassionate home care services for seniors since 2023.',
 };
 
 const timeline = [
-  { year: '2010', title: 'Founded', description: 'Revival Care Solutions was founded with a mission to provide dignified, compassionate home care.' },
-  { year: '2013', title: 'Community Growth', description: 'Expanded services to cover the entire metropolitan area, serving 500+ families.' },
-  { year: '2016', title: 'Training Excellence', description: 'Launched our proprietary caregiver training program, setting new industry standards.' },
-  { year: '2019', title: 'Regional Recognition', description: 'Named "Best Home Care Provider" by Regional Healthcare Excellence Awards.' },
-  { year: '2022', title: '2000+ Families', description: 'Reached the milestone of serving over 2,000 families in our community.' },
-  { year: '2024', title: 'Expanding Care', description: 'Introduced specialized dementia care and expanded to neighboring counties.' },
+  { year: '2023', title: 'Founded', description: 'Revival Care Solutions was founded with a mission to provide dignified, compassionate home care in Central Scotland.' },
+  { year: '2024', title: 'Care Inspectorate Registered', description: 'Achieved full registration with the Care Inspectorate, meeting Scotland\'s national care standards.' },
+  { year: '2024', title: 'Growing Team', description: 'Building our team of dedicated, compassionate caregivers to serve the Falkirk area.' },
+  { year: '2025', title: 'Expanding Coverage', description: 'Extending our service areas across Central Scotland to help more families.' },
 ];
 
 const values = [
@@ -63,47 +61,21 @@ const values = [
   },
 ];
 
-const leadership = [
-  {
-    name: 'Milton Mukundwa',
-    title: 'Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=faces',
-    bio: 'With over 20 years in healthcare, Milton founded Revival Care Solutions after personally experiencing the challenges of finding quality care for his grandmother.',
-  },
-  {
-    name: 'Dr. Sarah Chen',
-    title: 'Chief Medical Advisor',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=faces',
-    bio: 'Board-certified geriatrician who ensures our care protocols meet the highest medical standards and best practices.',
-  },
-  {
-    name: 'Marcus Williams',
-    title: 'Director of Operations',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces',
-    bio: 'Former hospital administrator bringing 15 years of healthcare operations experience to ensure seamless service delivery.',
-  },
-  {
-    name: 'Elena Rodriguez',
-    title: 'Director of Caregiver Services',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=faces',
-    bio: 'Registered nurse and certified caregiver trainer who oversees recruitment, training, and caregiver support programs.',
-  },
-];
 
 const certifications = [
-  'State Licensed Home Care Agency',
-  'Medicare Certified',
-  'Better Business Bureau A+ Rating',
-  'National Home Care Association Member',
-  'Joint Commission Accredited',
-  'Dementia Care Certified',
+  'Care Inspectorate Registered',
+  'Fully Insured',
+  'PVG Checked Caregivers',
+  'Professional Training Standards',
+  'Local Family-Owned Business',
+  'Compassionate Care Commitment',
 ];
 
 const stats = [
-  { value: '15+', label: 'Years of Service' },
-  { value: '2,500+', label: 'Families Served' },
-  { value: '200+', label: 'Trained Caregivers' },
-  { value: '98%', label: 'Client Satisfaction' },
+  { value: '24/7', label: 'Care Available' },
+  { value: '100%', label: 'Dedication' },
+  { value: 'Care', label: 'Inspectorate Registered' },
+  { value: 'Local', label: 'Family-Owned' },
 ];
 
 export default function AboutPage() {
@@ -115,7 +87,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge variant="primary" className="mb-4">About Us</Badge>
-              <h1 className="mb-6">Caring for Families Since 2010</h1>
+              <h1 className="mb-6">Caring for Families Since 2023</h1>
               <p className="text-xl text-neutral-600 mb-8">
                 Revival Care Solutions was founded on a simple belief: everyone deserves 
                 to age with dignity, surrounded by compassionate care in the comfort of 
@@ -132,37 +104,17 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                      src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=300&fit=crop"
-                      alt="Caregiver with elderly client"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                      src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=400&h=300&fit=crop"
-                      alt="Diverse care team"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
+                <div className="bg-primary-100 rounded-2xl p-8 flex items-center justify-center">
+                  <Heart className="w-20 h-20 text-primary-600" />
                 </div>
-                <div className="pt-8 space-y-4">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                      src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=300&fit=crop"
-                      alt="Healthcare professional"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                      src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=300&fit=crop"
-                      alt="Senior receiving care"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
+                <div className="bg-secondary-100 rounded-2xl p-8 flex items-center justify-center">
+                  <Shield className="w-20 h-20 text-secondary-600" />
+                </div>
+                <div className="bg-accent-100 rounded-2xl p-8 flex items-center justify-center">
+                  <Award className="w-20 h-20 text-accent-600" />
+                </div>
+                <div className="bg-primary-100 rounded-2xl p-8 flex items-center justify-center">
+                  <Users className="w-20 h-20 text-primary-600" />
                 </div>
               </div>
             </div>
@@ -227,7 +179,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-center mb-12">
               <p className="text-neutral-700">
-                Revival Care Solutions began in 2010 when our founder, Milton Mukundwa, 
+                Revival Care Solutions began in 2023 when our founder, Milton Mukundwa, 
                 struggled to find quality home care for his grandmother. Frustrated by the 
                 lack of compassionate, reliable options, he set out to create the care 
                 company he wished had existed.
@@ -292,34 +244,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="py-24 bg-neutral-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">Leadership</Badge>
-            <h2 className="mb-4">Meet Our Leadership Team</h2>
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              Our experienced leadership team brings together decades of healthcare, 
-              business, and caregiving expertise.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leadership.map((leader) => (
-              <Card key={leader.name} hover className="text-center">
-                <img
-                  src={leader.image}
-                  alt={leader.name}
-                  className="w-32 h-32 rounded-full object-cover mx-auto mb-4"
-                />
-                <h3 className="text-lg font-semibold mb-1">{leader.name}</h3>
-                <p className="text-primary-600 font-medium text-sm mb-4">{leader.title}</p>
-                <p className="text-neutral-600 text-sm">{leader.bio}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Certifications */}
       <section className="py-24">

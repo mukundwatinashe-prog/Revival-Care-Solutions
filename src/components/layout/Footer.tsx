@@ -100,7 +100,7 @@ export function Footer() {
             </Link>
             <p className="text-primary-200 mb-6 max-w-sm">
               Providing compassionate, professional home care services that enhance the quality 
-              of life for seniors and their families. Trusted care since 2010.
+              of life for seniors and their families. Trusted care since 2023.
             </p>
             
             <div className="space-y-4 mb-8">
@@ -114,7 +114,7 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-3 text-primary-200">
                 <MapPin className="w-5 h-5 text-secondary-500 flex-shrink-0 mt-0.5" />
-                <span>123 Care Street, Suite 100<br />Healthcare City, HC 12345</span>
+                <span>Office 3 Marchmont Avenue<br />Polmont, Falkirk, FK2 0NZ</span>
               </div>
               <div className="flex items-center gap-3 text-primary-200">
                 <Clock className="w-5 h-5 text-secondary-500" />

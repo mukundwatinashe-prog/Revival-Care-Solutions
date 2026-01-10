@@ -49,7 +49,7 @@ const contactMethods = [
 ];
 
 const officeInfo = {
-  address: '123 Care Street, Suite 100\nHealthcare City, HC 12345',
+  address: 'Office 3 Marchmont Avenue\nPolmont, Falkirk, FK2 0NZ',
   phone: '07544 152585',
   email: 'milton@revivalcare.co.uk',
   hours: [
@@ -369,7 +369,7 @@ export default function ContactPage() {
             <div className="text-center">
               <MapPin className="w-12 h-12 text-neutral-400 mx-auto mb-4" />
               <p className="text-neutral-600 font-medium">Interactive Map</p>
-              <p className="text-neutral-500 text-sm">123 Care Street, Healthcare City, HC 12345</p>
+              <p className="text-neutral-500 text-sm">Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</p>
             </div>
           </div>
         </div>

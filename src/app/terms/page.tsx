@@ -137,7 +137,7 @@ export default function TermsPage() {
             <ul>
               <li>Email: legal@revivalcare.com</li>
               <li>Phone: 1-800-555-CARE</li>
-              <li>Address: 123 Care Street, Suite 100, Healthcare City, HC 12345</li>
+              <li>Address: Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</li>
             </ul>
           </div>
         </div>
