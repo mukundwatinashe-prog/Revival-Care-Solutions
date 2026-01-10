@@ -64,11 +64,11 @@ const values = [
 
 const certifications = [
   'Care Inspectorate Registered',
+  'SSSC Registered Carers',
   'Fully Insured',
   'PVG Checked Caregivers',
   'Professional Training Standards',
   'Local Family-Owned Business',
-  'Compassionate Care Commitment',
 ];
 
 const stats = [
