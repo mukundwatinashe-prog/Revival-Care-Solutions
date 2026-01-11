@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Heart,
   Users,
@@ -151,19 +152,26 @@ export default function HomePage() {
               <div className="relative w-full aspect-square max-w-lg mx-auto">
                 {/* Main image */}
                 <div className="absolute top-0 right-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl">
-                  <img
+                  <Image
                     src="/images/caregiver-elderly-couple.jpg"
                     alt="Caregiver assisting elderly couple with coloring"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    sizes="(max-width: 1024px) 50vw, 400px"
+                    priority
                   />
                 </div>
                 
                 {/* Secondary image */}
                 <div className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                  <img
+                  <Image
                     src="/images/nurse-laughing.jpg"
                     alt="Two women laughing together indoors"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    sizes="(max-width: 1024px) 40vw, 320px"
                   />
                 </div>
 
@@ -265,34 +273,46 @@ export default function HomePage() {
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
+                  <div className="rounded-2xl overflow-hidden shadow-lg relative h-60">
+                    <Image
                       src="/images/healthcare-worker.jpg"
                       alt="Healthcare worker with mask"
-                      className="w-full h-60 object-cover"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 50vw, 300px"
                     />
                   </div>
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
+                  <div className="rounded-2xl overflow-hidden shadow-lg relative h-40">
+                    <Image
                       src="/images/women-talking-chairs.jpg"
                       alt="Two women talking in comfortable chairs"
-                      className="w-full h-40 object-cover"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 50vw, 300px"
                     />
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
+                  <div className="rounded-2xl overflow-hidden shadow-lg relative h-40">
+                    <Image
                       src="/images/nurse-smiling-patient.jpg"
                       alt="Nurse smiling with elderly patient in room"
-                      className="w-full h-40 object-cover"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 50vw, 300px"
                     />
                   </div>
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
+                  <div className="rounded-2xl overflow-hidden shadow-lg relative h-60">
+                    <Image
                       src="/images/caregiver-knitting.jpg"
                       alt="Caregiver assisting elderly women with knitting activity"
-                      className="w-full h-60 object-cover"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 50vw, 300px"
                     />
                   </div>
                 </div>

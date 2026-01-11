@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Star,
   Quote,
@@ -175,11 +176,16 @@ export default function TestimonialsPage() {
                 </blockquote>
                 
                 <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
+                  <div className="relative w-14 h-14 flex-shrink-0">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      fill
+                      className="rounded-full object-cover"
+                      quality={100}
+                      sizes="56px"
+                    />
+                  </div>
                   <div>
                     <div className="font-semibold text-neutral-900">{testimonial.author}</div>
                     <div className="text-sm text-neutral-500">{testimonial.role}</div>
@@ -245,23 +251,38 @@ export default function TestimonialsPage() {
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <img
-                    src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=300&h=200&fit=crop"
-                    alt="Caregiver with client"
-                    className="rounded-2xl shadow-lg w-full"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=300&h=250&fit=crop"
-                    alt="Happy senior"
-                    className="rounded-2xl shadow-lg w-full"
-                  />
+                  <div className="relative h-[200px] rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop"
+                      alt="Caregiver with client"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 50vw, 300px"
+                    />
+                  </div>
+                  <div className="relative h-[250px] rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&h=500&fit=crop"
+                      alt="Happy senior"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 50vw, 300px"
+                    />
+                  </div>
                 </div>
                 <div className="pt-8">
-                  <img
-                    src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=300&h=400&fit=crop"
-                    alt="Care team"
-                    className="rounded-2xl shadow-lg w-full"
-                  />
+                  <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=600&h=800&fit=crop"
+                      alt="Care team"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                      sizes="(max-width: 768px) 50vw, 300px"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

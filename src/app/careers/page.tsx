@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
   Heart,
   DollarSign,
@@ -153,11 +154,14 @@ export default function CareersPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <img
+            <div className="relative w-full max-w-md mx-auto aspect-[4/3]">
+              <Image
                 src="/images/team-silhouette.jpg"
                 alt="Team of carers together"
-                className="rounded-2xl shadow-lg w-full max-w-md mx-auto"
+                fill
+                className="rounded-2xl shadow-lg object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 400px"
               />
             </div>
           </div>

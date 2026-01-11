@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   HandHeart,
@@ -335,11 +336,15 @@ export default async function ServicePage({ params }: PageProps) {
               <h1 className="mb-4">{service.title}</h1>
               <p className="text-2xl text-neutral-600 font-light">{service.subtitle}</p>
             </div>
-            <div className="hidden lg:block">
-              <img
+            <div className="hidden lg:block relative h-80 rounded-2xl overflow-hidden shadow-lg">
+              <Image
                 src={service.image}
                 alt={service.title}
-                className="rounded-2xl shadow-lg w-full h-80 object-cover"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>

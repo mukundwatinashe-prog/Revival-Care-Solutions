@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   BookOpen,
   FileText,
@@ -183,12 +184,15 @@ export default function ResourcesPage() {
               <a key={article.title} href={article.href} target="_blank" rel="noopener noreferrer">
                 <Card hover padding="none" className="h-full overflow-hidden group">
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <Image
                       src={article.image}
                       alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      quality={100}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-4 left-4 z-10">
                       <Badge variant="primary">{article.category}</Badge>
                     </div>
                   </div>
