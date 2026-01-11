@@ -65,6 +65,7 @@ const careTypes = [
 
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -75,15 +76,54 @@ export default function ContactPage() {
     relationship: '',
     message: '',
     consent: false,
+    honeypot: '', // Spam protection - hidden field
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
+    setErrorMessage('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setFormStatus('success');
+    try {
+      // Prepare form data for API
+      const submissionData = {
+        ...formData,
+        careRecipientName: '', // Not in contact form
+        urgency: 'Just exploring options', // Default for contact form
+      };
+
+      const response = await fetch('/api/consultation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          area: '',
+          careType: '',
+          relationship: '',
+          message: '',
+          consent: false,
+          honeypot: '',
+        });
+      } else {
+        const data = await response.json();
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setErrorMessage('Network error. Please check your connection and try again.');
+      setFormStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -166,11 +206,32 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
                     <p className="text-neutral-600 mb-6">
-                      We&apos;ve received your message and will contact you within 1 hour during business hours.
+                      We&apos;ve received your message and will contact you within 24 hours during business hours.
                     </p>
-                    <Button variant="outline" onClick={() => setFormStatus('idle')}>
-                      Send Another Message
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button variant="outline" onClick={() => {
+                        setFormStatus('idle');
+                        setFormData({
+                          firstName: '',
+                          lastName: '',
+                          email: '',
+                          phone: '',
+                          area: '',
+                          careType: '',
+                          relationship: '',
+                          message: '',
+                          consent: false,
+                          honeypot: '',
+                        });
+                      }}>
+                        Send Another Message
+                      </Button>
+                      <a href="tel:+447544152585">
+                        <Button leftIcon={<Phone className="w-4 h-4" />}>
+                          Call Us Now
+                        </Button>
+                      </a>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -271,6 +332,18 @@ export default function ContactPage() {
                       rows={5}
                     />
 
+                    {/* Honeypot field - hidden from users, catches bots */}
+                    <div className="hidden" aria-hidden="true">
+                      <input
+                        type="text"
+                        name="honeypot"
+                        value={formData.honeypot}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
                     <div className="flex items-start gap-3">
                       <input
                         type="checkbox"
@@ -288,14 +361,21 @@ export default function ContactPage() {
                       </label>
                     </div>
 
+                    {/* Error Message */}
+                    {formStatus === 'error' && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700">
+                        {errorMessage}
+                      </div>
+                    )}
+
                     <Button
                       type="submit"
                       size="lg"
                       fullWidth
-                      isLoading={formStatus === 'submitting'}
-                      rightIcon={<Send className="w-5 h-5" />}
+                      disabled={formStatus === 'submitting'}
+                      rightIcon={formStatus === 'submitting' ? undefined : <Send className="w-5 h-5" />}
                     >
-                      Submit Request
+                      {formStatus === 'submitting' ? 'Sending...' : 'Submit Request'}
                     </Button>
                   </form>
                 )}

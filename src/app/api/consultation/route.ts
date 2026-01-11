@@ -81,11 +81,16 @@ export async function POST(request: Request) {
     // Validate required fields
     if (!sanitizedData.firstName || !sanitizedData.lastName || !sanitizedData.email || 
         !sanitizedData.phone || !sanitizedData.area || !sanitizedData.careType || 
-        !sanitizedData.relationship || !sanitizedData.urgency) {
+        !sanitizedData.urgency) {
       return NextResponse.json(
         { error: 'Please fill in all required fields.' },
         { status: 400 }
       );
+    }
+    
+    // Relationship is optional for contact form, but set default if empty
+    if (!sanitizedData.relationship) {
+      sanitizedData.relationship = 'Not specified';
     }
 
     // Validate email format
