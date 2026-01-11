@@ -40,7 +40,6 @@ const navigation: NavItem[] = [
       { label: 'Medication Management', href: '/services/medication-management' },
       { label: 'Mobility Assistance', href: '/services/mobility-assistance' },
       { label: 'Meal Preparation', href: '/services/meal-preparation' },
-      { label: 'Light Housekeeping', href: '/services/light-housekeeping' },
     ],
   },
   { label: 'About Us', href: '/about', icon: <Users className="w-4 h-4" /> },

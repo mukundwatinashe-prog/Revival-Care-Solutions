@@ -12,7 +12,6 @@ import {
   Pill,
   Footprints,
   UtensilsCrossed,
-  Sparkles,
   HandHeart,
   MessageCircle,
 } from 'lucide-react';
@@ -51,16 +50,9 @@ const services = [
   {
     icon: UtensilsCrossed,
     title: 'Meal Preparation',
-    description: 'Nutritious meal planning and preparation tailored to dietary needs and preferences.',
+    description: 'Heating and serving meals as directed by the client or family, using oven or microwave.',
     href: '/services/meal-preparation',
     color: 'secondary',
-  },
-  {
-    icon: Sparkles,
-    title: 'Light Housekeeping',
-    description: 'Maintaining a clean, safe, and comfortable living environment.',
-    href: '/services/light-housekeeping',
-    color: 'accent',
   },
 ];
 

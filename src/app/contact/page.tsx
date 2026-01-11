@@ -20,6 +20,7 @@ const contactMethods = [
     value: '07544 152585',
     href: 'tel:+447544152585',
     action: 'Call Now',
+    isScroll: false,
   },
   {
     icon: Mail,
@@ -28,14 +29,16 @@ const contactMethods = [
     value: 'milton@revivalcare.co.uk',
     href: 'mailto:milton@revivalcare.co.uk',
     action: 'Email Us',
+    isScroll: false,
   },
   {
     icon: Calendar,
     title: 'Schedule',
     description: 'Book a consultation',
     value: 'Free assessment',
-    href: '#schedule',
+    href: '#consultation-form',
     action: 'Book Now',
+    isScroll: true,
   },
 ];
 
@@ -55,7 +58,6 @@ const careTypes = [
   'Medication Management',
   'Mobility Assistance',
   'Meal Preparation',
-  'Light Housekeeping',
   'Respite Care',
   'Live-In Care',
   'Other',
@@ -111,7 +113,7 @@ export default function ContactPage() {
       {/* Contact Methods */}
       <section className="py-12 -mt-12">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {contactMethods.map((method) => (
               <Card key={method.title} hover className="text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-100 mb-4">
@@ -120,11 +122,24 @@ export default function ContactPage() {
                 <h3 className="font-semibold text-lg mb-1">{method.title}</h3>
                 <p className="text-sm text-neutral-600 mb-2">{method.description}</p>
                 <p className="font-medium text-primary-600 mb-4">{method.value}</p>
-                <a href={method.href}>
-                  <Button variant="outline" size="sm" fullWidth>
-                    {method.action}
-                  </Button>
-                </a>
+                {method.isScroll ? (
+                  <button
+                    onClick={() => {
+                      document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="w-full"
+                  >
+                    <Button variant="outline" size="sm" fullWidth>
+                      {method.action}
+                    </Button>
+                  </button>
+                ) : (
+                  <a href={method.href}>
+                    <Button variant="outline" size="sm" fullWidth>
+                      {method.action}
+                    </Button>
+                  </a>
+                )}
               </Card>
             ))}
           </div>
@@ -136,7 +151,7 @@ export default function ContactPage() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Form */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2" id="consultation-form">
               <Card>
                 <h2 className="text-2xl font-serif font-semibold mb-2">Request a Free Consultation</h2>
                 <p className="text-neutral-600 mb-8">
@@ -348,14 +363,6 @@ export default function ContactPage() {
                 </div>
               </Card>
 
-              {/* Response Time */}
-              <Card className="bg-secondary-50 border-secondary-100">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-secondary-600 mb-1">1 Hour</div>
-                  <p className="text-sm text-neutral-600">Average Response Time</p>
-                  <p className="text-xs text-neutral-500 mt-2">During business hours</p>
-                </div>
-              </Card>
             </div>
           </div>
         </div>

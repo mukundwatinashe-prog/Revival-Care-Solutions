@@ -32,8 +32,8 @@ export default function TermsPage() {
             <h2>Description of Services</h2>
             <p>
               Revival Care Solutions provides non-medical home care services including personal 
-              care, companionship, medication reminders, mobility assistance, meal preparation, 
-              and light housekeeping. Services are provided by trained caregivers in the client&apos;s home.
+              care, companionship, medication reminders, mobility assistance, and meal preparation. 
+              Services are provided by trained caregivers in the client&apos;s home.
             </p>
 
             <h2>Eligibility</h2>

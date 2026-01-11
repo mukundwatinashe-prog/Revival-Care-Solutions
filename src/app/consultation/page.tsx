@@ -21,7 +21,6 @@ const careTypes = [
   'Medication Management',
   'Mobility Assistance',
   'Meal Preparation',
-  'Light Housekeeping',
   'Respite Care',
   'Live-In Care',
   'Other',
@@ -396,18 +395,6 @@ export default function ConsultationPage() {
                     </div>
                   </a>
                 </div>
-              </Card>
-
-              {/* Response Time */}
-              <Card className="p-6 bg-primary-50 border-primary-100">
-                <div className="flex items-center gap-3 mb-3">
-                  <Clock className="w-6 h-6 text-primary-600" />
-                  <h3 className="font-semibold text-neutral-900">Quick Response</h3>
-                </div>
-                <p className="text-neutral-600">
-                  We respond to all consultation requests within 24 hours. For urgent needs, 
-                  please call us directly.
-                </p>
               </Card>
 
               {/* Trust Indicators */}

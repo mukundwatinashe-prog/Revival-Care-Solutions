@@ -104,7 +104,7 @@ const faqs = [
     questions: [
       {
         q: 'What services do you offer?',
-        a: 'We offer a full range of home care services including personal care, companionship, medication reminders, mobility assistance, meal preparation, light housekeeping, transportation, and more. Care plans are customized to each client\'s specific needs.',
+        a: 'We offer a full range of home care services including personal care, companionship, medication reminders, mobility assistance, meal preparation, transportation, and more. Care plans are customized to each client\'s specific needs.',
       },
       {
         q: 'Do you provide medical care or nursing services?',
