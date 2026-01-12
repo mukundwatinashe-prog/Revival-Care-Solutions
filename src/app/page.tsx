@@ -140,8 +140,24 @@ export default function HomePage() {
             </div>
 
             {/* Right Content - Image Collage */}
-            <div className="relative hidden lg:block animate-fade-in stagger-2">
-              <div className="relative w-full aspect-square max-w-lg mx-auto">
+            <div className="relative animate-fade-in stagger-2">
+              {/* Mobile: Single centered image */}
+              <div className="relative w-full aspect-[4/3] max-w-md mx-auto lg:hidden mb-8">
+                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/caregiver-elderly-couple.jpg"
+                    alt="Caregiver assisting elderly couple with coloring"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 500px"
+                    priority
+                  />
+                </div>
+              </div>
+              
+              {/* Desktop: Image Collage */}
+              <div className="relative hidden lg:block w-full aspect-square max-w-lg mx-auto">
                 {/* Main image */}
                 <div className="absolute top-0 right-0 w-[70%] h-[70%] rounded-3xl overflow-hidden shadow-2xl">
                   <Image
@@ -151,7 +167,6 @@ export default function HomePage() {
                     className="object-cover"
                     quality={100}
                     sizes="(max-width: 1024px) 50vw, 400px"
-                    priority
                   />
                 </div>
                 

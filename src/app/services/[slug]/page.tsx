@@ -301,6 +301,20 @@ export default async function ServicePage({ params }: PageProps) {
               <h1 className="mb-4">{service.title}</h1>
               <p className="text-2xl text-neutral-600 font-light">{service.subtitle}</p>
             </div>
+            {/* Mobile Image */}
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-8 lg:hidden">
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 500px"
+                priority
+              />
+            </div>
+            
+            {/* Desktop Image */}
             <div className="hidden lg:block relative h-80 rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src={service.image}
