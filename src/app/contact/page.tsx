@@ -23,6 +23,15 @@ const contactMethods = [
     isScroll: false,
   },
   {
+    icon: Phone,
+    title: 'Landline',
+    description: 'Call our office landline',
+    value: '013124 868987',
+    href: 'tel:+4413124868987',
+    action: 'Call Now',
+    isScroll: false,
+  },
+  {
     icon: Mail,
     title: 'Email',
     description: 'Send us a message anytime',
@@ -408,6 +417,13 @@ export default function ContactPage() {
                         className="text-primary-600 hover:underline text-sm"
                       >
                         {officeInfo.phone}
+                      </a>
+                      <br />
+                      <a 
+                        href="tel:+4413124868987"
+                        className="text-primary-600 hover:underline text-sm"
+                      >
+                        013124 868987
                       </a>
                     </div>
                   </div>

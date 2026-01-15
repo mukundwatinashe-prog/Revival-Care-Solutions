@@ -48,12 +48,9 @@ const servicesData: Record<string, ServiceData> = {
     ],
     features: [
       'Bathing and showering assistance',
-      'Grooming and hair care',
       'Dressing and wardrobe selection',
       'Toileting and incontinence care',
-      'Skin care and hygiene',
       'Oral hygiene support',
-      'Nail care and maintenance',
       'Shaving assistance',
     ],
     benefits: [
@@ -76,8 +73,6 @@ const servicesData: Record<string, ServiceData> = {
     image: '/images/companionship.jpg',
     heroDescription: 'Combat loneliness and enhance quality of life with our compassionate companionship services that provide meaningful social interaction and emotional support.',
     fullDescription: [
-      'Social isolation and loneliness can have serious impacts on senior health, contributing to depression, cognitive decline, and even physical health problems. Our companionship services address these concerns with meaningful, engaging care.',
-      'Our companions are more than caregivers – they\'re friends who genuinely care. They engage in conversation, share activities, and provide the emotional support that keeps seniors connected to life.',
       'Whether it\'s playing cards, going for walks, reading together, or simply sharing stories over tea, our companions bring joy and connection to every visit.',
     ],
     features: [
@@ -112,17 +107,9 @@ const servicesData: Record<string, ServiceData> = {
     fullDescription: [
       'Managing multiple medications can be overwhelming and confusing, especially for seniors with complex health conditions. Our medication management services help ensure medications are taken correctly and on time.',
       'Our caregivers provide reliable medication reminders, help organize prescriptions, and maintain detailed logs to share with healthcare providers. While we cannot administer medications, we provide the support needed for successful medication adherence.',
-      'We also monitor for potential side effects and coordinate with pharmacies and healthcare providers to ensure seamless medication management.',
     ],
     features: [
       'Medication reminders and prompts',
-      'Pill organizer management',
-      'Prescription refill coordination',
-      'Monitoring for side effects',
-      'Communication with healthcare providers',
-      'Maintaining medication logs',
-      'Pharmacy coordination',
-      'Appointment scheduling for medication reviews',
     ],
     benefits: [
       { title: 'Improve Adherence', description: 'Regular reminders and support help ensure medications are taken as prescribed.' },
@@ -145,16 +132,12 @@ const servicesData: Record<string, ServiceData> = {
     heroDescription: 'Maintain independence and safety with our mobility assistance services that provide support with walking, transfers, and physical activity.',
     fullDescription: [
       'Mobility challenges are one of the leading causes of falls among seniors. Our mobility assistance services help clients move safely while maintaining as much independence as possible.',
-      'Our caregivers are trained in proper transfer techniques, fall prevention strategies, and the use of mobility aids. They provide the right level of support – enough to ensure safety, but not so much that it undermines independence.',
-      'Regular mobility support can actually help improve strength and balance over time, reducing the risk of future falls and maintaining quality of life.',
+      'Our caregivers are trained in proper transfer techniques and the use of mobility aids. They provide the right level of support – enough to ensure safety, but not so much that it undermines independence.',
     ],
     features: [
       'Walking assistance and supervision',
       'Safe transfer techniques',
       'Wheelchair and walker assistance',
-      'Fall prevention strategies',
-      'Range of motion exercises',
-      'Positioning and repositioning support',
       'Assistance with stairs and uneven surfaces',
       'Home safety assessments',
     ],
@@ -164,9 +147,8 @@ const servicesData: Record<string, ServiceData> = {
       { title: 'Build Confidence', description: 'Knowing help is available gives seniors the confidence to stay active.' },
     ],
     faqs: [
-      { question: 'What if my loved one uses a wheelchair?', answer: 'Our caregivers are trained to assist with wheelchair transfers, navigation, and positioning to ensure comfort and safety.' },
-      { question: 'Can caregivers help with physical therapy exercises?', answer: 'Caregivers can assist with exercises prescribed by a physical therapist, providing support and encouragement to maintain a regular exercise routine.' },
-      { question: 'How do you prevent falls in the home?', answer: 'We can conduct home safety assessments and recommend modifications like removing tripping hazards, improving lighting, and installing grab bars.' },
+      { question: 'What if my loved one uses a wheelchair?', answer: 'Our caregivers are trained to assist with wheelchair transfers and navigation to ensure comfort and safety.' },
+      { question: 'How do you ensure safety in the home?', answer: 'We can conduct home safety assessments and recommend modifications like removing tripping hazards, improving lighting, and installing grab bars.' },
     ],
     color: 'primary',
   },
@@ -176,14 +158,14 @@ const servicesData: Record<string, ServiceData> = {
     title: 'Meal Preparation',
     subtitle: 'Warming and serving meals as directed',
     image: '/images/meal-prep.jpg',
-    heroDescription: 'We prepare and serve meals exactly as instructed by the client or their family, using oven or microwave heating methods.',
+    heroDescription: 'We prepare and serve meals exactly as instructed by the client or their family, using airfryer or microwave heating methods.',
     fullDescription: [
       'Good nutrition is essential for senior health, but many seniors struggle with preparing their own meals due to physical limitations or safety concerns. Our meal preparation services provide the support they need.',
-      'Our caregivers prepare and serve meals exactly as directed by the client or their family. We heat pre-prepared meals using the oven or microwave according to your specific instructions, ensuring your loved one enjoys their food just the way they like it.',
+      'Our caregivers prepare and serve meals exactly as directed by the client or their family. We heat pre-prepared meals using the airfryer or microwave according to your specific instructions, ensuring your loved one enjoys their food just the way they like it.',
       'We follow the meal plans and preparation methods that you provide, ensuring consistency and peace of mind for families.',
     ],
     features: [
-      'Heating meals by oven or microwave as directed',
+      'Heating meals by airfryer or microwave as directed',
       'Following family-provided meal instructions',
       'Serving meals at appropriate times',
       'Feeding assistance if needed',
@@ -198,7 +180,7 @@ const servicesData: Record<string, ServiceData> = {
       { title: 'Peace of Mind', description: 'Know that your loved one is eating the meals you\'ve planned for them.' },
     ],
     faqs: [
-      { question: 'Do you cook meals from scratch?', answer: 'We heat and prepare meals as directed by the client or family using the oven or microwave. We follow your specific instructions for each meal.' },
+      { question: 'Do you cook meals from scratch?', answer: 'We heat and prepare meals as directed by the client or family using the airfryer or microwave. We follow your specific instructions for each meal.' },
       { question: 'Who decides what meals to prepare?', answer: 'The client or their family provides the meals and instructions. We prepare and serve exactly what you\'ve directed.' },
       { question: 'What if my loved one needs help eating?', answer: 'Caregivers can provide feeding assistance as needed, ensuring meals are enjoyed safely and comfortably.' },
     ],

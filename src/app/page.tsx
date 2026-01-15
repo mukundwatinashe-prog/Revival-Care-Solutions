@@ -50,7 +50,7 @@ const services = [
   {
     icon: UtensilsCrossed,
     title: 'Meal Preparation',
-    description: 'Heating and serving meals as directed by the client or family, using oven or microwave.',
+    description: 'Heating and serving meals as directed by the client or family, using airfryer or microwave.',
     href: '/services/meal-preparation',
     color: 'secondary',
   },

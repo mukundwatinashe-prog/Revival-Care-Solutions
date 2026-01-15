@@ -25,7 +25,6 @@ const services = [
 
 const company = [
   { label: 'About Us', href: '/about' },
-  { label: 'Testimonials', href: '/testimonials' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
@@ -105,6 +104,10 @@ export function Footer() {
               <a href="tel:+447544152585" className="flex items-center gap-3 text-white hover:text-secondary-400 transition-colors">
                 <Phone className="w-5 h-5 text-secondary-400" />
                 <span>07544 152585</span>
+              </a>
+              <a href="tel:+4413124868987" className="flex items-center gap-3 text-white hover:text-secondary-400 transition-colors">
+                <Phone className="w-5 h-5 text-secondary-400" />
+                <span>013124 868987</span>
               </a>
               <a href="mailto:milton@revivalcare.co.uk" className="flex items-center gap-3 text-white hover:text-secondary-400 transition-colors">
                 <Mail className="w-5 h-5 text-secondary-400" />
