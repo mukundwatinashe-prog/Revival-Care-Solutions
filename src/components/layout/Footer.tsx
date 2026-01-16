@@ -8,8 +8,6 @@ import {
   MapPin, 
   Clock,
   Facebook,
-  Twitter,
-  Instagram,
   Linkedin,
   ArrowRight
 } from 'lucide-react';
@@ -45,8 +43,6 @@ const legal = [
 
 const socialLinks = [
   { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
 ];
 

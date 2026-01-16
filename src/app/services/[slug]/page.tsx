@@ -79,6 +79,9 @@ const servicesData: Record<string, ServiceData> = {
       'Engaging conversation and active listening',
       'Games, puzzles, and brain exercises',
       'Reading and storytelling',
+      'Accompaniment on walks and outings',
+      'Attending social events and appointments',
+      'Video calls with family and friends',
       'Hobby and interest activities',
       'Reminiscence and life story sharing',
     ],
@@ -89,7 +92,7 @@ const servicesData: Record<string, ServiceData> = {
     ],
     faqs: [
       { question: 'What activities can companions do with my loved one?', answer: 'Companions can engage in a wide variety of activities based on the client\'s interests – from card games and crafts to walks in the park and shopping trips.' },
-      { question: 'What activities do companions provide?', answer: 'Companions engage in activities like conversation, games, reading, and hobbies based on the client\'s interests and preferences.' },
+      { question: 'Can companions accompany seniors on outings?', answer: 'Absolutely! Our companions can accompany clients to appointments, social events, shopping, restaurants, and more.' },
       { question: 'How does companionship differ from personal care?', answer: 'Companionship focuses on social and emotional support rather than hands-on personal care. Many clients benefit from a combination of both services.' },
     ],
     color: 'secondary',
@@ -103,7 +106,7 @@ const servicesData: Record<string, ServiceData> = {
     heroDescription: 'Ensure medication adherence and safety with our comprehensive medication management services that provide reminders, organization, and monitoring.',
     fullDescription: [
       'Managing multiple medications can be overwhelming and confusing, especially for seniors with complex health conditions. Our medication management services help ensure medications are taken correctly and on time.',
-      'Our caregivers provide reliable medication reminders. While we cannot administer medications, we provide the support needed for successful medication adherence.',
+      'Our caregivers provide reliable medication reminders, help organize prescriptions, and maintain detailed logs to share with healthcare providers. While we cannot administer medications, we provide the support needed for successful medication adherence.',
     ],
     features: [
       'Medication reminders and prompts',
@@ -290,7 +293,6 @@ export default async function ServicePage({ params }: PageProps) {
                 quality={100}
                 sizes="(max-width: 768px) 100vw, 500px"
                 priority
-                unoptimized={service.slug === 'personal-care'}
               />
             </div>
             
@@ -304,7 +306,6 @@ export default async function ServicePage({ params }: PageProps) {
                 quality={100}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
-                unoptimized={service.slug === 'personal-care'}
               />
             </div>
           </div>
