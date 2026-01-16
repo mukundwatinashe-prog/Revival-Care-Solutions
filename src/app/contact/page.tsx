@@ -109,7 +109,9 @@ export default function ContactPage() {
         body: JSON.stringify(submissionData),
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (response.ok && data.success) {
         setFormStatus('success');
         // Reset form
         setFormData({
@@ -125,8 +127,7 @@ export default function ContactPage() {
           honeypot: '',
         });
       } else {
-        const data = await response.json();
-        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        setErrorMessage(data.error || data.message || 'Something went wrong. Please try again.');
         setFormStatus('error');
       }
     } catch (error) {

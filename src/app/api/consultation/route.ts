@@ -160,56 +160,93 @@ Please respond within 24 hours.
     const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
     
     if (!accessKey) {
-      console.error('WEB3FORMS_ACCESS_KEY not configured');
-      // Log the submission for manual processing
-      console.log('Form submission (email service not configured):', {
-        ...sanitizedData,
-        submittedAt: new Date().toISOString(),
-      });
+      console.error('❌ WEB3FORMS_ACCESS_KEY not configured in environment variables');
+      console.error('📧 Form submission received but email service is not configured:');
+      console.error('==========================================');
+      console.error('Name:', `${sanitizedData.firstName} ${sanitizedData.lastName}`);
+      console.error('Email:', sanitizedData.email);
+      console.error('Phone:', sanitizedData.phone);
+      console.error('Area:', sanitizedData.area);
+      console.error('Care Type:', sanitizedData.careType);
+      console.error('Message:', sanitizedData.message);
+      console.error('Submitted At:', new Date().toISOString());
+      console.error('==========================================');
+      console.error('⚠️ ACTION REQUIRED: Set WEB3FORMS_ACCESS_KEY in .env.local or Vercel environment variables');
       
+      // Return error so user knows something went wrong
       return NextResponse.json({ 
-        success: true, 
-        message: 'Consultation request received! We will contact you shortly.' 
-      });
+        success: false,
+        error: 'Email service is not configured. Please contact us directly at milton@revivalcare.co.uk or call 07544 152585.',
+        message: 'There was an issue sending your request. Please contact us directly.' 
+      }, { status: 500 });
     }
 
     // Send email using Web3Forms
-    const emailResponse = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        access_key: accessKey,
-        to: 'milton@revivalcare.co.uk',
-        from_name: `${sanitizedData.firstName} ${sanitizedData.lastName}`,
-        subject: emailSubject,
-        message: emailBody,
-        reply_to: sanitizedData.email,
-      }),
-    });
+    try {
+      const emailResponse = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          to: 'milton@revivalcare.co.uk',
+          from_name: `${sanitizedData.firstName} ${sanitizedData.lastName}`,
+          subject: emailSubject,
+          message: emailBody,
+          reply_to: sanitizedData.email,
+        }),
+      });
 
-    const emailResult = await emailResponse.json();
+      const emailResult = await emailResponse.json();
 
-    if (emailResponse.ok && emailResult.success) {
-      return NextResponse.json({ 
-        success: true, 
-        message: 'Consultation request submitted successfully!' 
-      });
-    } else {
-      console.error('Email sending failed:', emailResult);
+      if (emailResponse.ok && emailResult.success) {
+        console.log('✅ Email sent successfully to milton@revivalcare.co.uk');
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Consultation request submitted successfully!' 
+        });
+      } else {
+        console.error('❌ Email sending failed:');
+        console.error('Response status:', emailResponse.status);
+        console.error('Response body:', emailResult);
+        console.error('📧 Form data for manual processing:');
+        console.error('==========================================');
+        console.error('Name:', `${sanitizedData.firstName} ${sanitizedData.lastName}`);
+        console.error('Email:', sanitizedData.email);
+        console.error('Phone:', sanitizedData.phone);
+        console.error('Area:', sanitizedData.area);
+        console.error('Care Type:', sanitizedData.careType);
+        console.error('Message:', sanitizedData.message);
+        console.error('Submitted At:', new Date().toISOString());
+        console.error('==========================================');
+        
+        // Return error so user knows something went wrong
+        return NextResponse.json({ 
+          success: false,
+          error: 'Failed to send email. Please contact us directly at milton@revivalcare.co.uk or call 07544 152585.',
+          message: 'There was an issue sending your request. Please contact us directly.' 
+        }, { status: 500 });
+      }
+    } catch (fetchError) {
+      console.error('❌ Network error when sending email:', fetchError);
+      console.error('📧 Form data for manual processing:');
+      console.error('==========================================');
+      console.error('Name:', `${sanitizedData.firstName} ${sanitizedData.lastName}`);
+      console.error('Email:', sanitizedData.email);
+      console.error('Phone:', sanitizedData.phone);
+      console.error('Area:', sanitizedData.area);
+      console.error('Care Type:', sanitizedData.careType);
+      console.error('Message:', sanitizedData.message);
+      console.error('Submitted At:', new Date().toISOString());
+      console.error('==========================================');
       
-      // Still return success to user, log for manual follow-up
-      console.log('Failed email - Form data for manual processing:', {
-        ...sanitizedData,
-        submittedAt: new Date().toISOString(),
-      });
-      
       return NextResponse.json({ 
-        success: true, 
-        message: 'Consultation request received! We will contact you shortly.' 
-      });
+        success: false,
+        error: 'Network error. Please contact us directly at milton@revivalcare.co.uk or call 07544 152585.',
+        message: 'There was an issue sending your request. Please contact us directly.' 
+      }, { status: 500 });
     }
   } catch (error) {
     console.error('Error processing consultation request:', error);
