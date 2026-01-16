@@ -66,6 +66,37 @@ After setting up the key:
 
 ## Troubleshooting
 
+### Getting "Email service is not configured" Error?
+
+This means the `WEB3FORMS_ACCESS_KEY` environment variable is not being detected. Follow these steps:
+
+#### Step 1: Verify in Vercel Dashboard
+1. Go to your Vercel project: https://vercel.com/dashboard
+2. Click on your project
+3. Go to **Settings** → **Environment Variables**
+4. Look for `WEB3FORMS_ACCESS_KEY`
+5. **Check that it's enabled for Production** (not just Development)
+
+#### Step 2: Check Variable Name
+- Must be exactly: `WEB3FORMS_ACCESS_KEY` (case-sensitive)
+- No spaces before or after
+- No quotes around the value
+
+#### Step 3: Redeploy (CRITICAL!)
+After adding/changing environment variables:
+1. Go to **Deployments** tab
+2. Click the **three dots** (⋯) on the latest deployment
+3. Click **Redeploy**
+4. Wait for deployment to complete
+5. **Environment variables only work after redeploy!**
+
+#### Step 4: Test the Debug Endpoint
+I've created a test endpoint. After redeploying, visit:
+```
+https://your-site.vercel.app/api/test-env
+```
+This will show if the environment variable is detected.
+
 ### Emails Still Not Arriving?
 
 1. **Check Environment Variable**: Verify `WEB3FORMS_ACCESS_KEY` is set correctly
@@ -73,6 +104,7 @@ After setting up the key:
 3. **Check Spam Folder**: Emails might be going to spam
 4. **Verify Web3Forms Account**: Make sure the email `milton@revivalcare.co.uk` is verified in Web3Forms
 5. **Check Rate Limits**: Web3Forms has rate limits - if you've sent too many, wait a bit
+6. **Verify Redeploy**: Make sure you redeployed after adding the variable
 
 ### Error Messages
 
