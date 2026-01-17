@@ -159,6 +159,12 @@ Please respond within 24 hours.
     // Check for Web3Forms access key
     const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
     
+    // Debug logging to help troubleshoot
+    console.log('🔍 Environment Variable Check:');
+    console.log('WEB3FORMS_ACCESS_KEY exists:', !!accessKey);
+    console.log('WEB3FORMS_ACCESS_KEY length:', accessKey ? accessKey.length : 0);
+    console.log('All env vars starting with WEB:', Object.keys(process.env).filter(k => k.startsWith('WEB')));
+    
     if (!accessKey) {
       console.error('❌ WEB3FORMS_ACCESS_KEY not configured in environment variables');
       console.error('📧 Form submission received but email service is not configured:');
@@ -171,7 +177,11 @@ Please respond within 24 hours.
       console.error('Message:', sanitizedData.message);
       console.error('Submitted At:', new Date().toISOString());
       console.error('==========================================');
-      console.error('⚠️ ACTION REQUIRED: Set WEB3FORMS_ACCESS_KEY in .env.local or Vercel environment variables');
+      console.error('⚠️ ACTION REQUIRED: Set WEB3FORMS_ACCESS_KEY in Vercel environment variables');
+      console.error('⚠️ Make sure to:');
+      console.error('   1. Add variable in Vercel Settings → Environment Variables');
+      console.error('   2. Enable for Production environment');
+      console.error('   3. Redeploy the site after adding the variable');
       
       // Return error so user knows something went wrong
       return NextResponse.json({ 
