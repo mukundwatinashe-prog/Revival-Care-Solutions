@@ -73,27 +73,27 @@ export function Header() {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-primary-500 text-white py-2 px-4">
+      {/* Top Bar - Modern Redesign */}
+      <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-2.5 px-4 shadow-md">
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a 
               href="tel:+447544152585" 
-              className="flex items-center gap-2 !text-white hover:!text-white/80 transition-colors"
+              className="flex items-center gap-2.5 !text-white hover:!text-white/90 transition-all font-medium"
             >
               <Phone className="w-4 h-4 text-white" />
               <span className="hidden sm:inline text-white">07544 152585</span>
               <span className="sm:hidden text-white">Call Us</span>
             </a>
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2.5">
               <Clock className="w-4 h-4" />
-              <span>Available 24/7</span>
+              <span className="font-medium">Available 24/7</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
             <Link 
               href="/careers" 
-              className="flex items-center gap-2 !text-white hover:!text-white/80 transition-colors"
+              className="flex items-center gap-2.5 !text-white hover:!text-white/90 transition-all font-medium"
             >
               <Briefcase className="w-4 h-4 text-white" />
               <span className="hidden sm:inline text-white">Careers</span>
@@ -102,20 +102,20 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* Main Header - Modern Redesign */}
       <header
         className={clsx(
           'sticky top-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-md py-2'
-            : 'bg-white py-3'
+            ? 'bg-white/98 backdrop-blur-lg shadow-lg py-3 border-b border-neutral-100'
+            : 'bg-white py-4 shadow-sm'
         )}
       >
         <div className="container-custom">
           <nav className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 transition-transform group-hover:scale-105">
+            {/* Logo - Enhanced */}
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-lg">
                 <Image
                   src="/logo.png"
                   alt="Revival Care Solutions"
@@ -138,8 +138,9 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={clsx(
-                      'flex items-center gap-1.5 px-4 py-2 rounded-lg font-medium',
-                      'hover:bg-primary-50 transition-colors'
+                      'flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm',
+                      'hover:bg-primary-50 transition-all duration-200',
+                      'hover:shadow-sm'
                     )}
                     style={{ color: '#1f7aa8' }}
                   >
@@ -183,15 +184,15 @@ export function Header() {
               ))}
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Enhanced */}
             <div className="hidden lg:flex items-center gap-3">
               <Link href="/consultation">
-                <Button variant="outline" size="md">
+                <Button variant="outline" size="md" className="font-semibold border-2 hover:shadow-md transition-all">
                   Free Consultation
                 </Button>
               </Link>
               <a href="tel:+447544152585">
-                <Button variant="primary" size="md" leftIcon={<Phone className="w-4 h-4" />}>
+                <Button variant="primary" size="md" className="font-semibold shadow-md hover:shadow-lg transition-all" leftIcon={<Phone className="w-4 h-4" />}>
                   Call Now
                 </Button>
               </a>
