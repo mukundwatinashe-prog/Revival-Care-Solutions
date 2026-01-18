@@ -504,9 +504,9 @@ export default function HomePage() {
               <Image
                 src="/logos/care-inspectorate-logo.png"
                 alt="Care Inspectorate Registered"
-                fill
-                className="object-contain p-4"
-                sizes="192px"
+                width={160}
+                height={80}
+                className="object-contain"
               />
             </div>
             <div className="max-w-2xl">
@@ -531,9 +531,9 @@ export default function HomePage() {
                 <Image
                   src="/logos/falkirk-council-logo.svg"
                   alt="Falkirk Council"
-                  fill
-                  className="object-contain p-4"
-                  sizes="192px"
+                  width={160}
+                  height={80}
+                  className="object-contain"
                 />
               </div>
               <div>
