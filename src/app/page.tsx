@@ -500,13 +500,12 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-r from-primary-50 via-primary-100/50 to-primary-50 border-y-2 border-primary-200">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
-            <div className="relative w-48 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6">
-              <Image
+            <div className="relative w-48 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6 overflow-hidden">
+              <img
                 src="/logos/care-inspectorate-logo.png"
                 alt="Care Inspectorate Registered"
-                width={160}
-                height={80}
-                className="object-contain"
+                className="max-w-full max-h-full object-contain"
+                style={{ width: 'auto', height: 'auto', maxWidth: '160px', maxHeight: '80px' }}
               />
             </div>
             <div className="max-w-2xl">
