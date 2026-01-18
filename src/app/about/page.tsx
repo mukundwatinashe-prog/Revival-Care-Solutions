@@ -21,13 +21,6 @@ export const metadata: Metadata = {
   description: 'Learn about Revival Care Solutions - our mission, values, and commitment to providing compassionate home care services for seniors since 2023.',
 };
 
-const timeline = [
-  { year: '2023', title: 'Founded', description: 'Revival Care Solutions was founded with a mission to provide dignified, compassionate home care in Central Scotland.' },
-  { year: '2024', title: 'Care Inspectorate Registered', description: 'Achieved full registration with the Care Inspectorate, meeting Scotland\'s national care standards.' },
-  { year: '2024', title: 'Growing Team', description: 'Building our team of dedicated, compassionate caregivers to serve the Falkirk area.' },
-  { year: '2025', title: 'Expanding Coverage', description: 'Extending our service areas across Central Scotland to help more families.' },
-];
-
 const values = [
   {
     icon: Heart,
@@ -164,56 +157,6 @@ export default function AboutPage() {
                 across our community.
               </p>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story */}
-      <section className="py-24 bg-neutral-50">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <Badge variant="secondary" className="mb-4">Our Story</Badge>
-            <h2 className="mb-6">From Personal Experience to Community Impact</h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none text-center mb-12">
-              <p className="text-neutral-700">
-                Revival Care Solutions began in 2023 when our founder, Milton Mukundwa, 
-                struggled to find quality home care for his grandmother. Frustrated by the 
-                lack of compassionate, reliable options, he set out to create the care 
-                company he wished had existed.
-              </p>
-              <p className="text-neutral-700">
-                Starting with just three caregivers and a commitment to excellence, Revival 
-                Care has grown into a regional leader in home care services. But our core 
-                values remain unchanged: every client is treated like family, with the dignity, 
-                respect, and personalized attention they deserve.
-              </p>
-            </div>
-
-            {/* Timeline */}
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary-200" />
-              <div className="space-y-12">
-                {timeline.map((item, index) => (
-                  <div 
-                    key={item.year}
-                    className={`flex items-center gap-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-                  >
-                    <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                      <Card>
-                        <div className="text-primary-600 font-bold text-lg mb-1">{item.year}</div>
-                        <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                        <p className="text-neutral-600">{item.description}</p>
-                      </Card>
-                    </div>
-                    <div className="relative z-10 w-4 h-4 rounded-full bg-primary-500 border-4 border-white shadow" />
-                    <div className="flex-1" />
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
