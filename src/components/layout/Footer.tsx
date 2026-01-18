@@ -208,44 +208,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Accreditation Logos */}
-      <div className="border-t border-primary-800 bg-primary-950/50">
-        <div className="container-custom py-10">
-          <div className="flex flex-col items-center gap-8">
-            <h4 className="text-white/90 text-sm font-semibold uppercase tracking-wider">
-              Accredited & Registered
-            </h4>
-            <div className="flex flex-wrap items-center justify-center gap-10">
-              {/* Care Inspectorate Logo */}
-              <div className="flex items-center justify-center group">
-                <div className="relative w-40 h-24 bg-white rounded-xl p-4 flex items-center justify-center shadow-lg hover:shadow-xl transition-all ring-2 ring-white/20 group-hover:ring-white/40">
-                  <Image
-                    src="/logos/care-inspectorate-logo.png"
-                    alt="Care Inspectorate Registered"
-                    width={140}
-                    height={60}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              
-              {/* Falkirk Council Logo */}
-              <div className="flex items-center justify-center group">
-                <div className="relative w-40 h-24 bg-white rounded-xl p-4 flex items-center justify-center shadow-lg hover:shadow-xl transition-all ring-2 ring-white/20 group-hover:ring-white/40">
-                  <Image
-                    src="/logos/falkirk-council-logo.png"
-                    alt="Falkirk Council"
-                    width={140}
-                    height={60}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Bottom Bar - Enhanced */}
       <div className="border-t border-primary-700/50 relative z-10">
         <div className="container-custom py-8">

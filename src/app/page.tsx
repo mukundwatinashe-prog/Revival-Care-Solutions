@@ -500,8 +500,14 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-r from-primary-50 via-primary-100/50 to-primary-50 border-y-2 border-primary-200">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
-            <div className="w-24 h-24 rounded-3xl bg-white shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100">
-              <Award className="w-12 h-12 text-primary-600" />
+            <div className="relative w-48 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6">
+              <Image
+                src="/logos/care-inspectorate-logo.png"
+                alt="Care Inspectorate Registered"
+                fill
+                className="object-contain p-4"
+                sizes="192px"
+              />
             </div>
             <div className="max-w-2xl">
               <h3 className="text-2xl lg:text-3xl font-semibold text-neutral-900 mb-3">
@@ -520,13 +526,24 @@ export default function HomePage() {
       <section className="py-20 bg-gradient-to-br from-neutral-100 via-white to-neutral-50">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-            <div className="flex-1">
-              <h3 className="text-3xl lg:text-4xl font-serif font-semibold mb-4 text-neutral-900">
-                Serving Falkirk & Surrounding Areas
-              </h3>
-              <p className="text-lg text-neutral-700 leading-relaxed max-w-2xl">
-                We proudly provide care services in Falkirk, Denny, Larbert, Grangemouth, Linlithgow and more areas coming soon.
-              </p>
+            <div className="flex-1 flex flex-col md:flex-row items-center gap-8">
+              <div className="relative w-48 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-neutral-200 p-6 flex-shrink-0">
+                <Image
+                  src="/logos/falkirk-council-logo.svg"
+                  alt="Falkirk Council"
+                  fill
+                  className="object-contain p-4"
+                  sizes="192px"
+                />
+              </div>
+              <div>
+                <h3 className="text-3xl lg:text-4xl font-serif font-semibold mb-4 text-neutral-900">
+                  Serving Falkirk & Surrounding Areas
+                </h3>
+                <p className="text-lg text-neutral-700 leading-relaxed max-w-2xl">
+                  We proudly provide care services in Falkirk, Denny, Larbert, Grangemouth, Linlithgow and more areas coming soon.
+                </p>
+              </div>
             </div>
             <Link href="/service-areas">
               <Button variant="outline" size="lg" className="shadow-lg hover:shadow-xl transition-all border-2" rightIcon={<ArrowRight className="w-5 h-5" />}>
