@@ -522,11 +522,11 @@ export default function HomePage() {
       </section>
 
       {/* Service Areas Preview - Modern Redesign */}
-      <section className="py-20 bg-gradient-to-br from-neutral-100 via-white to-neutral-50">
+      <section className="py-16 bg-gradient-to-r from-primary-50 via-primary-100/50 to-primary-50 border-y-2 border-primary-200">
         <div className="container-custom">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-            <div className="flex-1 flex flex-col md:flex-row items-center gap-8">
-              <div className="relative w-48 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-neutral-200 p-6 flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+            <div className="flex flex-col items-center gap-4">
+              <div className="relative w-48 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6 overflow-hidden">
                 <Image
                   src="/logos/falkirk-council-logo.svg"
                   alt="Falkirk Council"
@@ -535,20 +535,20 @@ export default function HomePage() {
                   className="object-contain"
                 />
               </div>
-              <div>
-                <h3 className="text-3xl lg:text-4xl font-serif font-semibold mb-4 text-neutral-900">
-                  Serving Falkirk & Surrounding Areas
-                </h3>
-                <p className="text-lg text-neutral-700 leading-relaxed max-w-2xl">
-                  We proudly provide care services in Falkirk, Denny, Larbert, Grangemouth, Linlithgow and more areas coming soon.
-                </p>
-              </div>
+              <Link href="/service-areas">
+                <Button variant="outline" size="md" className="shadow-lg hover:shadow-xl transition-all border-2" rightIcon={<ArrowRight className="w-4 h-4" />}>
+                  View Service Areas
+                </Button>
+              </Link>
             </div>
-            <Link href="/service-areas">
-              <Button variant="outline" size="lg" className="shadow-lg hover:shadow-xl transition-all border-2" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                View Service Areas
-              </Button>
-            </Link>
+            <div className="max-w-2xl">
+              <h3 className="text-2xl lg:text-3xl font-semibold text-neutral-900 mb-3">
+                Serving Falkirk & Surrounding Areas
+              </h3>
+              <p className="text-lg text-neutral-700 leading-relaxed">
+                We proudly provide care services in Falkirk, Denny, Larbert, Grangemouth, Linlithgow and more areas coming soon.
+              </p>
+            </div>
           </div>
         </div>
       </section>
