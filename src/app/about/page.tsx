@@ -229,114 +229,34 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Accreditation & Service Areas - Combined Section */}
+      {/* Service Areas Section */}
       <section className="py-20 bg-gradient-to-r from-primary-50 via-primary-100/50 to-primary-50 border-y-2 border-primary-200">
         <div className="container-custom">
-          {/* Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {/* Care Inspectorate Logo */}
-            <a 
-              href="https://www.careinspectorate.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="relative w-full h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6 overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
-                <img
-                  src="/logos/care-inspectorate-logo.png"
-                  alt="Care Inspectorate Registered"
-                  className="max-w-full max-h-full object-contain"
-                  style={{ width: 'auto', height: 'auto', maxWidth: '140px', maxHeight: '70px' }}
-                />
-              </div>
-            </a>
-
-            {/* Falkirk Council Logo */}
-            <a 
-              href="https://www.falkirk.gov.uk/social-care/care-and-support-at-home" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="relative w-full h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6 overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
-                <img
-                  src="/logos/falkirk-council-logo.svg"
-                  alt="Falkirk Council"
-                  className="max-w-full max-h-full object-contain"
-                  style={{ width: 'auto', height: 'auto', maxWidth: '140px', maxHeight: '70px' }}
-                />
-              </div>
-            </a>
-
-            {/* SSSC Logo */}
-            <a 
-              href="https://www.sssc.uk.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="relative w-full h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6 overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
-                <img
-                  src="/logos/sssc-logo.png"
-                  alt="SSSC Registered"
-                  className="max-w-full max-h-full object-contain"
-                  style={{ width: 'auto', height: 'auto', maxWidth: '140px', maxHeight: '70px' }}
-                />
-              </div>
-            </a>
-
-            {/* PVG Logo */}
-            <a 
-              href="https://www.mygov.scot/organisations/disclosure-scotland" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group"
-            >
-              <div className="relative w-full h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6 overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
-                <img
-                  src="/logos/pvg-logo.png"
-                  alt="PVG Checked - Disclosure Scotland"
-                  className="max-w-full max-h-full object-contain"
-                  style={{ width: 'auto', height: 'auto', maxWidth: '140px', maxHeight: '70px' }}
-                />
-              </div>
-            </a>
-          </div>
-
-          {/* Content Section */}
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left Column - Registration Info */}
-            <div>
-              <h3 className="text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                Registered with the Care Inspectorate
-              </h3>
-              <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                Revival Care Solutions is proudly registered with the Care Inspectorate, 
-                ensuring we meet Scotland&apos;s national care standards for quality and safety.
-              </p>
-              <p className="text-lg text-neutral-700 leading-relaxed">
-                Our carers are <strong>SSSC registered</strong>, demonstrating their commitment to 
-                professional standards and continuous development in social care.
-              </p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+            <div className="flex flex-col items-center gap-4">
+              <a 
+                href="https://www.falkirk.gov.uk/social-care/care-and-support-at-home" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <div className="relative w-48 h-32 bg-white rounded-3xl shadow-xl flex items-center justify-center border-2 border-primary-200 ring-4 ring-primary-100 p-6 overflow-hidden hover:shadow-2xl transition-all cursor-pointer">
+                  <img
+                    src="/logos/falkirk-council-logo.svg"
+                    alt="Falkirk Council"
+                    className="max-w-full max-h-full object-contain"
+                    style={{ width: 'auto', height: 'auto', maxWidth: '140px', maxHeight: '70px' }}
+                  />
+                </div>
+              </a>
             </div>
-
-            {/* Right Column - Service Areas & PVG Info */}
-            <div>
+            <div className="max-w-2xl">
               <h3 className="text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                 Serving Falkirk & Surrounding Areas
               </h3>
-              <p className="text-lg text-neutral-700 leading-relaxed mb-6">
+              <p className="text-lg text-neutral-700 leading-relaxed">
                 We proudly provide care services in Falkirk, Denny, Larbert, Grangemouth, Linlithgow and more areas coming soon.
               </p>
-              <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                All our carers are <strong>Protecting Vulnerable Groups (PVG) checked</strong> with 
-                Disclosure Scotland, ensuring the highest levels of safety and protection for our clients.
-              </p>
-              <Link href="/service-areas">
-                <Button variant="outline" size="md" className="shadow-lg hover:shadow-xl transition-all border-2" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                  View Service Areas
-                </Button>
-              </Link>
             </div>
           </div>
         </div>
