@@ -37,8 +37,8 @@ const benefits = [
   },
   {
     icon: Shield,
-    title: 'Insurance Options',
-    description: 'Health, dental, and vision insurance available for eligible employees.',
+    title: 'Benefits Package',
+    description: 'Comprehensive benefits package available for eligible employees including pension contributions and other benefits.',
   },
   {
     icon: Heart,

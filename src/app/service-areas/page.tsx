@@ -51,9 +51,11 @@ export default function ServiceAreasPage() {
                   Schedule Free Consultation
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
-                07544 152585
-              </Button>
+              <a href="tel:+4413124868987">
+                <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
+                  013124 868987
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -201,7 +203,7 @@ export default function ServiceAreasPage() {
                   </Link>
                 </div>
                 <p className="text-sm text-neutral-600 mt-4 text-center">
-                  Or call <a href="tel:+447544152585" className="text-primary-600 font-medium">07544 152585</a>
+                  Or call <a href="tel:+4413124868987" className="text-primary-600 font-medium">013124 868987</a>
                 </p>
               </Card>
             </div>
@@ -276,7 +278,7 @@ export default function ServiceAreasPage() {
                 leftIcon={<Phone className="w-5 h-5" />}
                 className="border-white text-white hover:bg-white/10"
               >
-                07544 152585
+                013124 868987
               </Button>
             </div>
           </div>

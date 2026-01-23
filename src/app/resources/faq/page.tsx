@@ -33,7 +33,7 @@ const faqs = [
     questions: [
       {
         q: 'How do I get started with Revival Care?',
-        a: 'Getting started is easy! Simply call us at 07544 152585 or fill out our online contact form. We\'ll schedule a free, no-obligation consultation to assess your needs and create a personalized care plan. Most families can begin receiving care within 24-48 hours of the assessment.',
+        a: 'Getting started is easy! Simply call us at 013124 868987 or fill out our online contact form. We\'ll schedule a free, no-obligation consultation to assess your needs and create a personalized care plan. Most families can begin receiving care within 24-48 hours of the assessment.',
       },
       {
         q: 'What happens during the initial assessment?',
@@ -45,7 +45,7 @@ const faqs = [
       },
       {
         q: 'What areas do you serve?',
-        a: 'We proudly serve the entire metropolitan area and surrounding counties. Visit our Service Areas page for a complete list of communities we cover. If you\'re unsure if we serve your area, please call us and we\'ll let you know.',
+        a: 'We proudly serve Falkirk and surrounding areas including Denny, Larbert, Grangemouth, Linlithgow and more. Visit our Service Areas page for a complete list of communities we cover. If you\'re unsure if we serve your area, please call us and we\'ll let you know.',
       },
     ],
   },
@@ -54,11 +54,11 @@ const faqs = [
     questions: [
       {
         q: 'What is the cost of home care services?',
-        a: 'Costs vary based on the level of care needed, hours of service, and specific requirements. We provide transparent pricing during your free consultation. On average, hourly rates range from $25-$45 depending on the type of care required.',
+        a: 'Costs vary based on the level of care needed, hours of service, and specific requirements. We provide transparent pricing during your free consultation. Please contact us for current rates as pricing depends on the type of care required.',
       },
       {
-        q: 'Does Medicare cover home care services?',
-        a: 'Medicare typically covers skilled nursing care and therapy services prescribed by a doctor, but not custodial care (help with daily activities). We can help you understand what coverage you may have and explore all available options.',
+        q: 'Does the NHS cover home care services?',
+        a: 'The NHS may cover some home care services if prescribed by a GP or healthcare professional, but typically not routine personal care or companionship services. We can help you understand what coverage you may have through the NHS, local authority funding, or other available options.',
       },
       {
         q: 'Do you accept long-term care insurance?',
@@ -70,7 +70,7 @@ const faqs = [
       },
       {
         q: 'What payment methods do you accept?',
-        a: 'We accept various payment methods including private pay (credit card, check, ACH transfer), long-term care insurance, veterans benefits (Aid & Attendance), and Medicaid waiver programs in some areas.',
+        a: 'We accept various payment methods including private pay (credit card, bank transfer, cheque), long-term care insurance, and local authority funding where applicable. We can help you explore all available funding options during your consultation.',
       },
     ],
   },
@@ -79,11 +79,11 @@ const faqs = [
     questions: [
       {
         q: 'How do you screen your caregivers?',
-        a: 'All caregivers undergo comprehensive screening including criminal background checks at federal, state, and county levels, drug testing, reference verification, credential verification, and in-depth interviews. Only about 1 in 10 applicants are accepted.',
+        a: 'All caregivers undergo comprehensive screening including PVG (Protecting Vulnerable Groups) checks through Disclosure Scotland, SSSC registration verification, reference checks, qualification verification, and in-depth interviews. Only about 1 in 10 applicants are accepted.',
       },
       {
         q: 'Are your caregivers employees or contractors?',
-        a: 'All our caregivers are W-2 employees of Revival Care, not independent contractors. This means they are fully insured, bonded, and covered by workers\' compensation. We handle all taxes, training, and supervision.',
+        a: 'All our caregivers are employees of Revival Care, not independent contractors. This means they are fully insured and covered by employers\' liability insurance. We handle all tax and National Insurance contributions, training, and supervision.',
       },
       {
         q: 'What if my caregiver is sick or unavailable?',
@@ -108,7 +108,7 @@ const faqs = [
       },
       {
         q: 'Do you provide medical care or nursing services?',
-        a: 'Our caregivers provide non-medical assistance with daily activities. For medical care, we can coordinate with home health agencies that provide skilled nursing. Some of our caregivers are also CNAs or have nursing backgrounds.',
+        a: 'Our caregivers provide non-medical assistance with daily activities. For medical care, we can coordinate with NHS community nursing services or private nursing agencies that provide skilled nursing. Some of our caregivers have healthcare assistant qualifications or nursing backgrounds.',
       },
       {
         q: 'Can caregivers administer medications?',
@@ -128,8 +128,8 @@ const faqs = [
     category: 'safety-quality',
     questions: [
       {
-        q: 'Are you licensed and insured?',
-        a: 'Yes, Revival Care Solutions is fully licensed by the state as a home care agency. We carry comprehensive general liability insurance and workers\' compensation coverage. All caregivers are bonded for your protection.',
+        q: 'Are you registered and insured?',
+        a: 'Yes, Revival Care Solutions is registered with the Care Inspectorate as a home care agency. We carry comprehensive public liability insurance and employers\' liability insurance. All caregivers are fully insured for your protection.',
       },
       {
         q: 'How do you ensure quality of care?',
@@ -141,7 +141,7 @@ const faqs = [
       },
       {
         q: 'How do you protect client privacy?',
-        a: 'We take privacy seriously and comply with all applicable privacy laws. All caregivers sign confidentiality agreements, and we never share client information without consent. Our systems are secure and HIPAA-compliant.',
+        a: 'We take privacy seriously and comply with all applicable data protection laws including UK GDPR. All caregivers sign confidentiality agreements, and we never share client information without consent. Our systems are secure and comply with UK data protection regulations.',
       },
     ],
   },
@@ -320,9 +320,9 @@ export default function FAQPage() {
                   Contact Us
                 </Button>
               </Link>
-              <a href="tel:+447544152585">
+              <a href="tel:+4413124868987">
                 <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
-                  07544 152585
+                  013124 868987
                 </Button>
               </a>
             </div>

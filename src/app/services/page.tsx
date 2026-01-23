@@ -56,7 +56,7 @@ const services = [
     icon: Pill,
     title: 'Medication Management',
     shortDescription: 'Careful medication reminders and assistance to ensure proper adherence.',
-    fullDescription: 'Managing multiple medications can be challenging. Our caregivers provide reliable medication reminders and assist with organizing prescriptions, helping ensure your loved one stays on track with their health regimen.',
+    fullDescription: 'Managing multiple medications can be challenging. Our caregivers provide reliable medication reminders, helping ensure your loved one stays on track with their health regimen.',
     features: [
       'Medication reminders and prompts',
     ],
@@ -129,9 +129,11 @@ export default function ServicesPage() {
               <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
                 Schedule Free Assessment
               </Button>
-              <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
-                07544 152585
-              </Button>
+              <a href="tel:+4413124868987">
+                <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
+                  013124 868987
+                </Button>
+              </a>
             </div>
           </div>
         </div>

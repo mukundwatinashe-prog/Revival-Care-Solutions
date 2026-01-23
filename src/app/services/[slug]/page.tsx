@@ -118,7 +118,6 @@ const servicesData: Record<string, ServiceData> = {
     ],
     faqs: [
       { question: 'Can caregivers administer medications?', answer: 'Caregivers can remind and prompt clients to take medications and assist with organizing pills, but they cannot administer medications. This task is performed by the client themselves.' },
-      { question: 'How do you handle prescription refills?', answer: 'We can coordinate with pharmacies to ensure timely refills and can pick up prescriptions or arrange delivery as needed.' },
       { question: 'What if there\'s a medication emergency?', answer: 'Caregivers are trained to recognize signs of adverse reactions and will immediately contact emergency services and family members if needed.' },
     ],
     color: 'accent',
@@ -383,9 +382,9 @@ export default async function ServicePage({ params }: PageProps) {
                       Free Consultation
                     </Button>
                   </Link>
-                  <a href="tel:+447544152585">
+                  <a href="tel:+4413124868987">
                     <Button variant="outline" fullWidth leftIcon={<Phone className="w-4 h-4" />}>
-                      07544 152585
+                      013124 868987
                     </Button>
                   </a>
                 </div>
@@ -442,14 +441,14 @@ export default async function ServicePage({ params }: PageProps) {
                   Schedule Consultation
                 </Button>
               </Link>
-              <a href="tel:+447544152585">
+              <a href="tel:+4413124868987">
                 <Button 
                   variant="outline" 
                   size="lg" 
                   leftIcon={<Phone className="w-5 h-5" />}
                   className="border-white text-white hover:bg-white/10"
                 >
-                  07544 152585
+                  013124 868987
                 </Button>
               </a>
             </div>

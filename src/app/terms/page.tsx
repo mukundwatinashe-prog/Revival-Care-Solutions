@@ -120,8 +120,8 @@ export default function TermsPage() {
 
             <h2>Governing Law</h2>
             <p>
-              These Terms of Service are governed by the laws of the state where Revival Care 
-              Solutions is headquartered, without regard to conflict of law principles.
+              These Terms of Service are governed by the laws of Scotland and the United Kingdom, 
+              without regard to conflict of law principles.
             </p>
 
             <h2>Changes to Terms</h2>
@@ -135,8 +135,8 @@ export default function TermsPage() {
               For questions about these Terms of Service, please contact us:
             </p>
             <ul>
-              <li>Email: legal@revivalcare.com</li>
-              <li>Phone: 1-800-555-CARE</li>
+              <li>Email: milton@revivalcare.co.uk</li>
+              <li>Phone: 013124 868987</li>
               <li>Address: Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</li>
             </ul>
           </div>

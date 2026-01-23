@@ -73,11 +73,12 @@ export default function PrivacyPage() {
               <li>Legal authorities when required by law</li>
             </ul>
 
-            <h2>HIPAA Compliance</h2>
+            <h2>Data Protection Compliance</h2>
             <p>
-              To the extent we handle Protected Health Information (PHI), we comply with the 
-              Health Insurance Portability and Accountability Act (HIPAA). We maintain appropriate 
-              safeguards to protect PHI and limit its use and disclosure as required by law.
+              We comply with UK GDPR (General Data Protection Regulation) and the Data Protection Act 2018. 
+              We maintain appropriate safeguards to protect personal and health information and limit its use 
+              and disclosure as required by law. All sensitive information is handled in accordance with 
+              UK data protection regulations.
             </p>
 
             <h2>Data Security</h2>
@@ -120,8 +121,8 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy or our practices, please contact us:
             </p>
             <ul>
-              <li>Email: privacy@revivalcare.com</li>
-              <li>Phone: 1-800-555-CARE</li>
+              <li>Email: milton@revivalcare.co.uk</li>
+              <li>Phone: 013124 868987</li>
               <li>Address: Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</li>
             </ul>
           </div>

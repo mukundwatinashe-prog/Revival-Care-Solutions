@@ -90,9 +90,11 @@ export default function AboutPage() {
                 <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
                   Meet Our Team
                 </Button>
-                <Button variant="outline" size="lg">
-                  Our Services
-                </Button>
+                <Link href="/services">
+                  <Button variant="outline" size="lg">
+                    Our Services
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="relative">

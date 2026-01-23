@@ -145,7 +145,7 @@ export default function ConsultationPage() {
                       </Link>
                       <Button 
                         leftIcon={<Phone className="w-4 h-4" />}
-                        onClick={() => window.location.href = 'tel:+447544152585'}
+                        onClick={() => window.location.href = 'tel:+4413124868987'}
                       >
                         Call Us Now
                       </Button>
@@ -371,14 +371,14 @@ export default function ConsultationPage() {
                 </p>
                 <div className="space-y-4">
                   <a 
-                    href="tel:+447544152585" 
+                    href="tel:+4413124868987" 
                     className="flex items-center gap-3 p-4 rounded-xl bg-primary-50 hover:bg-primary-100 transition-colors"
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center">
                       <Phone className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <div className="font-semibold text-neutral-900">07544 152585</div>
+                      <div className="font-semibold text-neutral-900">013124 868987</div>
                       <div className="text-sm text-neutral-500">Call us anytime</div>
                     </div>
                   </a>

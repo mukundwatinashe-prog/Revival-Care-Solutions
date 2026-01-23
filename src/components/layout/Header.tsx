@@ -78,11 +78,11 @@ export function Header() {
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a 
-              href="tel:+447544152585" 
+              href="tel:+4413124868987" 
               className="flex items-center gap-2.5 !text-white hover:!text-white/90 transition-all font-medium"
             >
               <Phone className="w-4 h-4 text-white" />
-              <span className="hidden sm:inline text-white">07544 152585</span>
+              <span className="hidden sm:inline text-white">013124 868987</span>
               <span className="sm:hidden text-white">Call Us</span>
             </a>
             <div className="hidden md:flex items-center gap-2.5">
@@ -292,7 +292,7 @@ export function Header() {
                       Free Consultation
                     </Button>
                   </Link>
-                  <a href="tel:+447544152585">
+                  <a href="tel:+4413124868987">
                     <Button variant="primary" fullWidth leftIcon={<Phone className="w-4 h-4" />}>
                       Call Now
                     </Button>
@@ -301,11 +301,11 @@ export function Header() {
 
                 <div className="mt-8 pt-6 border-t border-neutral-200">
                   <a
-                    href="tel:+447544152585"
+                    href="tel:+4413124868987"
                     className="flex items-center gap-3 text-primary-600 font-medium"
                   >
                     <Phone className="w-5 h-5" />
-                    07544 152585
+                    013124 868987
                   </a>
                   <p className="mt-2 text-sm text-neutral-500">
                     Available 24 hours a day, 7 days a week

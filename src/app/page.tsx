@@ -118,14 +118,16 @@ export default function HomePage() {
                     Schedule Free Consultation
                   </Button>
                 </Link>
-                <Button 
-                  variant="outline" 
-                  size="xl"
-                  className="border-2 hover:bg-primary-50 transition-all"
-                  leftIcon={<Phone className="w-5 h-5" />}
-                >
-                  07544 152585
-                </Button>
+                <a href="tel:+4413124868987">
+                  <Button 
+                    variant="outline" 
+                    size="xl"
+                    className="border-2 hover:bg-primary-50 transition-all"
+                    leftIcon={<Phone className="w-5 h-5" />}
+                  >
+                    013124 868987
+                  </Button>
+                </a>
               </div>
 
               {/* Enhanced Trust Indicators */}
@@ -422,14 +424,16 @@ export default function HomePage() {
                   Schedule Free Consultation
                 </Button>
               </Link>
-              <Button 
-                variant="outline" 
-                size="xl"
-                leftIcon={<Phone className="w-5 h-5" />}
-                className="border-2 border-white/80 text-white hover:bg-white/20 backdrop-blur-sm shadow-xl"
-              >
-                07544 152585
-              </Button>
+              <a href="tel:+4413124868987">
+                <Button 
+                  variant="outline" 
+                  size="xl"
+                  leftIcon={<Phone className="w-5 h-5" />}
+                  className="border-2 border-white/80 text-white hover:bg-white/20 backdrop-blur-sm shadow-xl"
+                >
+                  013124 868987
+                </Button>
+              </a>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-white/90 text-sm">
@@ -466,7 +470,7 @@ export default function HomePage() {
               {
                 icon: Shield,
                 title: 'Fully Vetted Caregivers',
-                description: 'Comprehensive background checks, drug screening, and reference verification for every caregiver.',
+                description: 'Comprehensive background checks including PVG checks through Disclosure Scotland, SSSC registration verification, and reference checks for every caregiver.',
               },
               {
                 icon: Award,
