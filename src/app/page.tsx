@@ -173,7 +173,7 @@ export default function HomePage() {
               {/* Desktop: Enhanced Image Collage */}
               <div className="relative hidden lg:block w-full aspect-square max-w-xl mx-auto">
                 {/* Main image - Larger and more prominent */}
-                <div className="absolute top-0 right-0 w-[75%] h-[75%] rounded-[2rem] overflow-hidden shadow-2xl ring-4 ring-white/80 z-10">
+                <div className="absolute top-0 right-0 w-[65%] h-[65%] rounded-[2rem] overflow-hidden shadow-2xl ring-4 ring-white/80 z-10">
                   <Image
                     src="/images/caregiver-elderly-couple.jpg"
                     alt="Caregiver assisting elderly couple with coloring"
@@ -185,7 +185,7 @@ export default function HomePage() {
                 </div>
                 
                 {/* Secondary image - Enhanced styling */}
-                <div className="absolute bottom-0 left-0 w-[60%] h-[60%] rounded-[2rem] overflow-hidden shadow-2xl ring-4 ring-white/80">
+                <div className="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-[2rem] overflow-hidden shadow-2xl ring-4 ring-white/80 z-0">
                   <Image
                     src="/images/nurse-laughing.jpg"
                     alt="Two women laughing together indoors"
