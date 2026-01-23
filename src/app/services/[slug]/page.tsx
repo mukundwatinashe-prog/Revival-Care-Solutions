@@ -106,7 +106,7 @@ const servicesData: Record<string, ServiceData> = {
     heroDescription: 'Ensure medication adherence and safety with our comprehensive medication management services that provide reminders, organization, and monitoring.',
     fullDescription: [
       'Managing multiple medications can be overwhelming and confusing, especially for seniors with complex health conditions. Our medication management services help ensure medications are taken correctly and on time.',
-      'Our caregivers provide reliable medication reminders, help organize prescriptions, and maintain detailed logs to share with healthcare providers. While we cannot administer medications, we provide the support needed for successful medication adherence.',
+      'Our caregivers provide reliable medication reminders. While we cannot administer medications, we provide the support needed for successful medication adherence.',
     ],
     features: [
       'Medication reminders and prompts',
