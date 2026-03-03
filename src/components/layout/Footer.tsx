@@ -110,11 +110,11 @@ export function Footer() {
                 </div>
                 <span className="font-medium text-lg">01324868987</span>
               </a>
-              <a href="mailto:info@Revivalcare.co.uk" className="flex items-center gap-4 text-white hover:text-secondary-300 transition-all group">
+              <a href="mailto:info@revivalcare.co.uk" className="flex items-center gap-4 text-white hover:text-secondary-300 transition-all group">
                 <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center group-hover:bg-secondary-600 transition-all">
                   <Mail className="w-5 h-5 text-secondary-400 group-hover:text-white transition-colors" />
                 </div>
-                <span className="font-medium">info@Revivalcare.co.uk</span>
+                <span className="font-medium">info@revivalcare.co.uk</span>
               </a>
               <div className="flex items-start gap-4 text-white/90">
                 <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center flex-shrink-0">

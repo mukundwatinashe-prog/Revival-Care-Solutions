@@ -135,7 +135,7 @@ export default function TermsPage() {
               For questions about these Terms of Service, please contact us:
             </p>
             <ul>
-              <li>Email: info@Revivalcare.co.uk</li>
+              <li>Email: info@revivalcare.co.uk</li>
               <li>Phone: 01324868987</li>
               <li>Address: Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</li>
             </ul>

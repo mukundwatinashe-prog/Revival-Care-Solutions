@@ -384,7 +384,7 @@ export default function ConsultationPage() {
                   </a>
 
                   <a 
-                    href="mailto:info@Revivalcare.co.uk" 
+                    href="mailto:info@revivalcare.co.uk" 
                     className="flex items-center gap-3 p-4 rounded-xl bg-secondary-50 hover:bg-secondary-100 transition-colors"
                   >
                     <div className="w-10 h-10 rounded-lg bg-secondary-600 flex items-center justify-center">
@@ -392,7 +392,7 @@ export default function ConsultationPage() {
                     </div>
                     <div>
                       <div className="font-semibold text-neutral-900">Email Us</div>
-                      <div className="text-sm text-neutral-500">info@Revivalcare.co.uk</div>
+                      <div className="text-sm text-neutral-500">info@revivalcare.co.uk</div>
                     </div>
                   </a>
                 </div>

@@ -19,7 +19,7 @@ The consultation and contact forms were not sending emails because the `WEB3FORM
 ### Step 1: Get Your Web3Forms Access Key
 
 1. Visit: https://web3forms.com/
-2. Enter your email: `info@Revivalcare.co.uk`
+2. Enter your email: `info@revivalcare.co.uk`
 3. Click "Get Access Key"
 4. Copy the access key (it will look like: `abc123-def456-ghi789`)
 
@@ -53,7 +53,7 @@ The consultation and contact forms were not sending emails because the `WEB3FORM
 ### Step 4: Verify It's Working
 
 1. Submit a test form on `/contact` or `/consultation`
-2. Check your email inbox at `info@Revivalcare.co.uk`
+2. Check your email inbox at `info@revivalcare.co.uk`
 3. Check spam folder if you don't see it
 4. Check server logs (Vercel logs or your hosting platform logs) for any errors
 
@@ -61,7 +61,7 @@ The consultation and contact forms were not sending emails because the `WEB3FORM
 
 After setting up the key:
 - Forms should show "Consultation request submitted successfully!" on success
-- You should receive emails at `info@Revivalcare.co.uk`
+- You should receive emails at `info@revivalcare.co.uk`
 - Server logs should show "✅ Email sent successfully"
 
 ## Troubleshooting
@@ -102,7 +102,7 @@ This will show if the environment variable is detected.
 1. **Check Environment Variable**: Verify `WEB3FORMS_ACCESS_KEY` is set correctly
 2. **Check Server Logs**: Look for error messages in your hosting platform logs
 3. **Check Spam Folder**: Emails might be going to spam
-4. **Verify Web3Forms Account**: Make sure the email `info@Revivalcare.co.uk` is verified in Web3Forms
+4. **Verify Web3Forms Account**: Make sure the email `info@revivalcare.co.uk` is verified in Web3Forms
 5. **Check Rate Limits**: Web3Forms has rate limits - if you've sent too many, wait a bit
 6. **Verify Redeploy**: Make sure you redeployed after adding the variable
 

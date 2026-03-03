@@ -35,8 +35,8 @@ const contactMethods = [
     icon: Mail,
     title: 'Email',
     description: 'Send us a message anytime',
-    value: 'info@Revivalcare.co.uk',
-    href: 'mailto:info@Revivalcare.co.uk',
+    value: 'info@revivalcare.co.uk',
+    href: 'mailto:info@revivalcare.co.uk',
     action: 'Email Us',
     isScroll: false,
   },
@@ -54,7 +54,7 @@ const contactMethods = [
 const officeInfo = {
   address: 'Office 3 Marchmont Avenue\nPolmont, Falkirk, FK2 0NZ',
   phone: '01324868987',
-  email: 'info@Revivalcare.co.uk',
+  email: 'info@revivalcare.co.uk',
   hours: [
     { day: 'Monday - Friday', hours: '9:00 AM - 5:30 PM' },
     { day: 'Saturday - Sunday', hours: 'Closed' },
