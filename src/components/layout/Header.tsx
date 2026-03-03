@@ -75,8 +75,8 @@ export function Header() {
     <>
       {/* Top Bar - Modern Redesign */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-2.5 px-4 shadow-md">
-        <div className="container-custom flex justify-between items-center text-sm">
-          <div className="flex items-center gap-6">
+        <div className="container-custom flex flex-wrap justify-between items-center gap-3 text-sm">
+          <div className="flex items-center gap-4 sm:gap-6">
             <a 
               href="tel:+441324868987" 
               className="flex items-center gap-2.5 !text-white hover:!text-white/90 transition-all font-medium"
@@ -114,8 +114,8 @@ export function Header() {
         <div className="container-custom">
           <nav className="flex items-center justify-between">
             {/* Logo - Enhanced */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-lg">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+              <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-lg">
                 <Image
                   src="/logo.png"
                   alt="Revival Care Solutions"

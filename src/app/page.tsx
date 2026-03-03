@@ -85,30 +85,30 @@ export default function HomePage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-300/10 rounded-full blur-[150px]" />
         </div>
 
-        <div className="container-custom relative z-10 py-24 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="container-custom relative z-10 py-16 sm:py-20 md:py-24 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Content - Enhanced */}
-            <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6 sm:space-y-8 animate-fade-in">
               <div className="inline-block">
-                <Badge variant="primary" size="lg" className="mb-6 shadow-lg">
+                <Badge variant="primary" size="lg" className="mb-4 sm:mb-6 shadow-lg">
                   Compassionate Home Care Services
                 </Badge>
               </div>
               
-              <h1 className="text-balance mb-6 leading-tight">
+              <h1 className="text-balance mb-4 sm:mb-6 leading-tight">
                 Compassionate Care for{' '}
                 <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-secondary-600 to-secondary-500">
                   Your Loved Ones
                 </span>
           </h1>
               
-              <p className="text-xl lg:text-2xl text-neutral-700 mb-10 max-w-lg leading-relaxed font-light">
+              <p className="text-lg sm:text-xl lg:text-2xl text-neutral-700 mb-8 sm:mb-10 max-w-lg leading-relaxed font-light">
                 Professional, personalized home care services that help seniors 
                 maintain independence and dignity while providing families with 
                 peace of mind.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12">
                 <Link href="/consultation">
                   <Button 
                     size="xl" 
@@ -224,17 +224,17 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section - Modern Redesign */}
-      <section className="py-16 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNGMwIDMuMzE0LTIuNjg2IDYtNiA2cy02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiA2IDIuNjg2IDYgNnoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L2c+PC9zdmc+')] opacity-20"></div>
         <div className="container-custom relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center group">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm mb-6 group-hover:bg-white/20 transition-all shadow-lg">
-                  <stat.icon className="w-8 h-8 text-white" />
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-sm mb-4 sm:mb-6 group-hover:bg-white/20 transition-all shadow-lg">
+                  <stat.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <div className="text-5xl font-bold text-white mb-2" style={{ color: 'white' }}>{stat.value}</div>
-                <div className="text-white/90 font-medium" style={{ color: 'rgba(255,255,255,0.9)' }}>{stat.label}</div>
+                <div className="text-4xl sm:text-5xl font-bold text-white mb-1 sm:mb-2" style={{ color: 'white' }}>{stat.value}</div>
+                <div className="text-sm sm:text-base text-white/90 font-medium" style={{ color: 'rgba(255,255,255,0.9)' }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -242,18 +242,18 @@ export default function HomePage() {
       </section>
 
       {/* Services Section - Modern Redesign */}
-      <section className="py-28 bg-gradient-to-b from-white via-neutral-50 to-white">
+      <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white via-neutral-50 to-white">
         <div className="container-custom">
-          <div className="text-center mb-20">
-            <Badge variant="primary" className="mb-6 shadow-md">Our Services</Badge>
-            <h2 className="mb-6 text-4xl lg:text-5xl">Comprehensive Care Services</h2>
-            <p className="text-xl lg:text-2xl text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+          <div className="text-center mb-12 md:mb-16 lg:mb-20">
+            <Badge variant="primary" className="mb-4 sm:mb-6 shadow-md">Our Services</Badge>
+            <h2 className="mb-4 sm:mb-6 text-3xl sm:text-4xl lg:text-5xl">Comprehensive Care Services</h2>
+            <p className="text-lg sm:text-xl lg:text-2xl text-neutral-700 max-w-3xl mx-auto leading-relaxed px-0">
               From personal care to companionship, we offer a full range of services 
               tailored to meet the unique needs of each individual.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service) => (
               <Card key={service.title} hover variant="elevated" className="h-full group border border-neutral-100 hover:border-primary-200 transition-all duration-300">
                 <div className={`
@@ -292,9 +292,9 @@ export default function HomePage() {
       </section>
 
       {/* About/Values Section - Modern Redesign */}
-      <section className="py-28 bg-white">
+      <section className="py-16 md:py-20 lg:py-28 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Enhanced Image Grid */}
             <div className="relative">
               <div className="grid grid-cols-2 gap-5">
@@ -394,7 +394,7 @@ export default function HomePage() {
 
 
       {/* CTA Section - Modern Redesign */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-20 md:py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNGMwIDMuMzE0LTIuNjg2IDYtNiA2cy02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiA2IDIuNjg2IDYgNnoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L2c+PC9zdmc+')] opacity-30"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent"></div>
@@ -455,9 +455,9 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us Section - Modern Redesign */}
-      <section className="py-28 bg-gradient-to-b from-neutral-50 to-white">
+      <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-neutral-50 to-white">
         <div className="container-custom">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-16 lg:mb-20">
             <Badge variant="primary" className="mb-6 shadow-md">Why Choose Us</Badge>
             <h2 className="mb-6 text-4xl lg:text-5xl">The Revival Care Difference</h2>
             <p className="text-xl lg:text-2xl text-neutral-700 max-w-3xl mx-auto leading-relaxed">

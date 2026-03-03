@@ -58,13 +58,13 @@ export function Footer() {
       
       {/* Newsletter Section - Enhanced */}
       <div className="border-b border-primary-700/50 relative z-10">
-        <div className="container-custom py-14">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div>
-              <h3 className="font-serif text-3xl font-semibold mb-3">
+        <div className="container-custom py-10 md:py-14">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8">
+            <div className="text-center lg:text-left w-full lg:w-auto">
+              <h3 className="font-serif text-2xl sm:text-3xl font-semibold mb-3">
                 Stay Updated with Care Tips
               </h3>
-              <p className="text-white/90 text-lg">
+              <p className="text-white/90 text-base sm:text-lg">
                 Subscribe to our newsletter for caregiving resources and company updates.
               </p>
             </div>
@@ -84,12 +84,12 @@ export function Footer() {
       </div>
 
       {/* Main Footer Content - Enhanced */}
-      <div className="container-custom py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="container-custom py-12 md:py-20 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
           {/* Brand Column - Enhanced */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-8 group">
-              <div className="relative w-36 h-36 transition-transform group-hover:scale-105">
+            <Link href="/" className="flex items-center gap-3 mb-6 md:mb-8 group">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 transition-transform group-hover:scale-105 flex-shrink-0">
                 <Image
                   src="/logo.png"
                   alt="Revival Care Solutions"
@@ -98,7 +98,7 @@ export function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-white/90 mb-8 max-w-md text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.95)' }}>
+            <p className="text-white/90 mb-6 md:mb-8 max-w-md text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.95)' }}>
               Providing compassionate, professional home care services that enhance the quality 
               of life for seniors and their families. Trusted care since 2023.
             </p>

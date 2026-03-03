@@ -440,13 +440,76 @@ a:not([class*="text-"]):hover {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
 }
 
 @media (min-width: 1024px) {
   .container-custom {
-    padding: 0 var(--space-8);
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
   }
+}
+
+/* Mobile & tablet: prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Touch-friendly: minimum tap target height on key interactive elements */
+@media (pointer: coarse) {
+  button:not([type="checkbox"]):not([type="radio"]),
+  [role="button"],
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Safe area for notched devices (e.g. iPhone) - keep content inside safe area */
+@supports (padding: env(safe-area-inset-top)) {
+  .container-custom {
+    padding-left: max(var(--space-4), env(safe-area-inset-left));
+    padding-right: max(var(--space-4), env(safe-area-inset-right));
+  }
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: max(var(--space-5), env(safe-area-inset-left));
+      padding-right: max(var(--space-5), env(safe-area-inset-right));
+    }
+  }
+  @media (min-width: 768px) {
+    .container-custom {
+      padding-left: max(var(--space-6), env(safe-area-inset-left));
+      padding-right: max(var(--space-6), env(safe-area-inset-right));
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: max(var(--space-8), env(safe-area-inset-left));
+      padding-right: max(var(--space-8), env(safe-area-inset-right));
+    }
+  }
+}
+
+/* Responsive images: prevent overflow */
+img, video {
+  max-width: 100%;
+  height: auto;
 }
 
 .text-balance {
