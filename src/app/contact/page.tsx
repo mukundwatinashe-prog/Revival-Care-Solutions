@@ -23,15 +23,6 @@ const contactMethods = [
     isScroll: false,
   },
   {
-    icon: Phone,
-    title: 'Mobile',
-    description: 'Call our mobile number',
-    value: '01324868987',
-    href: 'tel:+441324868987',
-    action: 'Call Now',
-    isScroll: false,
-  },
-  {
     icon: Mail,
     title: 'Email',
     description: 'Send us a message anytime',
