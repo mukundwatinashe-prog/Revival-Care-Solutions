@@ -118,14 +118,14 @@ export default function HomePage() {
                     Schedule Free Consultation
                   </Button>
                 </Link>
-                <a href="tel:+4413124868987">
+                <a href="tel:+441324868987">
                   <Button 
                     variant="outline" 
                     size="xl"
                     className="border-2 hover:bg-primary-50 transition-all"
                     leftIcon={<Phone className="w-5 h-5" />}
                   >
-                    013124 868987
+                    01324868987
                   </Button>
                 </a>
               </div>
@@ -424,14 +424,14 @@ export default function HomePage() {
                   Schedule Free Consultation
                 </Button>
               </Link>
-              <a href="tel:+4413124868987">
+              <a href="tel:+441324868987">
                 <Button 
                   variant="outline" 
                   size="xl"
                   leftIcon={<Phone className="w-5 h-5" />}
                   className="border-2 border-white/80 text-white hover:bg-white/20 backdrop-blur-sm shadow-xl"
                 >
-                  013124 868987
+                  01324868987
                 </Button>
               </a>
             </div>

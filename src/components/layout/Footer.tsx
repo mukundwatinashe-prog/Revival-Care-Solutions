@@ -104,17 +104,17 @@ export function Footer() {
             </p>
             
             <div className="space-y-5 mb-10">
-              <a href="tel:+4413124868987" className="flex items-center gap-4 text-white hover:text-secondary-300 transition-all group">
+              <a href="tel:+441324868987" className="flex items-center gap-4 text-white hover:text-secondary-300 transition-all group">
                 <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center group-hover:bg-secondary-600 transition-all">
                   <Phone className="w-5 h-5 text-secondary-400 group-hover:text-white transition-colors" />
                 </div>
-                <span className="font-medium text-lg">013124 868987</span>
+                <span className="font-medium text-lg">01324868987</span>
               </a>
-              <a href="tel:+447544152585" className="flex items-center gap-4 text-white hover:text-secondary-300 transition-all group">
+              <a href="tel:+441324868987" className="flex items-center gap-4 text-white hover:text-secondary-300 transition-all group">
                 <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center group-hover:bg-secondary-600 transition-all">
                   <Phone className="w-5 h-5 text-secondary-400 group-hover:text-white transition-colors" />
                 </div>
-                <span className="font-medium text-lg">07544 152585</span>
+                <span className="font-medium text-lg">01324868987</span>
               </a>
               <a href="mailto:milton@revivalcare.co.uk" className="flex items-center gap-4 text-white hover:text-secondary-300 transition-all group">
                 <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center group-hover:bg-secondary-600 transition-all">

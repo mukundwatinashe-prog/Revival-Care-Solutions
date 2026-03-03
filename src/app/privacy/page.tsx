@@ -122,7 +122,7 @@ export default function PrivacyPage() {
             </p>
             <ul>
               <li>Email: milton@revivalcare.co.uk</li>
-              <li>Phone: 013124 868987</li>
+              <li>Phone: 01324868987</li>
               <li>Address: Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</li>
             </ul>
           </div>

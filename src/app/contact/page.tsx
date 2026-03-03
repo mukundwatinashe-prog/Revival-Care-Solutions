@@ -17,8 +17,8 @@ const contactMethods = [
     icon: Phone,
     title: 'Phone',
     description: 'Speak with a care coordinator',
-    value: '013124 868987',
-    href: 'tel:+4413124868987',
+    value: '01324868987',
+    href: 'tel:+441324868987',
     action: 'Call Now',
     isScroll: false,
   },
@@ -26,8 +26,8 @@ const contactMethods = [
     icon: Phone,
     title: 'Mobile',
     description: 'Call our mobile number',
-    value: '07544 152585',
-    href: 'tel:+447544152585',
+    value: '01324868987',
+    href: 'tel:+441324868987',
     action: 'Call Now',
     isScroll: false,
   },
@@ -53,7 +53,7 @@ const contactMethods = [
 
 const officeInfo = {
   address: 'Office 3 Marchmont Avenue\nPolmont, Falkirk, FK2 0NZ',
-  phone: '013124 868987',
+  phone: '01324868987',
   email: 'milton@revivalcare.co.uk',
   hours: [
     { day: 'Monday - Friday', hours: '9:00 AM - 5:30 PM' },
@@ -236,7 +236,7 @@ export default function ContactPage() {
                       }}>
                         Send Another Message
                       </Button>
-                      <a href="tel:+447544152585">
+                      <a href="tel:+441324868987">
                         <Button leftIcon={<Phone className="w-4 h-4" />}>
                           Call Us Now
                         </Button>
@@ -421,10 +421,10 @@ export default function ContactPage() {
                       </a>
                       <br />
                       <a 
-                        href="tel:+4413124868987"
+                        href="tel:+441324868987"
                         className="text-primary-600 hover:underline text-sm"
                       >
-                        013124 868987
+                        01324868987
                       </a>
                     </div>
                   </div>
@@ -496,13 +496,13 @@ export default function ContactPage() {
               Our care coordinators are standing by to answer your questions 
               and help you get started with a free consultation.
             </p>
-            <a href="tel:+4413124868987">
+            <a href="tel:+441324868987">
               <Button 
                 variant="secondary" 
                 size="xl" 
                 leftIcon={<Phone className="w-5 h-5" />}
               >
-                Call 013124 868987
+                Call 01324868987
               </Button>
             </a>
           </div>

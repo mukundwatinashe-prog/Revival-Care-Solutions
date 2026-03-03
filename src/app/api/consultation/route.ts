@@ -186,7 +186,7 @@ Please respond within 24 hours.
       // Return error so user knows something went wrong
       return NextResponse.json({ 
         success: false,
-        error: 'Email service is not configured. Please contact us directly at milton@revivalcare.co.uk or call 013124 868987.',
+        error: 'Email service is not configured. Please contact us directly at milton@revivalcare.co.uk or call 01324868987.',
         message: 'There was an issue sending your request. Please contact us directly.' 
       }, { status: 500 });
     }
@@ -235,7 +235,7 @@ Please respond within 24 hours.
         // Return error so user knows something went wrong
         return NextResponse.json({ 
           success: false,
-          error: 'Failed to send email. Please contact us directly at milton@revivalcare.co.uk or call 013124 868987.',
+          error: 'Failed to send email. Please contact us directly at milton@revivalcare.co.uk or call 01324868987.',
           message: 'There was an issue sending your request. Please contact us directly.' 
         }, { status: 500 });
       }
@@ -254,7 +254,7 @@ Please respond within 24 hours.
       
       return NextResponse.json({ 
         success: false,
-        error: 'Network error. Please contact us directly at milton@revivalcare.co.uk or call 013124 868987.',
+        error: 'Network error. Please contact us directly at milton@revivalcare.co.uk or call 01324868987.',
         message: 'There was an issue sending your request. Please contact us directly.' 
       }, { status: 500 });
     }

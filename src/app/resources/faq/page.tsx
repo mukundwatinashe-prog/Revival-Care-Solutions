@@ -33,7 +33,7 @@ const faqs = [
     questions: [
       {
         q: 'How do I get started with Revival Care?',
-        a: 'Getting started is easy! Simply call us at 013124 868987 or fill out our online contact form. We\'ll schedule a free, no-obligation consultation to assess your needs and create a personalized care plan. Most families can begin receiving care within 24-48 hours of the assessment.',
+        a: 'Getting started is easy! Simply call us at 01324868987 or fill out our online contact form. We\'ll schedule a free, no-obligation consultation to assess your needs and create a personalized care plan. Most families can begin receiving care within 24-48 hours of the assessment.',
       },
       {
         q: 'What happens during the initial assessment?',
@@ -320,9 +320,9 @@ export default function FAQPage() {
                   Contact Us
                 </Button>
               </Link>
-              <a href="tel:+4413124868987">
+              <a href="tel:+441324868987">
                 <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
-                  013124 868987
+                  01324868987
                 </Button>
               </a>
             </div>

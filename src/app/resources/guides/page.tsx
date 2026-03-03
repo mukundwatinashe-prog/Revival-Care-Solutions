@@ -198,13 +198,13 @@ export default function CareGuidesPage() {
                   Schedule Free Consultation
                 </Button>
               </Link>
-              <a href="tel:+4413124868987">
+              <a href="tel:+441324868987">
                 <Button 
                   variant="outline" 
                   size="lg" 
                   className="border-white text-white hover:bg-white/10"
                 >
-                  Call 013124 868987
+                  Call 01324868987
                 </Button>
               </a>
             </div>

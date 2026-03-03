@@ -129,9 +129,9 @@ export default function ServicesPage() {
               <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
                 Schedule Free Assessment
               </Button>
-              <a href="tel:+4413124868987">
+              <a href="tel:+441324868987">
                 <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
-                  013124 868987
+                  01324868987
                 </Button>
               </a>
             </div>
@@ -222,7 +222,7 @@ export default function ServicesPage() {
                   Schedule Free Consultation
                 </Button>
               </Link>
-              <a href="tel:+447544152585">
+              <a href="tel:+441324868987">
                 <Button 
                   variant="outline" 
                   size="lg" 
