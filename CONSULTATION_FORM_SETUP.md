@@ -20,7 +20,7 @@ The consultation form submits to: **`/api/consultation`** (API Route)
 1. **Frontend**: User fills out the form on `/consultation` page
 2. **Submission**: Form data is sent to `POST /api/consultation`
 3. **API Route**: `src/app/api/consultation/route.ts` processes the submission
-4. **Email Service**: Uses **Web3Forms** to send emails to `milton@revivalcare.co.uk`
+4. **Email Service**: Uses **Web3Forms** to send emails to `info@Revivalcare.co.uk`
 
 ### Email Configuration
 
@@ -47,7 +47,7 @@ The form uses **Web3Forms** (a free form backend service) to send emails.
 
 ### What Gets Emailed
 
-When someone submits the consultation form, an email is sent to `milton@revivalcare.co.uk` with:
+When someone submits the consultation form, an email is sent to `info@Revivalcare.co.uk` with:
 - Contact information (name, email, phone, area)
 - Care details (type of care, relationship, urgency)
 - Message/notes
@@ -67,7 +67,7 @@ When someone submits the consultation form, an email is sent to `milton@revivalc
 1. **Frontend**: User fills out the form on `/contact` page
 2. **Submission**: Form data is sent to `POST /api/consultation` (same endpoint)
 3. **API Route**: Uses the same validation and email service
-4. **Email Service**: Uses **Web3Forms** to send emails to `milton@revivalcare.co.uk`
+4. **Email Service**: Uses **Web3Forms** to send emails to `info@Revivalcare.co.uk`
 
 ### Form Features
 
@@ -104,7 +104,7 @@ When someone submits the consultation form, an email is sent to `milton@revivalc
 
 **With Web3Forms Key**:
 - Form works normally
-- Email is sent to `milton@revivalcare.co.uk`
+- Email is sent to `info@Revivalcare.co.uk`
 - You receive submissions via email
 
 ---
@@ -114,7 +114,7 @@ When someone submits the consultation form, an email is sent to `milton@revivalc
 ### Step 1: Get Web3Forms Access Key
 
 1. Visit https://web3forms.com/
-2. Enter your email: `milton@revivalcare.co.uk`
+2. Enter your email: `info@Revivalcare.co.uk`
 3. Get your free access key
 
 ### Step 2: Add Environment Variable (Local Development)
@@ -146,7 +146,7 @@ WEB3FORMS_ACCESS_KEY=your-access-key-here
 3. Submit
 4. Check:
    - Success message appears
-   - Email arrives at `milton@revivalcare.co.uk` (if Web3Forms key is configured)
+   - Email arrives at `info@Revivalcare.co.uk` (if Web3Forms key is configured)
 
 ### Test Without Email Service
 
@@ -187,7 +187,7 @@ If you don't have Web3Forms key yet:
 ### Emails Not Arriving
 
 1. Check that `WEB3FORMS_ACCESS_KEY` is set correctly
-2. Verify the email address in the API route (`milton@revivalcare.co.uk`)
+2. Verify the email address in the API route (`info@Revivalcare.co.uk`)
 3. Check spam/junk folder
 4. Review server logs for errors
 

@@ -4,7 +4,7 @@
 
 ### Step 1: Get Your Web3Forms Access Key
 1. Go to: https://web3forms.com/
-2. Enter email: `milton@revivalcare.co.uk`
+2. Enter email: `info@Revivalcare.co.uk`
 3. Click "Get Access Key"
 4. **Copy the ENTIRE key** (it will look like: `abc123-def456-ghi789`)
 
@@ -54,7 +54,7 @@ After saving, you should see `WEB3FORMS_ACCESS_KEY` in the list. Check:
 2. Go to `/contact` or `/consultation`
 3. Fill out and submit the form
 4. You should see: "Consultation request submitted successfully!"
-5. Check your email at `milton@revivalcare.co.uk`
+5. Check your email at `info@Revivalcare.co.uk`
 
 ## 🔍 How to Verify It's Working
 

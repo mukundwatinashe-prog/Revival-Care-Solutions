@@ -25,7 +25,7 @@ After restarting, test both forms:
 1. **Contact Form**: Visit `http://localhost:3000/contact`
    - Fill out the form
    - Submit it
-   - Check your email (`milton@revivalcare.co.uk`)
+   - Check your email (`info@Revivalcare.co.uk`)
 
 2. **Consultation Form**: Visit `http://localhost:3000/consultation`
    - Fill out the form
@@ -45,7 +45,7 @@ For your live website, you need to add the environment variable in Vercel:
 5. **Redeploy** your site (or it will auto-deploy on next push)
 
 ### 4. Verify Email Address
-The forms are configured to send emails to: **`milton@revivalcare.co.uk`**
+The forms are configured to send emails to: **`info@Revivalcare.co.uk`**
 
 If you need to change this, edit:
 - File: `src/app/api/consultation/route.ts`

@@ -121,7 +121,7 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy or our practices, please contact us:
             </p>
             <ul>
-              <li>Email: milton@revivalcare.co.uk</li>
+              <li>Email: info@Revivalcare.co.uk</li>
               <li>Phone: 01324868987</li>
               <li>Address: Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ</li>
             </ul>

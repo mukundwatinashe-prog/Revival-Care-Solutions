@@ -13,7 +13,7 @@ WEB3FORMS_ACCESS_KEY=your-access-key-here
 ## Getting Your Web3Forms Access Key
 
 1. Visit: https://web3forms.com/
-2. Enter your email: `milton@revivalcare.co.uk`
+2. Enter your email: `info@Revivalcare.co.uk`
 3. Click "Get Access Key"
 4. Copy the access key
 5. Add it to your `.env.local` file
@@ -57,7 +57,7 @@ WEB3FORMS_ACCESS_KEY=abc123def456ghi789
 After adding the key:
 1. Restart your development server (`npm run dev`)
 2. Submit a test form on `/contact` or `/consultation`
-3. Check your email (`milton@revivalcare.co.uk`) for the submission
+3. Check your email (`info@Revivalcare.co.uk`) for the submission
 
 ## Without the Key
 
