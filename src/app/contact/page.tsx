@@ -410,13 +410,6 @@ export default function ContactPage() {
                       >
                         {officeInfo.phone}
                       </a>
-                      <br />
-                      <a 
-                        href="tel:+441324868987"
-                        className="text-primary-600 hover:underline text-sm"
-                      >
-                        01324868987
-                      </a>
                     </div>
                   </div>
 
