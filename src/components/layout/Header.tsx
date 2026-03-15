@@ -73,49 +73,38 @@ export function Header() {
 
   return (
     <>
-      {/* Top Bar - Modern Redesign */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-2.5 px-4 shadow-md">
+      {/* Top bar - corporate strip */}
+      <div className="bg-primary-700 text-white py-2 px-4">
         <div className="container-custom flex flex-wrap justify-between items-center gap-3 text-sm">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <a 
-              href="tel:+441324868987" 
-              className="flex items-center gap-2.5 !text-white hover:!text-white/90 transition-all font-medium"
-            >
-              <Phone className="w-4 h-4 text-white" />
-              <span className="hidden sm:inline text-white">01324868987</span>
-              <span className="sm:hidden text-white">Call Us</span>
+          <div className="flex items-center gap-6">
+            <a href="tel:+441324868987" className="flex items-center gap-2 text-white hover:text-white/90 font-medium">
+              <Phone className="w-4 h-4" />
+              <span className="hidden sm:inline">01324868987</span>
+              <span className="sm:hidden">Call Us</span>
             </a>
-            <div className="hidden md:flex items-center gap-2.5">
+            <div className="hidden md:flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span className="font-medium">Available 24/7</span>
+              <span>Available 24/7</span>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <Link 
-              href="/careers" 
-              className="flex items-center gap-2.5 !text-white hover:!text-white/90 transition-all font-medium"
-            >
-              <Briefcase className="w-4 h-4 text-white" />
-              <span className="hidden sm:inline text-white">Careers</span>
-            </Link>
-          </div>
+          <Link href="/careers" className="flex items-center gap-2 text-white hover:text-white/90 font-medium">
+            <Briefcase className="w-4 h-4" />
+            <span className="hidden sm:inline">Careers</span>
+          </Link>
         </div>
       </div>
 
-      {/* Main Header - Modern Redesign */}
+      {/* Main header */}
       <header
         className={clsx(
-          'sticky top-0 z-50 transition-all duration-300',
-          isScrolled
-            ? 'bg-white/98 backdrop-blur-lg shadow-lg py-3 border-b border-neutral-100'
-            : 'bg-white py-4 shadow-sm'
+          'sticky top-0 z-50 transition-all duration-200',
+          isScrolled ? 'bg-white shadow border-b border-neutral-100 py-2' : 'bg-white border-b border-neutral-100 py-3'
         )}
       >
         <div className="container-custom">
           <nav className="flex items-center justify-between">
-            {/* Logo - Enhanced */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
-              <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-lg">
+            <Link href="/" className="flex items-center group">
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 transition-transform group-hover:scale-[1.02]">
                 <Image
                   src="/logo.png"
                   alt="Revival Care Solutions"
@@ -138,13 +127,10 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={clsx(
-                      'flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm',
-                      'hover:bg-primary-50 transition-all duration-200',
-                      'hover:shadow-sm'
+                      'flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium text-primary-700 hover:bg-primary-50 transition-colors'
                     )}
-                    style={{ color: '#1f7aa8' }}
                   >
-                    <span style={{ color: '#1f7aa8' }}>{item.label}</span>
+                    <span>{item.label}</span>
                     {item.children && (
                       <ChevronDown
                         className={clsx(
@@ -170,10 +156,9 @@ export function Header() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-4 py-3 hover:bg-primary-50 transition-colors"
-                              style={{ color: '#1f7aa8' }}
+                              className="block px-4 py-3 text-primary-700 hover:bg-primary-50 transition-colors"
                             >
-                              <span style={{ color: '#1f7aa8' }}>{child.label}</span>
+                              {child.label}
                             </Link>
                           ))}
                         </div>
@@ -184,15 +169,14 @@ export function Header() {
               ))}
             </div>
 
-            {/* CTA Buttons - Enhanced */}
             <div className="hidden lg:flex items-center gap-3">
               <Link href="/consultation">
-                <Button variant="outline" size="md" className="font-semibold border-2 hover:shadow-md transition-all">
+                <Button variant="outline" size="md" className="font-medium">
                   Free Consultation
                 </Button>
               </Link>
               <a href="tel:+441324868987">
-                <Button variant="primary" size="md" className="font-semibold shadow-md hover:shadow-lg transition-all" leftIcon={<Phone className="w-4 h-4" />}>
+                <Button variant="primary" size="md" leftIcon={<Phone className="w-4 h-4" />}>
                   Call Now
                 </Button>
               </a>
@@ -261,11 +245,10 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => !item.children && setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-50 transition-colors"
-                        style={{ color: '#1f7aa8' }}
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-700 hover:bg-primary-50 transition-colors font-medium"
                       >
                         {item.icon}
-                        <span className="font-medium" style={{ color: '#1f7aa8' }}>{item.label}</span>
+                        <span>{item.label}</span>
                       </Link>
                       {item.children && (
                         <div className="ml-8 mt-1 space-y-1">
@@ -274,10 +257,9 @@ export function Header() {
                               key={child.href}
                               href={child.href}
                               onClick={() => setIsMobileMenuOpen(false)}
-                              className="block px-4 py-2 text-sm hover:bg-primary-50 transition-colors"
-                              style={{ color: '#1f7aa8' }}
+                              className="block px-4 py-2 text-sm text-primary-700 hover:bg-primary-50 transition-colors"
                             >
-                              <span style={{ color: '#1f7aa8' }}>{child.label}</span>
+                              {child.label}
                             </Link>
                           ))}
                         </div>
