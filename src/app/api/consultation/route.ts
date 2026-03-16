@@ -156,42 +156,21 @@ IP: ${forwardedFor || 'Unknown'}
 Please respond within 24 hours.
     `.trim();
 
-    // Check for Web3Forms access key
-    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-    
-    // Debug logging to help troubleshoot
-    console.log('🔍 Environment Variable Check:');
-    console.log('WEB3FORMS_ACCESS_KEY exists:', !!accessKey);
-    console.log('WEB3FORMS_ACCESS_KEY length:', accessKey ? accessKey.length : 0);
-    console.log('All env vars starting with WEB:', Object.keys(process.env).filter(k => k.startsWith('WEB')));
-    
+    // Recipient: all consultation/contact form submissions go to this email
+    const toEmail = process.env.CONSULTATION_EMAIL || 'info@revivalcare.co.uk';
+    // Look for key in both server-only and public env vars (in case it was added as NEXT_PUBLIC_)
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY || process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
     if (!accessKey) {
-      console.error('❌ WEB3FORMS_ACCESS_KEY not configured in environment variables');
-      console.error('📧 Form submission received but email service is not configured:');
-      console.error('==========================================');
-      console.error('Name:', `${sanitizedData.firstName} ${sanitizedData.lastName}`);
-      console.error('Email:', sanitizedData.email);
-      console.error('Phone:', sanitizedData.phone);
-      console.error('Area:', sanitizedData.area);
-      console.error('Care Type:', sanitizedData.careType);
-      console.error('Message:', sanitizedData.message);
-      console.error('Submitted At:', new Date().toISOString());
-      console.error('==========================================');
-      console.error('⚠️ ACTION REQUIRED: Set WEB3FORMS_ACCESS_KEY in Vercel environment variables');
-      console.error('⚠️ Make sure to:');
-      console.error('   1. Add variable in Vercel Settings → Environment Variables');
-      console.error('   2. Enable for Production environment');
-      console.error('   3. Redeploy the site after adding the variable');
-      
-      // Return error so user knows something went wrong
-      return NextResponse.json({ 
+      console.error('Consultation form: WEB3FORMS_ACCESS_KEY not set. Add it in Vercel → Settings → Environment Variables and redeploy.');
+      return NextResponse.json({
         success: false,
         error: 'Email service is not configured. Please contact us directly at info@revivalcare.co.uk or call 01324868987.',
-        message: 'There was an issue sending your request. Please contact us directly.' 
+        message: 'There was an issue sending your request. Please contact us directly.',
       }, { status: 500 });
     }
 
-    // Send email using Web3Forms
+    // Send email using Web3Forms (all forms from /consultation and /contact use this route)
     try {
       const emailResponse = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -201,7 +180,7 @@ Please respond within 24 hours.
         },
         body: JSON.stringify({
           access_key: accessKey,
-          to: 'info@revivalcare.co.uk',
+          to: toEmail,
           from_name: `${sanitizedData.firstName} ${sanitizedData.lastName}`,
           subject: emailSubject,
           message: emailBody,
@@ -212,27 +191,12 @@ Please respond within 24 hours.
       const emailResult = await emailResponse.json();
 
       if (emailResponse.ok && emailResult.success) {
-        console.log('✅ Email sent successfully to info@revivalcare.co.uk');
         return NextResponse.json({ 
           success: true, 
           message: 'Consultation request submitted successfully!' 
         });
       } else {
-        console.error('❌ Email sending failed:');
-        console.error('Response status:', emailResponse.status);
-        console.error('Response body:', emailResult);
-        console.error('📧 Form data for manual processing:');
-        console.error('==========================================');
-        console.error('Name:', `${sanitizedData.firstName} ${sanitizedData.lastName}`);
-        console.error('Email:', sanitizedData.email);
-        console.error('Phone:', sanitizedData.phone);
-        console.error('Area:', sanitizedData.area);
-        console.error('Care Type:', sanitizedData.careType);
-        console.error('Message:', sanitizedData.message);
-        console.error('Submitted At:', new Date().toISOString());
-        console.error('==========================================');
-        
-        // Return error so user knows something went wrong
+        console.error('Web3Forms error:', emailResponse.status, emailResult);
         return NextResponse.json({ 
           success: false,
           error: 'Failed to send email. Please contact us directly at info@revivalcare.co.uk or call 01324868987.',
@@ -240,18 +204,7 @@ Please respond within 24 hours.
         }, { status: 500 });
       }
     } catch (fetchError) {
-      console.error('❌ Network error when sending email:', fetchError);
-      console.error('📧 Form data for manual processing:');
-      console.error('==========================================');
-      console.error('Name:', `${sanitizedData.firstName} ${sanitizedData.lastName}`);
-      console.error('Email:', sanitizedData.email);
-      console.error('Phone:', sanitizedData.phone);
-      console.error('Area:', sanitizedData.area);
-      console.error('Care Type:', sanitizedData.careType);
-      console.error('Message:', sanitizedData.message);
-      console.error('Submitted At:', new Date().toISOString());
-      console.error('==========================================');
-      
+      console.error('Consultation email network error:', fetchError);
       return NextResponse.json({ 
         success: false,
         error: 'Network error. Please contact us directly at info@revivalcare.co.uk or call 01324868987.',

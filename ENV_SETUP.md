@@ -1,8 +1,16 @@
 # Environment Variables Setup
 
+## Consultation form → your inbox
+
+**All consultation/contact form submissions** (from the Consultation page and the Contact page) are sent to **info@revivalcare.co.uk** via one setting.
+
+You only need to set **one** environment variable: `WEB3FORMS_ACCESS_KEY`. No other code or config is required.
+
+---
+
 ## Quick Setup
 
-1. **Create a `.env.local` file** in the project root (same folder as `package.json`)
+1. **Create a `.env.local` file** in the project root (same folder as `package.json`).
 
 2. **Add your Web3Forms access key**:
 
@@ -13,10 +21,9 @@ WEB3FORMS_ACCESS_KEY=your-access-key-here
 ## Getting Your Web3Forms Access Key
 
 1. Visit: https://web3forms.com/
-2. Enter your email: `info@revivalcare.co.uk`
-3. Click "Get Access Key"
-4. Copy the access key
-5. Add it to your `.env.local` file
+2. Enter the email where you want to receive forms: **info@revivalcare.co.uk**
+3. Click **Get Access Key**
+4. Copy the access key and add it to `.env.local` (and to Vercel for production)
 
 ## File Location
 
@@ -28,11 +35,11 @@ C:\Users\sylvi\OneDrive\Desktop\Revival Care\.env.local
 ## Example .env.local File
 
 ```env
-# Web3Forms Configuration
-WEB3FORMS_ACCESS_KEY=abc123def456ghi789
+# Required: so consultation/contact form submissions are emailed to you
+WEB3FORMS_ACCESS_KEY=your-key-from-web3forms
 
-# Optional: Site URL
-# NEXT_PUBLIC_SITE_URL=https://revivalcare.co.uk
+# Optional: change where form emails are sent (default: info@revivalcare.co.uk)
+# CONSULTATION_EMAIL=info@revivalcare.co.uk
 ```
 
 ## Important Notes
@@ -43,25 +50,24 @@ WEB3FORMS_ACCESS_KEY=abc123def456ghi789
 
 ## Setting Up in Vercel (Production)
 
-1. Go to your Vercel project dashboard
-2. Navigate to **Settings** → **Environment Variables**
+1. Go to your Vercel project dashboard.
+2. **Settings** → **Environment Variables**.
 3. Add:
    - **Name**: `WEB3FORMS_ACCESS_KEY`
-   - **Value**: Your access key from Web3Forms
-   - **Environment**: Check all (Production, Preview, Development)
-4. Click **Save**
-5. Redeploy your site
+   - **Value**: Your access key from Web3Forms (use the same email: info@revivalcare.co.uk)
+   - **Environments**: Production (and Preview/Development if you use them)
+4. **Save**, then **Redeploy** the project so the new variable is applied.
 
 ## Testing
 
 After adding the key:
-1. Restart your development server (`npm run dev`)
-2. Submit a test form on `/contact` or `/consultation`
-3. Check your email (`info@revivalcare.co.uk`) for the submission
 
-## Without the Key
+1. Restart the dev server: `npm run dev`
+2. Submit a test form from **Consultation** (`/consultation`) or **Contact** (`/contact`)
+3. Check **info@revivalcare.co.uk** for the email
 
-If you don't have the key yet:
-- Forms will still work (show success message)
-- No emails will be sent
-- Form data will be logged to console/server logs
+## If You Don’t Set the Key
+
+- Submissions will be validated but **no email will be sent**
+- The user will see an error asking them to contact you directly at info@revivalcare.co.uk or 01324868987
+- Set `WEB3FORMS_ACCESS_KEY` (and redeploy on Vercel) to start receiving form submissions
