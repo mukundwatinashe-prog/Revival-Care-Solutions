@@ -66,6 +66,7 @@ const careTypes = [
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -83,21 +84,51 @@ export default function ContactPage() {
     e.preventDefault();
     setFormStatus('submitting');
     setErrorMessage('');
+
+    if (!web3formsKey) {
+      setErrorMessage('Email service is not configured. Please contact us directly at info@revivalcare.co.uk or call 01324868987.');
+      setFormStatus('error');
+      return;
+    }
+
+    // Simple client-side honeypot check
+    if (formData.honeypot) {
+      setFormStatus('success');
+      return;
+    }
     
     try {
-      // Prepare form data for API
-      const submissionData = {
-        ...formData,
-        careRecipientName: '', // Not in contact form
-        urgency: 'Just exploring options', // Default for contact form
-      };
-
-      const response = await fetch('/api/consultation', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify(submissionData),
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          reply_to: formData.email,
+          subject: `New Consultation Request from ${formData.firstName} ${formData.lastName}`,
+          message: `
+NEW CONSULTATION REQUEST
+
+CONTACT INFORMATION
+-------------------
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Area: ${formData.area}
+
+CARE DETAILS
+------------
+Type of Care: ${formData.careType}
+Relationship: ${formData.relationship || 'Not specified'}
+
+MESSAGE
+-------
+${formData.message || 'No additional message provided.'}
+          `.trim(),
+        }),
       });
 
       const data = await response.json();
@@ -118,7 +149,7 @@ export default function ContactPage() {
           honeypot: '',
         });
       } else {
-        setErrorMessage(data.error || data.message || 'Something went wrong. Please try again.');
+        setErrorMessage(data.message || 'Something went wrong. Please try again.');
         setFormStatus('error');
       }
     } catch (error) {
