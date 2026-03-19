@@ -107,7 +107,7 @@ export default function HomePage() {
                 Compassionate Care for{' '}
                 <span className="text-secondary-200">Your Loved Ones</span>
               </h1>
-              <p className="text-lg text-white/95 mb-8 leading-relaxed drop-shadow-sm">
+              <p className="text-base sm:text-lg lg:text-xl text-white mb-8 leading-relaxed drop-shadow-sm">
                 Professional, personalized home care services that help seniors
                 maintain independence and dignity while providing families with
                 peace of mind.
