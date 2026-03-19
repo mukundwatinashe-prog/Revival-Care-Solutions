@@ -100,7 +100,6 @@ export default function CareersPage() {
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
   const selectedPosition = selectedRole
     ? openPositions.find((p) => p.key === selectedRole) || null
     : null;
@@ -115,21 +114,16 @@ export default function CareersPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!web3formsKey) {
-      console.error('WEB3FORMS_ACCESS_KEY not configured');
-      setIsSubmitting(false);
-      return;
-    }
-
     const formData = new FormData(e.currentTarget);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://formsubmit.co/ajax/info@revivalcare.co.uk', {
         method: 'POST',
         body: formData,
       });
 
-      if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
         setSubmitted(true);
       }
     } catch (error) {
@@ -197,19 +191,10 @@ export default function CareersPage() {
               </h3>
               <p className="text-neutral-600 mb-6">Fields marked with * are mandatory.</p>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <input type="hidden" name="access_key" value={web3formsKey || ''} />
-                <input type="hidden" name="to" value="info@revivalcare.co.uk" />
-                <input
-                  type="hidden"
-                  name="subject"
-                  value={`New Job Application - ${selectedPosition.title}`}
-                />
-                <input type="hidden" name="from_name" value="Revival Care Careers" />
-                <input
-                  type="hidden"
-                  name="job_role"
-                  value={selectedPosition.title}
-                />
+                <input type="hidden" name="_subject" value={`New Job Application - ${selectedPosition.title}`} />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="Job Role" value={selectedPosition.title} />
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>

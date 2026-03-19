@@ -66,7 +66,6 @@ const careTypes = [
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -77,7 +76,7 @@ export default function ContactPage() {
     relationship: '',
     message: '',
     consent: false,
-    honeypot: '', // Spam protection - hidden field
+    honeypot: '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -85,59 +84,33 @@ export default function ContactPage() {
     setFormStatus('submitting');
     setErrorMessage('');
 
-    if (!web3formsKey) {
-      setErrorMessage('Email service is not configured. Please contact us directly at info@revivalcare.co.uk or call 01324868987.');
-      setFormStatus('error');
-      return;
-    }
-
-    // Simple client-side honeypot check
     if (formData.honeypot) {
       setFormStatus('success');
       return;
     }
-    
+
+    const payload = new FormData();
+    payload.append('_subject', `New Contact from ${formData.firstName} ${formData.lastName}`);
+    payload.append('_captcha', 'false');
+    payload.append('_template', 'table');
+    payload.append('Name', `${formData.firstName} ${formData.lastName}`);
+    payload.append('Email', formData.email);
+    payload.append('Phone', formData.phone);
+    payload.append('Area', formData.area);
+    payload.append('Type of Care', formData.careType);
+    payload.append('Relationship', formData.relationship || 'Not specified');
+    payload.append('Message', formData.message || 'No additional message provided.');
+
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://formsubmit.co/ajax/info@revivalcare.co.uk', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: web3formsKey,
-          to: 'info@revivalcare.co.uk',
-          from_name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          reply_to: formData.email,
-          subject: `New Consultation Request from ${formData.firstName} ${formData.lastName}`,
-          message: `
-NEW CONSULTATION REQUEST
-
-CONTACT INFORMATION
--------------------
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Area: ${formData.area}
-
-CARE DETAILS
-------------
-Type of Care: ${formData.careType}
-Relationship: ${formData.relationship || 'Not specified'}
-
-MESSAGE
--------
-${formData.message || 'No additional message provided.'}
-          `.trim(),
-        }),
+        body: payload,
       });
 
       const data = await response.json();
 
-      if (response.ok && data.success) {
+      if (data.success) {
         setFormStatus('success');
-        // Reset form
         setFormData({
           firstName: '',
           lastName: '',
@@ -151,10 +124,10 @@ ${formData.message || 'No additional message provided.'}
           honeypot: '',
         });
       } else {
-        setErrorMessage(data.message || 'Something went wrong. Please try again.');
+        setErrorMessage('Something went wrong. Please try again.');
         setFormStatus('error');
       }
-    } catch (error) {
+    } catch {
       setErrorMessage('Network error. Please check your connection and try again.');
       setFormStatus('error');
     }
