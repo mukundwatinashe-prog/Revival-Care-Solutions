@@ -71,7 +71,7 @@ export function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-white/90 mb-6 md:mb-8 max-w-md text-base sm:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.95)' }}>
+            <p className="text-white/90 mb-6 md:mb-8 max-w-md text-base sm:text-lg leading-relaxed">
               Providing compassionate, professional home care services that enhance the quality 
               of life for seniors and their families. Trusted care since 2023.
             </p>

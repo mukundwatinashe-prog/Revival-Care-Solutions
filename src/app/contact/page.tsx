@@ -238,9 +238,9 @@ ${formData.message || 'No additional message provided.'}
                     <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-8 h-8 text-green-600" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Thank you!</h3>
+                    <h3 className="text-xl font-semibold mb-2">Thanks!</h3>
                     <p className="text-neutral-600 mb-6">
-                      We&apos;ve received your consultation request and will contact you within 24 hours.
+                      Thanks! We&apos;ve received your consultation request and will contact you shortly.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button variant="outline" onClick={() => {
@@ -508,8 +508,8 @@ ${formData.message || 'No additional message provided.'}
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Prefer to Talk Now?</h2>
-            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
+            <h2 className="text-white mb-6">Prefer to Talk Now?</h2>
+            <p className="text-xl text-white/90 mb-8">
               Our care coordinators are standing by to answer your questions 
               and help you get started with a free consultation.
             </p>

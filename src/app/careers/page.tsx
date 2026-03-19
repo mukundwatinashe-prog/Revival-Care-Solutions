@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 import {
   Heart,
   DollarSign,
@@ -10,6 +10,7 @@ import {
   Shield,
   Users,
   ArrowRight,
+  ArrowLeft,
   CheckCircle,
   MapPin,
   Briefcase,
@@ -17,7 +18,6 @@ import {
   FileText,
 } from 'lucide-react';
 import { Button, Card, Badge, Input, Textarea } from '@/components/ui';
-
 
 const benefits = [
   {
@@ -84,25 +84,7 @@ const openPositions = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "Working at Revival Care has been the most rewarding job I've ever had. The support from the team and the relationships I build with clients are incredible.",
-    name: "Maria S.",
-    role: "Caregiver, 3 years",
-  },
-  {
-    quote: "The flexible scheduling allows me to balance work with my family. And the training I've received has made me a much better caregiver.",
-    name: "James T.",
-    role: "Carer, 2 years",
-  },
-  {
-    quote: "Revival Care truly cares about their employees. They invested in my professional development and I've grown so much in my career here.",
-    name: "Priya M.",
-    role: "Senior Carer, 5 years",
-  },
-];
-
-const process = [
+const hiringSteps = [
   { step: '1', title: 'Apply Online', description: 'Submit your application through our careers portal' },
   { step: '2', title: 'Phone Interview', description: 'Brief call to discuss your experience and goals' },
   { step: '3', title: 'In-Person Interview', description: 'Meet with our team and tour our facilities' },
@@ -112,7 +94,6 @@ const process = [
 ];
 
 export default function CareersPage() {
-  const [showApplicationForm, setShowApplicationForm] = useState(false);
   type RoleKey = 'fulltime' | 'part-time';
   const [selectedRole, setSelectedRole] = useState<RoleKey | null>(null);
   const [cvFile, setCvFile] = useState<File | null>(null);
@@ -140,9 +121,8 @@ export default function CareersPage() {
     }
 
     const formData = new FormData(e.currentTarget);
-    
+
     try {
-      // Submit to Web3Forms
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData,
@@ -150,7 +130,6 @@ export default function CareersPage() {
 
       if (response.ok) {
         setSubmitted(true);
-        setShowApplicationForm(false);
       }
     } catch (error) {
       console.error('Error submitting application:', error);
@@ -159,80 +138,45 @@ export default function CareersPage() {
     }
   };
 
+  const scrollToPositions = () => {
+    document.getElementById('open-positions')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-primary-50 to-white">
+      <section className="relative py-20 bg-gradient-to-b from-primary-50 to-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge variant="primary" className="mb-4">Careers</Badge>
-              <h1 className="mb-6">Join Our Team of Compassionate Caregivers</h1>
-              <p className="text-xl text-neutral-600 mb-8">
-                Make a meaningful difference in the lives of seniors while building 
-                a rewarding career with flexible scheduling, competitive pay, and 
-                a supportive team.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                  View Open Positions
-                </Button>
-                <Button variant="outline" size="lg">
-                  Learn About Benefits
-                </Button>
-              </div>
-            </div>
-            <div className="relative w-full max-w-md mx-auto aspect-[4/3]">
-              <Image
-                src="/images/team-silhouette.jpg"
-                alt="Team of carers together"
-                fill
-                className="rounded-2xl shadow-lg object-cover"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="py-24">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">Why Join Us</Badge>
-            <h2 className="mb-4">Benefits of Working at Revival Care</h2>
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              We believe in taking care of our team so they can take care of our clients.
+          <div className="max-w-3xl mx-auto text-center">
+            <Badge variant="primary" className="mb-4">Careers</Badge>
+            <h1 className="mb-6">Join Our Team of Compassionate Caregivers</h1>
+            <p className="text-xl text-neutral-600 mb-8 mx-auto">
+              Make a meaningful difference in the lives of seniors while building
+              a rewarding career with flexible scheduling, competitive pay, and
+              a supportive team.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((benefit) => (
-              <Card key={benefit.title} hover>
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-100 mb-4">
-                  <benefit.icon className="w-7 h-7 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                <p className="text-neutral-600">{benefit.description}</p>
-              </Card>
-            ))}
+            <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} onClick={scrollToPositions}>
+              View Open Positions
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section className="py-24 bg-neutral-50">
+      {/* Open Positions - prominent clickable boxes */}
+      <section id="open-positions" className="py-16 lg:py-24 bg-neutral-50">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <Badge variant="primary" className="mb-4">Open Positions</Badge>
             <h2 className="mb-4">Current Opportunities</h2>
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-              Find a position that fits your skills and schedule.
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              Choose a role below to apply.
             </p>
-            <p className="text-neutral-600 mt-4">
-              Rate of pay is competitive.
-            </p>
+          </div>
+          <div className="flex items-center justify-center mb-12">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary-100 text-secondary-700 font-semibold text-sm">
+              <DollarSign className="w-4 h-4" />
+              Rate of pay is competitive
+            </div>
           </div>
 
           {submitted ? (
@@ -241,37 +185,46 @@ export default function CareersPage() {
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-2xl font-semibold mb-4">Thanks for applying!</h3>
-              <p className="text-neutral-600 mb-6">
+              <p className="text-neutral-600 mb-6 mx-auto">
                 We&apos;ve received your application and will be in touch soon.
               </p>
               <Button
                 onClick={() => {
                   setSubmitted(false);
                   setSelectedRole(null);
-                  setShowApplicationForm(false);
                   setCvFile(null);
                 }}
               >
                 Submit Another Application
               </Button>
             </Card>
-          ) : showApplicationForm ? (
+          ) : selectedRole && selectedPosition ? (
+            /* Application Form */
             <Card className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-semibold mb-6">
-                Apply for {selectedPosition?.title || 'Care Assistant'}
+              <button
+                type="button"
+                onClick={() => { setSelectedRole(null); setCvFile(null); }}
+                className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 mb-6 font-medium text-sm transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to positions
+              </button>
+              <h3 className="text-2xl font-semibold mb-2">
+                Apply for {selectedPosition.title}
               </h3>
+              <p className="text-neutral-600 mb-6">Fields marked with * are mandatory.</p>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <input type="hidden" name="access_key" value={web3formsKey || ''} />
                 <input
                   type="hidden"
                   name="subject"
-                  value={`New Job Application - ${selectedPosition?.title || 'Care Assistant'}`}
+                  value={`New Job Application - ${selectedPosition.title}`}
                 />
                 <input type="hidden" name="from_name" value="Revival Care Careers" />
                 <input
                   type="hidden"
                   name="job_role"
-                  value={selectedPosition?.title || 'Care Assistant'}
+                  value={selectedPosition.title}
                 />
 
                 <div className="grid md:grid-cols-2 gap-4">
@@ -298,9 +251,9 @@ export default function CareersPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-neutral-700 mb-2">
-                      Phone Number *
+                      Phone Number
                     </label>
-                    <Input type="tel" name="phone" required placeholder="Your phone number" />
+                    <Input type="tel" name="phone" placeholder="Your phone number" />
                   </div>
                 </div>
 
@@ -311,7 +264,7 @@ export default function CareersPage() {
                       name="max_hours_per_week"
                       required
                       min={1}
-                      label="Max hours you can work per week"
+                      label="Max hours you can work per week *"
                       placeholder="e.g. 20"
                     />
                   </div>
@@ -319,18 +272,17 @@ export default function CareersPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Your Area / Town *
+                    Your Area / Town
                   </label>
-                  <Input name="area" required placeholder="e.g. Falkirk, Denny, Larbert" />
+                  <Input name="area" placeholder="e.g. Falkirk, Denny, Larbert" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Do you have a valid UK driving licence? *
+                    Do you have a valid UK driving licence?
                   </label>
                   <select
                     name="driving_licence"
-                    required
                     className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
                   >
                     <option value="">Please select</option>
@@ -357,6 +309,7 @@ export default function CareersPage() {
                   </select>
                 </div>
 
+                {/* CV Upload - mandatory */}
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Upload Your CV *
@@ -404,7 +357,6 @@ export default function CareersPage() {
                     type="button"
                     variant="outline"
                     onClick={() => {
-                      setShowApplicationForm(false);
                       setSelectedRole(null);
                       setCvFile(null);
                     }}
@@ -422,65 +374,89 @@ export default function CareersPage() {
               </form>
             </Card>
           ) : (
-            <div className="space-y-6">
+            /* Two prominent clickable role boxes */
+            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {openPositions.map((position) => (
-                <Card key={position.title} className="group">
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-6">
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 className="text-xl font-semibold group-hover:text-primary-600 transition-colors">
-                          {position.title}
-                        </h3>
-                        <Badge variant="primary" size="sm">{position.type}</Badge>
-                      </div>
-                      <div className="flex items-center gap-2 text-neutral-600 mb-3">
-                        <MapPin className="w-4 h-4" />
-                        <span className="text-sm">{position.location}</span>
-                      </div>
-                      <p className="text-neutral-600 mb-4">{position.description}</p>
-                      <div className="flex flex-wrap gap-4">
-                        {position.requirements.map((req) => (
-                          <div key={req} className="flex items-center gap-2 text-sm text-neutral-500">
-                            <CheckCircle className="w-4 h-4 text-primary-500" />
-                            <span>{req}</span>
-                          </div>
-                        ))}
-                      </div>
+                <button
+                  key={position.key}
+                  type="button"
+                  onClick={() => {
+                    setSelectedRole(position.key);
+                    setCvFile(null);
+                    setSubmitted(false);
+                  }}
+                  className="text-left group"
+                >
+                  <Card hover variant="elevated" className="h-full border-2 border-transparent group-hover:border-primary-400 transition-all">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-100 mb-5">
+                      <Briefcase className="w-7 h-7 text-primary-600" />
                     </div>
-                    <div className="lg:flex-shrink-0">
-                      <Button 
-                        onClick={() => {
-                          setSelectedRole(position.key);
-                          setCvFile(null);
-                          setShowApplicationForm(true);
-                          setSubmitted(false);
-                        }}
-                        rightIcon={<ArrowRight className="w-4 h-4" />}
-                      >
-                        {position.title}
-                      </Button>
+                    <h3 className="text-xl font-semibold mb-2 text-neutral-900 group-hover:text-primary-600 transition-colors">
+                      {position.title}
+                    </h3>
+                    <Badge variant="primary" size="sm" className="mb-4">{position.type}</Badge>
+                    <div className="flex items-center gap-2 text-neutral-500 text-sm mb-4">
+                      <MapPin className="w-4 h-4" />
+                      {position.location}
                     </div>
-                  </div>
-                </Card>
+                    <p className="text-neutral-600 text-sm mb-5">{position.description}</p>
+                    <div className="space-y-2 mb-6">
+                      {position.requirements.map((req) => (
+                        <div key={req} className="flex items-center gap-2 text-sm text-neutral-500">
+                          <CheckCircle className="w-4 h-4 text-primary-500 flex-shrink-0" />
+                          <span>{req}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                      Apply Now <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Card>
+                </button>
               ))}
             </div>
           )}
         </div>
       </section>
 
-      {/* Hiring Process */}
-      <section className="py-24">
+      {/* Benefits */}
+      <section className="py-16 lg:py-24">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 lg:mb-16">
+            <Badge variant="secondary" className="mb-4">Why Join Us</Badge>
+            <h2 className="mb-4">Benefits of Working at Revival Care</h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              We believe in taking care of our team so they can take care of our clients.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit) => (
+              <Card key={benefit.title} hover variant="elevated" className="bg-white border border-neutral-100">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-100 mb-4">
+                  <benefit.icon className="w-7 h-7 text-primary-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-neutral-900">{benefit.title}</h3>
+                <p className="text-neutral-600 text-sm leading-relaxed">{benefit.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Process */}
+      <section className="py-16 lg:py-24 bg-neutral-50">
+        <div className="container-custom">
+          <div className="text-center mb-12 lg:mb-16">
             <Badge variant="accent" className="mb-4">Hiring Process</Badge>
             <h2 className="mb-4">How to Join Our Team</h2>
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
               Our straightforward hiring process gets you started quickly.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {process.map((step, index) => (
+            {hiringSteps.map((step, index) => (
               <div key={step.step} className="relative">
                 <Card className="h-full">
                   <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold shadow-lg">
@@ -491,7 +467,7 @@ export default function CareersPage() {
                     <p className="text-neutral-600">{step.description}</p>
                   </div>
                 </Card>
-                {index < process.length - 1 && index % 3 !== 2 && (
+                {index < hiringSteps.length - 1 && index % 3 !== 2 && (
                   <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary-200" />
                 )}
               </div>
@@ -500,56 +476,28 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Employee Testimonials */}
-      <section className="py-24 bg-primary-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">Our Team</Badge>
-            <h2 className="mb-4">What Our Caregivers Say</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name}>
-                <blockquote className="text-neutral-700 mb-6">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-neutral-500">{testimonial.role}</div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-24 bg-primary-700">
+      <section className="py-16 lg:py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Ready to Start Your Caregiving Career?</h2>
-            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
-              Join a team that values your work and supports your growth. 
+            <h2 className="text-white mb-6">Ready to Start Your Caregiving Career?</h2>
+            <p className="text-xl text-white/90 mb-8 mx-auto">
+              Join a team that values your work and supports your growth.
               Apply today and start making a difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} onClick={scrollToPositions}>
                 Apply Now
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                leftIcon={<Briefcase className="w-5 h-5" />}
-                className="border-white text-white hover:bg-white/10"
-              >
-                View All Positions
-              </Button>
+              <Link href="/contact">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white/10"
+                >
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -557,4 +505,3 @@ export default function CareersPage() {
     </div>
   );
 }
-

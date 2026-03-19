@@ -202,98 +202,42 @@ body {
 
 /* ============================================
    TYPOGRAPHY
+   Placed inside @layer base so that Tailwind
+   utility classes (e.g. text-white) can override
+   these defaults via the higher-priority
+   @layer utilities.
    ============================================ */
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--neutral-950);
-}
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--neutral-950);
+  }
 
-/* ============================================
-   FORCE WHITE TEXT ON BLUE BACKGROUNDS
-   Only applies to section-level blue backgrounds, 
-   not nested white containers like navigation
-   ============================================ */
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: -0.02em;
+  }
 
-/* Force white text for elements directly in blue background sections */
-section.bg-primary-500 h1,
-section.bg-primary-500 h2,
-section.bg-primary-500 h3,
-section.bg-primary-500 h4,
-section.bg-primary-500 p,
-section.bg-primary-500 > div h1,
-section.bg-primary-500 > div h2,
-section.bg-primary-500 > div h3,
-section.bg-primary-500 > div p,
-section.bg-primary-500 > div span,
-section.bg-primary-600 h1,
-section.bg-primary-600 h2,
-section.bg-primary-600 h3,
-section.bg-primary-600 h4,
-section.bg-primary-600 p,
-section.bg-primary-600 > div h1,
-section.bg-primary-600 > div h2,
-section.bg-primary-600 > div p,
-section.bg-primary-700 h1,
-section.bg-primary-700 h2,
-section.bg-primary-700 h3,
-section.bg-primary-700 h4,
-section.bg-primary-700 p,
-section.bg-primary-700 > div h1,
-section.bg-primary-700 > div h2,
-section.bg-primary-700 > div h3,
-section.bg-primary-700 > div p,
-section.bg-primary-700 > div span,
-section.bg-primary-800 h1,
-section.bg-primary-800 h2,
-section.bg-primary-800 h3,
-section.bg-primary-800 h4,
-section.bg-primary-800 p,
-section.bg-primary-900 h1,
-section.bg-primary-900 h2,
-section.bg-primary-900 h3,
-section.bg-primary-900 h4,
-section.bg-primary-900 p {
-  color: white !important;
-}
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.01em;
+  }
 
-/* Footer white text */
-footer.bg-primary-900 p,
-footer.bg-primary-900 span,
-footer.bg-primary-900 h3,
-footer.bg-primary-900 h4 {
-  color: white !important;
-}
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
 
-/* Top bar white text */
-.bg-primary-500.text-white span,
-.bg-primary-500.text-white a {
-  color: white !important;
-}
+  h4 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+  }
 
-h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: -0.01em;
-}
-
-h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-}
-
-h4 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-}
-
-p {
-  color: var(--neutral-700);
-  max-width: 65ch;
+  p {
+    color: var(--neutral-700);
+    max-width: 65ch;
+  }
 }
 
 /* Only apply default link color to links without explicit color classes */

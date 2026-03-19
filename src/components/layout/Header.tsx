@@ -88,10 +88,19 @@ export function Header() {
               <span>Available 24/7</span>
             </div>
           </div>
-          <Link href="/careers" className="flex items-center gap-2 text-white hover:text-white/90 font-medium">
-            <Briefcase className="w-4 h-4" />
-            <span className="hidden sm:inline">Careers</span>
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 text-white hover:text-white/90 font-medium"
+            >
+              <Mail className="w-4 h-4" />
+              <span className="hidden sm:inline">Contact</span>
+            </Link>
+            <Link href="/careers" className="flex items-center gap-2 text-white hover:text-white/90 font-medium">
+              <Briefcase className="w-4 h-4" />
+              <span className="hidden sm:inline">Careers</span>
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -174,6 +183,11 @@ export function Header() {
               <Link href="/consultation">
                 <Button variant="outline" size="md" className="font-medium">
                   Free Consultation
+                </Button>
+              </Link>
+              <Link href="/careers">
+                <Button variant="outline" size="md" className="font-medium" leftIcon={<Briefcase className="w-4 h-4" />}>
+                  Careers
                 </Button>
               </Link>
               <a href="tel:+441324868987">
@@ -273,6 +287,11 @@ export function Header() {
                   <Link href="/consultation" onClick={() => setIsMobileMenuOpen(false)}>
                     <Button variant="outline" fullWidth>
                       Free Consultation
+                    </Button>
+                  </Link>
+                  <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Button variant="outline" fullWidth leftIcon={<Briefcase className="w-4 h-4" />}>
+                      Careers
                     </Button>
                   </Link>
                   <a href="tel:+441324868987">

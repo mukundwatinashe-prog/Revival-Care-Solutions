@@ -172,11 +172,9 @@ ${formData.message || 'No additional message provided.'}
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-10 h-10 text-green-600" />
                     </div>
-                    <h2 className="text-2xl font-semibold text-neutral-900 mb-4">
-                      Thank you!
-                    </h2>
+                    <h2 className="text-2xl font-semibold text-neutral-900 mb-4">Thanks!</h2>
                     <p className="text-neutral-600 mb-8 max-w-md mx-auto">
-                      We&apos;ve received your consultation request and will contact you within 24 hours.
+                      Thanks! We&apos;ve received your consultation request and will contact you shortly.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/">
