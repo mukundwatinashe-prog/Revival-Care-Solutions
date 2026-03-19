@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -73,22 +76,56 @@ const values = [
 ];
 
 export default function HomePage() {
+  const [activeVideo, setActiveVideo] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveVideo((prev) => (prev === 0 ? 1 : 0));
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="overflow-hidden">
-      {/* Hero - Corporate style: full-width, strong headline, single CTA */}
-      <section className="relative min-h-[85vh] flex items-center bg-white">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-50/80 to-white" />
+      {/* Hero - full-width fading video background */}
+      <section className="relative min-h-[85vh] flex items-center">
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+              activeVideo === 0 ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <source src="/vecteezy_midsection-of-female-nurse-checking-blood-pressure-of-woman_36474264.mp4" type="video/mp4" />
+          </video>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+              activeVideo === 1 ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <source src="/vecteezy_intimate-portrait-of-senior-couple-side-profile-aging_72393751.mov" type="video/quicktime" />
+          </video>
+        </div>
+        <div className="absolute inset-0 bg-primary-900/45" />
         <div className="container-custom relative z-10 py-12 md:py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="max-w-xl">
-              <Badge variant="primary" size="md" className="mb-6">
+          <div className="max-w-2xl">
+            <div>
+              <Badge variant="secondary" size="md" className="mb-6">
                 Compassionate Home Care Services
               </Badge>
-              <h1 className="text-balance mb-6 leading-tight">
+              <h1 className="text-balance mb-6 leading-tight text-white">
                 Compassionate Care for{' '}
-                <span className="text-primary-700">Your Loved Ones</span>
+                <span className="text-secondary-200">Your Loved Ones</span>
               </h1>
-              <p className="text-lg text-neutral-700 mb-8 leading-relaxed">
+              <p className="text-lg text-white/90 mb-8 leading-relaxed">
                 Professional, personalized home care services that help seniors
                 maintain independence and dignity while providing families with
                 peace of mind.
@@ -103,58 +140,27 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="xl"
-                    className="border-2 border-primary-600 text-primary-600 hover:bg-primary-50"
+                    className="border-2 border-white text-white hover:bg-white/20"
                     leftIcon={<Phone className="w-5 h-5" />}
                   >
                     01324868987
                   </Button>
                 </a>
               </div>
-              <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-neutral-200">
-                <div className="flex items-center gap-2 text-neutral-700 text-sm font-medium">
-                  <CheckCircle className="w-5 h-5 text-primary-600 flex-shrink-0" />
+              <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-white/30">
+                <div className="flex items-center gap-2 text-white text-sm font-medium">
+                  <CheckCircle className="w-5 h-5 text-secondary-300 flex-shrink-0" />
                   Care Inspectorate Registered
                 </div>
-                <div className="flex items-center gap-2 text-neutral-700 text-sm font-medium">
-                  <Shield className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                <div className="flex items-center gap-2 text-white text-sm font-medium">
+                  <Shield className="w-5 h-5 text-secondary-300 flex-shrink-0" />
                   Background Checked
                 </div>
-                <div className="flex items-center gap-2 text-neutral-700 text-sm font-medium">
-                  <Clock className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                <div className="flex items-center gap-2 text-white text-sm font-medium">
+                  <Clock className="w-5 h-5 text-secondary-300 flex-shrink-0" />
                   Available 24/7
                 </div>
               </div>
-            </div>
-            <div className="relative hidden lg:block">
-              <div className="relative aspect-[4/3] max-w-lg rounded-lg overflow-hidden shadow-xl">
-                <Image
-                  src="/images/caregiver-elderly-couple.jpg"
-                  alt="Caregiver assisting elderly couple with coloring"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 0, 500px"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 flex items-center gap-3 border border-neutral-100">
-                <div className="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-primary-600" />
-                </div>
-                <div>
-                  <div className="font-semibold text-neutral-900">24/7</div>
-                  <div className="text-sm text-neutral-600">Care Available</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative lg:hidden aspect-[4/3] max-w-md mx-auto rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/caregiver-elderly-couple.jpg"
-                alt="Caregiver assisting elderly couple with coloring"
-                fill
-                className="object-cover"
-                priority
-                sizes="100vw"
-              />
             </div>
           </div>
         </div>
