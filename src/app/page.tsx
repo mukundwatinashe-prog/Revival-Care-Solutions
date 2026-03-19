@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -76,16 +75,6 @@ const values = [
 ];
 
 export default function HomePage() {
-  const [activeVideo, setActiveVideo] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveVideo((prev) => (prev === 0 ? 1 : 0));
-    }, 8000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="overflow-hidden">
       {/* Hero - full-width fading video background */}
@@ -96,22 +85,11 @@ export default function HomePage() {
             muted
             loop
             playsInline
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              activeVideo === 0 ? 'opacity-100' : 'opacity-0'
-            }`}
+            preload="auto"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
           >
-            <source src="/vecteezy_midsection-of-female-nurse-checking-blood-pressure-of-woman_36474264.mp4" type="video/mp4" />
-          </video>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              activeVideo === 1 ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <source src="/vecteezy_intimate-portrait-of-senior-couple-side-profile-aging_72393751.mov" type="video/quicktime" />
+            <source src="/Happy_Care_Scene_Generated.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="absolute inset-0 bg-primary-900/45" />
