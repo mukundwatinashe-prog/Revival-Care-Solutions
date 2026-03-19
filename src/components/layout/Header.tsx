@@ -181,13 +181,8 @@ export function Header() {
 
             <div className="hidden lg:flex items-center gap-3">
               <Link href="/consultation">
-                <Button variant="outline" size="md" className="font-medium">
+                <Button variant="ghost" size="md" className="font-medium">
                   Free Consultation
-                </Button>
-              </Link>
-              <Link href="/careers">
-                <Button variant="outline" size="md" className="font-medium" leftIcon={<Briefcase className="w-4 h-4" />}>
-                  Careers
                 </Button>
               </Link>
               <a href="tel:+441324868987">
@@ -285,13 +280,8 @@ export function Header() {
 
                 <div className="mt-8 space-y-3">
                   <Link href="/consultation" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button variant="outline" fullWidth>
+                    <Button variant="ghost" fullWidth>
                       Free Consultation
-                    </Button>
-                  </Link>
-                  <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button variant="outline" fullWidth leftIcon={<Briefcase className="w-4 h-4" />}>
-                      Careers
                     </Button>
                   </Link>
                   <a href="tel:+441324868987">

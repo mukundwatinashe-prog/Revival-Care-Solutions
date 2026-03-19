@@ -82,8 +82,8 @@ export default function ConsultationPage() {
         },
         body: JSON.stringify({
           access_key: web3formsKey,
+          to: 'info@revivalcare.co.uk',
           from_name: `${formData.firstName} ${formData.lastName}`,
-          // Required for Web3Forms autoresponder (PRO feature): uses the applicant email address.
           email: formData.email,
           reply_to: formData.email,
           subject: `New Consultation Request from ${formData.firstName} ${formData.lastName}`,

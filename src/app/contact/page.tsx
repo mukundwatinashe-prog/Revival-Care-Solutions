@@ -106,8 +106,8 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           access_key: web3formsKey,
+          to: 'info@revivalcare.co.uk',
           from_name: `${formData.firstName} ${formData.lastName}`,
-          // Required for Web3Forms autoresponder (PRO feature): send confirmation to the applicant.
           email: formData.email,
           reply_to: formData.email,
           subject: `New Consultation Request from ${formData.firstName} ${formData.lastName}`,

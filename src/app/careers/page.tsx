@@ -62,7 +62,7 @@ const openPositions = [
       'Provide personal care, companionship, and assistance with daily activities for elderly clients in their homes.',
     requirements: [
       'Compassionate and patient demeanor',
-      'Valid driver\'s license and reliable transportation',
+      'Full valid UK driving licence and reliable transportation',
       'Ability to pass PVG check',
       'Good communication skills',
       'Right to work in the UK',
@@ -77,6 +77,7 @@ const openPositions = [
       'Provide personal care, companionship, and assistance with daily activities for elderly clients in their homes.',
     requirements: [
       'Compassionate and patient demeanor',
+      'Full valid UK driving licence and reliable transportation',
       'Ability to pass PVG check',
       'Good communication skills',
       'Right to work in the UK',
@@ -144,24 +145,6 @@ export default function CareersPage() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-b from-primary-50 to-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge variant="primary" className="mb-4">Careers</Badge>
-            <h1 className="mb-6">Join Our Team of Compassionate Caregivers</h1>
-            <p className="text-xl text-neutral-600 mb-8 mx-auto">
-              Make a meaningful difference in the lives of seniors while building
-              a rewarding career with flexible scheduling, competitive pay, and
-              a supportive team.
-            </p>
-            <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} onClick={scrollToPositions}>
-              View Open Positions
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Open Positions - prominent clickable boxes */}
       <section id="open-positions" className="py-16 lg:py-24 bg-neutral-50">
         <div className="container-custom">
@@ -215,6 +198,7 @@ export default function CareersPage() {
               <p className="text-neutral-600 mb-6">Fields marked with * are mandatory.</p>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <input type="hidden" name="access_key" value={web3formsKey || ''} />
+                <input type="hidden" name="to" value="info@revivalcare.co.uk" />
                 <input
                   type="hidden"
                   name="subject"
