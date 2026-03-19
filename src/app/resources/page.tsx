@@ -281,29 +281,7 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="py-24 bg-primary-700">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="!text-white mb-6" style={{ color: 'white' }}>Stay Informed</h2>
-            <p className="text-xl !text-white/90 mb-8" style={{ color: 'rgba(255,255,255,0.9)' }}>
-              Subscribe to our newsletter for the latest caregiving tips, resources, 
-              and updates delivered to your inbox.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-secondary-500"
-                required
-              />
-              <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Subscribe
-              </Button>
-            </form>
-          </div>
-        </div>
-      </section>
+      {/* Newsletter CTA removed (no subscriptions requested) */}
     </div>
   );
 }

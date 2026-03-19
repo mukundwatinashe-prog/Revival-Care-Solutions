@@ -83,6 +83,8 @@ export default function ConsultationPage() {
         body: JSON.stringify({
           access_key: web3formsKey,
           from_name: `${formData.firstName} ${formData.lastName}`,
+          // Required for Web3Forms autoresponder (PRO feature): uses the applicant email address.
+          email: formData.email,
           reply_to: formData.email,
           subject: `New Consultation Request from ${formData.firstName} ${formData.lastName}`,
           message: `
@@ -171,11 +173,10 @@ ${formData.message || 'No additional message provided.'}
                       <CheckCircle className="w-10 h-10 text-green-600" />
                     </div>
                     <h2 className="text-2xl font-semibold text-neutral-900 mb-4">
-                      Thank You for Reaching Out!
+                      Thank you!
                     </h2>
                     <p className="text-neutral-600 mb-8 max-w-md mx-auto">
-                      We&apos;ve received your consultation request. A member of our care team 
-                      will contact you within 24 hours to discuss your needs.
+                      We&apos;ve received your consultation request and will contact you within 24 hours.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Link href="/">

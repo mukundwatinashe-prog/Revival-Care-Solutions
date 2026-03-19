@@ -107,6 +107,8 @@ export default function ContactPage() {
         body: JSON.stringify({
           access_key: web3formsKey,
           from_name: `${formData.firstName} ${formData.lastName}`,
+          // Required for Web3Forms autoresponder (PRO feature): send confirmation to the applicant.
+          email: formData.email,
           reply_to: formData.email,
           subject: `New Consultation Request from ${formData.firstName} ${formData.lastName}`,
           message: `
@@ -236,9 +238,9 @@ ${formData.message || 'No additional message provided.'}
                     <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-8 h-8 text-green-600" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
+                    <h3 className="text-xl font-semibold mb-2">Thank you!</h3>
                     <p className="text-neutral-600 mb-6">
-                      We&apos;ve received your message and will contact you within 24 hours during business hours.
+                      We&apos;ve received your consultation request and will contact you within 24 hours.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button variant="outline" onClick={() => {

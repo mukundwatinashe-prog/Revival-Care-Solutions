@@ -45,6 +45,7 @@ const navigation: NavItem[] = [
   { label: 'About Us', href: '/about', icon: <Users className="w-4 h-4" /> },
   { label: 'Resources', href: '/resources', icon: <BookOpen className="w-4 h-4" /> },
   { label: 'Contact', href: '/contact', icon: <Mail className="w-4 h-4" /> },
+  { label: 'Careers', href: '/careers', icon: <Briefcase className="w-4 h-4" /> },
 ];
 
 export function Header() {

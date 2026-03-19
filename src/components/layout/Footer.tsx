@@ -12,7 +12,7 @@ import {
   ArrowRight,
   Award
 } from 'lucide-react';
-import { Button, Input } from '@/components/ui';
+import { Button } from '@/components/ui';
 
 const services = [
   { label: 'Personal Care', href: '/services/personal-care' },
@@ -56,33 +56,6 @@ export function Footer() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-400 rounded-full blur-3xl"></div>
       </div>
       
-      {/* Newsletter Section - Enhanced */}
-      <div className="border-b border-primary-700/50 relative z-10">
-        <div className="container-custom py-10 md:py-14">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8">
-            <div className="text-center lg:text-left w-full lg:w-auto">
-              <h3 className="font-serif text-2xl sm:text-3xl font-semibold mb-3">
-                Stay Updated with Care Tips
-              </h3>
-              <p className="text-white/90 text-base sm:text-lg">
-                Subscribe to our newsletter for caregiving resources and company updates.
-              </p>
-            </div>
-            <form className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-primary-800/80 border-primary-700 text-white placeholder:text-white/50 sm:w-80 shadow-lg"
-                required
-              />
-              <Button variant="secondary" className="shadow-lg hover:shadow-xl transition-all" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                Subscribe
-              </Button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Content - Enhanced */}
       <div className="container-custom py-12 md:py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">

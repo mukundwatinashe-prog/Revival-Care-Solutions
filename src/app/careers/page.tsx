@@ -54,13 +54,29 @@ const benefits = [
 
 const openPositions = [
   {
-    title: 'Carer',
-    type: 'Full-time / Part-time',
+    key: 'fulltime' as const,
+    title: 'Care Assistant Fulltime',
+    type: 'Full-time',
     location: 'Falkirk & Surrounding Areas',
-    description: 'Provide personal care, companionship, and assistance with daily activities for elderly clients in their homes. Join our compassionate team making a real difference in people\'s lives.',
+    description:
+      'Provide personal care, companionship, and assistance with daily activities for elderly clients in their homes.',
     requirements: [
       'Compassionate and patient demeanor',
       'Valid driver\'s license and reliable transportation',
+      'Ability to pass PVG check',
+      'Good communication skills',
+      'Right to work in the UK',
+    ],
+  },
+  {
+    key: 'part-time' as const,
+    title: 'Care Assistant Part-time',
+    type: 'Part-time',
+    location: 'Falkirk & Surrounding Areas',
+    description:
+      'Provide personal care, companionship, and assistance with daily activities for elderly clients in their homes.',
+    requirements: [
+      'Compassionate and patient demeanor',
       'Ability to pass PVG check',
       'Good communication skills',
       'Right to work in the UK',
@@ -97,9 +113,15 @@ const process = [
 
 export default function CareersPage() {
   const [showApplicationForm, setShowApplicationForm] = useState(false);
+  type RoleKey = 'fulltime' | 'part-time';
+  const [selectedRole, setSelectedRole] = useState<RoleKey | null>(null);
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+  const selectedPosition = selectedRole
+    ? openPositions.find((p) => p.key === selectedRole) || null
+    : null;
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -110,6 +132,12 @@ export default function CareersPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    if (!web3formsKey) {
+      console.error('WEB3FORMS_ACCESS_KEY not configured');
+      setIsSubmitting(false);
+      return;
+    }
 
     const formData = new FormData(e.currentTarget);
     
@@ -202,6 +230,9 @@ export default function CareersPage() {
             <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
               Find a position that fits your skills and schedule.
             </p>
+            <p className="text-neutral-600 mt-4">
+              Rate of pay is competitive.
+            </p>
           </div>
 
           {submitted ? (
@@ -209,22 +240,39 @@ export default function CareersPage() {
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Application Submitted!</h3>
+              <h3 className="text-2xl font-semibold mb-4">Thanks for applying!</h3>
               <p className="text-neutral-600 mb-6">
-                Thank you for your interest in joining Revival Care. We&apos;ll review your application 
-                and get back to you within 5 working days.
+                We&apos;ve received your application and will be in touch soon.
               </p>
-              <Button onClick={() => setSubmitted(false)}>
+              <Button
+                onClick={() => {
+                  setSubmitted(false);
+                  setSelectedRole(null);
+                  setShowApplicationForm(false);
+                  setCvFile(null);
+                }}
+              >
                 Submit Another Application
               </Button>
             </Card>
           ) : showApplicationForm ? (
             <Card className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-semibold mb-6">Apply for Carer Position</h3>
+              <h3 className="text-2xl font-semibold mb-6">
+                Apply for {selectedPosition?.title || 'Care Assistant'}
+              </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <input type="hidden" name="access_key" value="da9ddbe9-204a-4d74-8327-d53182cd71ec" />
-                <input type="hidden" name="subject" value="New Job Application - Carer Position" />
+                <input type="hidden" name="access_key" value={web3formsKey || ''} />
+                <input
+                  type="hidden"
+                  name="subject"
+                  value={`New Job Application - ${selectedPosition?.title || 'Care Assistant'}`}
+                />
                 <input type="hidden" name="from_name" value="Revival Care Careers" />
+                <input
+                  type="hidden"
+                  name="job_role"
+                  value={selectedPosition?.title || 'Care Assistant'}
+                />
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -255,6 +303,19 @@ export default function CareersPage() {
                     <Input type="tel" name="phone" required placeholder="Your phone number" />
                   </div>
                 </div>
+
+                {selectedRole === 'part-time' && (
+                  <div>
+                    <Input
+                      type="number"
+                      name="max_hours_per_week"
+                      required
+                      min={1}
+                      label="Max hours you can work per week"
+                      placeholder="e.g. 20"
+                    />
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
@@ -329,7 +390,7 @@ export default function CareersPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Why do you want to work as a Carer?
+                    Why do you want to work as a Care Assistant?
                   </label>
                   <Textarea
                     name="motivation"
@@ -342,7 +403,11 @@ export default function CareersPage() {
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => setShowApplicationForm(false)}
+                    onClick={() => {
+                      setShowApplicationForm(false);
+                      setSelectedRole(null);
+                      setCvFile(null);
+                    }}
                   >
                     Cancel
                   </Button>
@@ -384,10 +449,15 @@ export default function CareersPage() {
                     </div>
                     <div className="lg:flex-shrink-0">
                       <Button 
-                        onClick={() => setShowApplicationForm(true)}
+                        onClick={() => {
+                          setSelectedRole(position.key);
+                          setCvFile(null);
+                          setShowApplicationForm(true);
+                          setSubmitted(false);
+                        }}
                         rightIcon={<ArrowRight className="w-4 h-4" />}
                       >
-                        Apply Now
+                        {position.title}
                       </Button>
                     </div>
                   </div>
