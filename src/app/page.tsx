@@ -87,23 +87,27 @@ export default function HomePage() {
             playsInline
             preload="auto"
             aria-hidden="true"
+            onLoadedMetadata={(e) => {
+              // Slow the background video for a calmer, more premium feel.
+              e.currentTarget.playbackRate = 0.7;
+            }}
             className="absolute inset-0 h-full w-full object-cover"
           >
             <source src="/Happy_Care_Scene_Generated.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0 bg-primary-900/45" />
+        <div className="absolute inset-0 bg-primary-900/70" />
         <div className="container-custom relative z-10 py-12 md:py-16 lg:py-20">
           <div className="max-w-2xl">
             <div>
               <Badge variant="secondary" size="md" className="mb-6">
                 Compassionate Home Care Services
               </Badge>
-              <h1 className="text-balance mb-6 leading-tight text-white">
+              <h1 className="text-balance mb-6 leading-tight text-white drop-shadow-md">
                 Compassionate Care for{' '}
                 <span className="text-secondary-200">Your Loved Ones</span>
               </h1>
-              <p className="text-lg text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg text-white/95 mb-8 leading-relaxed drop-shadow-sm">
                 Professional, personalized home care services that help seniors
                 maintain independence and dignity while providing families with
                 peace of mind.
