@@ -1,146 +1,36 @@
-'use client';
-
-import { useState } from 'react';
+import { Metadata } from 'next';
+import Link from 'next/link';
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
-  Send,
+  ArrowRight,
   CheckCircle,
-  Calendar,
 } from 'lucide-react';
-import { Button, Card, Badge, Input, Textarea } from '@/components/ui';
+import { Button, Card, Badge } from '@/components/ui';
 
-const contactMethods = [
-  {
-    icon: Phone,
-    title: 'Phone',
-    description: 'Speak with a care coordinator',
-    value: '01324868987',
-    href: 'tel:+441324868987',
-    action: 'Call Now',
-    isScroll: false,
-  },
-  {
-    icon: Mail,
-    title: 'Email',
-    description: 'Send us a message anytime',
-    value: 'info@revivalcare.co.uk',
-    href: 'mailto:info@revivalcare.co.uk',
-    action: 'Email Us',
-    isScroll: false,
-  },
-  {
-    icon: Calendar,
-    title: 'Schedule',
-    description: 'Book a consultation',
-    value: 'Free assessment',
-    href: '#consultation-form',
-    action: 'Book Now',
-    isScroll: true,
-  },
-];
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description: 'Get in touch with Revival Care Solutions. Call, email, or visit us in Polmont, Falkirk.',
+};
 
 const officeInfo = {
   address: 'Office 3 Marchmont Avenue\nPolmont, Falkirk, FK2 0NZ',
   phone: '01324868987',
   email: 'info@revivalcare.co.uk',
   hours: [
-    { day: 'Monday - Friday', hours: '9:00 AM - 5:30 PM' },
-    { day: 'Saturday - Sunday', hours: 'Closed' },
+    { day: 'Monday', hours: '9:00 AM - 5:30 PM' },
+    { day: 'Tuesday', hours: '9:00 AM - 5:30 PM' },
+    { day: 'Wednesday', hours: '9:00 AM - 5:30 PM' },
+    { day: 'Thursday', hours: '9:00 AM - 5:30 PM' },
+    { day: 'Friday', hours: '9:00 AM - 5:30 PM' },
+    { day: 'Saturday', hours: 'On Call' },
+    { day: 'Sunday', hours: 'On Call' },
   ],
 };
 
-const careTypes = [
-  'Personal Care',
-  'Companionship',
-  'Medication Management',
-  'Mobility Assistance',
-  'Meal Preparation',
-  'Respite Care',
-  'Live-In Care',
-  'Other',
-];
-
 export default function ContactPage() {
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    area: '',
-    careType: '',
-    relationship: '',
-    message: '',
-    consent: false,
-    honeypot: '',
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-    setErrorMessage('');
-
-    if (formData.honeypot) {
-      setFormStatus('success');
-      return;
-    }
-
-    const payload = new FormData();
-    payload.append('_subject', `New Contact from ${formData.firstName} ${formData.lastName}`);
-    payload.append('_captcha', 'false');
-    payload.append('_template', 'table');
-    payload.append('Name', `${formData.firstName} ${formData.lastName}`);
-    payload.append('Email', formData.email);
-    payload.append('Phone', formData.phone);
-    payload.append('Area', formData.area);
-    payload.append('Type of Care', formData.careType);
-    payload.append('Relationship', formData.relationship || 'Not specified');
-    payload.append('Message', formData.message || 'No additional message provided.');
-
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/info@revivalcare.co.uk', {
-        method: 'POST',
-        body: payload,
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setFormStatus('success');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          area: '',
-          careType: '',
-          relationship: '',
-          message: '',
-          consent: false,
-          honeypot: '',
-        });
-      } else {
-        setErrorMessage('Something went wrong. Please try again.');
-        setFormStatus('error');
-      }
-    } catch {
-      setErrorMessage('Network error. Please check your connection and try again.');
-      setFormStatus('error');
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
-    }));
-  };
-
   return (
     <div>
       {/* Hero Section */}
@@ -150,252 +40,74 @@ export default function ContactPage() {
             <Badge variant="primary" className="mb-4">Contact Us</Badge>
             <h1 className="mb-6">We&apos;re Here to Help</h1>
             <p className="text-xl text-neutral-600 mb-8">
-              Have questions about our care services? Ready to get started? 
-              Reach out to our friendly team – we respond within 1 hour during business hours.
+              Have questions about our care services? Ready to get started?
+              Reach out to our friendly team &mdash; we respond within 1 hour during business hours.
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Methods */}
-      <section className="py-12 -mt-12">
+      <section className="py-16">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {contactMethods.map((method) => (
-              <Card key={method.title} hover className="text-center">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {/* Phone */}
+            <a href="tel:+441324868987">
+              <Card hover className="text-center h-full">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-100 mb-4">
-                  <method.icon className="w-7 h-7 text-primary-600" />
+                  <Phone className="w-7 h-7 text-primary-600" />
                 </div>
-                <h3 className="font-semibold text-lg mb-1">{method.title}</h3>
-                <p className="text-sm text-neutral-600 mb-2">{method.description}</p>
-                <p className="font-medium text-primary-600 mb-4">{method.value}</p>
-                {method.isScroll ? (
-                  <button
-                    onClick={() => {
-                      document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="w-full"
-                  >
-                    <Button variant="outline" size="sm" fullWidth>
-                      {method.action}
-                    </Button>
-                  </button>
-                ) : (
-                  <a href={method.href}>
-                    <Button variant="outline" size="sm" fullWidth>
-                      {method.action}
-                    </Button>
-                  </a>
-                )}
+                <h3 className="font-semibold text-lg mb-1">Phone</h3>
+                <p className="text-sm text-neutral-600 mb-2">Speak with a care coordinator</p>
+                <p className="font-medium text-primary-600 mb-4">01324868987</p>
+                <Button variant="outline" size="sm" fullWidth>
+                  Call Now
+                </Button>
               </Card>
-            ))}
+            </a>
+
+            {/* Email */}
+            <a href="mailto:info@revivalcare.co.uk">
+              <Card hover className="text-center h-full">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-100 mb-4">
+                  <Mail className="w-7 h-7 text-primary-600" />
+                </div>
+                <h3 className="font-semibold text-lg mb-1">Email</h3>
+                <p className="text-sm text-neutral-600 mb-2">Send us a message anytime</p>
+                <p className="font-medium text-primary-600 mb-4">info@revivalcare.co.uk</p>
+                <Button variant="outline" size="sm" fullWidth>
+                  Email Us
+                </Button>
+              </Card>
+            </a>
+
+            {/* Consultation */}
+            <Link href="/consultation">
+              <Card hover className="text-center h-full border-2 border-primary-200 bg-primary-50/40">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-600 mb-4">
+                  <ArrowRight className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="font-semibold text-lg mb-1">Free Consultation</h3>
+                <p className="text-sm text-neutral-600 mb-2">Book a care assessment</p>
+                <p className="font-medium text-primary-600 mb-4">No obligation</p>
+                <Button variant="primary" size="sm" fullWidth>
+                  Book Now
+                </Button>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-24">
+      {/* Office Info + Map */}
+      <section className="py-16 bg-neutral-50">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
-            <div className="lg:col-span-2" id="consultation-form">
-              <Card>
-                <h2 className="text-2xl font-serif font-semibold mb-2">Request a Free Consultation</h2>
-                <p className="text-neutral-600 mb-8">
-                  Fill out the form below and a care coordinator will contact you within 1 hour 
-                  to discuss your needs and answer any questions.
-                </p>
-
-                {formStatus === 'success' ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Thanks!</h3>
-                    <p className="text-neutral-600 mb-6">
-                      Thanks! We&apos;ve received your consultation request and will contact you shortly.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button variant="outline" onClick={() => {
-                        setFormStatus('idle');
-                        setFormData({
-                          firstName: '',
-                          lastName: '',
-                          email: '',
-                          phone: '',
-                          area: '',
-                          careType: '',
-                          relationship: '',
-                          message: '',
-                          consent: false,
-                          honeypot: '',
-                        });
-                      }}>
-                        Send Another Message
-                      </Button>
-                      <a href="tel:+441324868987">
-                        <Button leftIcon={<Phone className="w-4 h-4" />}>
-                          Call Us Now
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <Input
-                        label="First Name"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                        placeholder="John"
-                      />
-                      <Input
-                        label="Last Name"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                        placeholder="Smith"
-                      />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <Input
-                        label="Email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        placeholder="john@example.com"
-                      />
-                      <Input
-                        label="Phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        placeholder="07XXX XXXXXX"
-                      />
-                    </div>
-
-                    <Input
-                      label="Your Area / Town"
-                      name="area"
-                      value={formData.area}
-                      onChange={handleChange}
-                      required
-                      placeholder="e.g. Falkirk, Denny, Larbert, Grangemouth, Linlithgow"
-                    />
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-neutral-700 mb-2">
-                          Type of Care Needed <span className="text-secondary-500">*</span>
-                        </label>
-                        <select
-                          name="careType"
-                          value={formData.careType}
-                          onChange={handleChange}
-                          required
-                          className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent hover:border-neutral-300 transition-all duration-200"
-                        >
-                          <option value="">Select care type</option>
-                          {careTypes.map((type) => (
-                            <option key={type} value={type}>{type}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-neutral-700 mb-2">
-                          Your Relationship to Care Recipient
-                        </label>
-                        <select
-                          name="relationship"
-                          value={formData.relationship}
-                          onChange={handleChange}
-                          className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent hover:border-neutral-300 transition-all duration-200"
-                        >
-                          <option value="">Select relationship</option>
-                          <option value="self">I need care for myself</option>
-                          <option value="parent">Parent</option>
-                          <option value="spouse">Spouse/Partner</option>
-                          <option value="grandparent">Grandparent</option>
-                          <option value="sibling">Sibling</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <Textarea
-                      label="Tell us about your care needs"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Please share any details about the care situation, specific needs, or questions you have..."
-                      rows={5}
-                    />
-
-                    {/* Honeypot field - hidden from users, catches bots */}
-                    <div className="hidden" aria-hidden="true">
-                      <input
-                        type="text"
-                        name="honeypot"
-                        value={formData.honeypot}
-                        onChange={handleChange}
-                        tabIndex={-1}
-                        autoComplete="off"
-                      />
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <input
-                        type="checkbox"
-                        name="consent"
-                        id="consent"
-                        checked={formData.consent}
-                        onChange={handleChange}
-                        required
-                        className="mt-1 w-4 h-4 rounded border-neutral-300 text-primary-600 focus:ring-primary-500"
-                      />
-                      <label htmlFor="consent" className="text-sm text-neutral-600">
-                        I consent to Revival Care Solutions contacting me about care services. 
-                        I understand my information will be handled according to the{' '}
-                        <a href="/privacy" className="text-primary-600 hover:underline">Privacy Policy</a>.
-                      </label>
-                    </div>
-
-                    {/* Error Message */}
-                    {formStatus === 'error' && (
-                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700">
-                        {errorMessage}
-                      </div>
-                    )}
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      fullWidth
-                      disabled={formStatus === 'submitting'}
-                      rightIcon={formStatus === 'submitting' ? undefined : <Send className="w-5 h-5" />}
-                    >
-                      {formStatus === 'submitting' ? 'Sending...' : 'Submit Request'}
-                    </Button>
-                  </form>
-                )}
-              </Card>
-            </div>
-
-            {/* Contact Info Sidebar */}
-            <div className="lg:col-span-1 space-y-6">
-              {/* Office Info */}
-              <Card className="bg-primary-50 border-primary-100">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            {/* Office Details */}
+            <div className="space-y-6">
+              <Card className="bg-white">
                 <h3 className="font-semibold text-lg mb-6">Office Information</h3>
-                
-                <div className="space-y-4">
+                <div className="space-y-5">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-primary-600 mt-1" />
                     <div>
@@ -405,28 +117,20 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
-
                   <div className="flex items-start gap-3">
                     <Phone className="w-5 h-5 text-primary-600 mt-1" />
                     <div>
                       <p className="font-medium">Phone</p>
-                      <a 
-                        href={`tel:${officeInfo.phone}`}
-                        className="text-primary-600 hover:underline text-sm"
-                      >
+                      <a href={`tel:${officeInfo.phone}`} className="text-primary-600 hover:underline text-sm">
                         {officeInfo.phone}
                       </a>
                     </div>
                   </div>
-
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-primary-600 mt-1" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <a 
-                        href={`mailto:${officeInfo.email}`}
-                        className="text-primary-600 hover:underline text-sm"
-                      >
+                      <a href={`mailto:${officeInfo.email}`} className="text-primary-600 hover:underline text-sm">
                         {officeInfo.email}
                       </a>
                     </div>
@@ -434,7 +138,6 @@ export default function ContactPage() {
                 </div>
               </Card>
 
-              {/* Hours */}
               <Card>
                 <div className="flex items-center gap-3 mb-4">
                   <Clock className="w-5 h-5 text-primary-600" />
@@ -449,31 +152,31 @@ export default function ContactPage() {
                   ))}
                 </div>
               </Card>
+            </div>
 
+            {/* Map */}
+            <div>
+              <Card className="overflow-hidden h-full">
+                <div className="p-6 pb-4">
+                  <h3 className="font-semibold text-lg mb-2">Our Location</h3>
+                  <p className="text-neutral-600 text-sm">
+                    Find us at our Polmont office.
+                  </p>
+                </div>
+                <iframe
+                  src="https://www.google.com/maps?q=Marchmont+Avenue,+Polmont,+Falkirk+FK2+0NZ,+UK&output=embed"
+                  width="100%"
+                  height="380"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Revival Care Solutions Office Location - Polmont, Falkirk"
+                  className="w-full"
+                />
+              </Card>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-16 bg-neutral-100">
-        <div className="container-custom">
-          <div className="rounded-2xl overflow-hidden shadow-lg">
-            <iframe
-              src="https://www.google.com/maps?q=Marchmont+Avenue,+Polmont,+Falkirk+FK2+0NZ,+UK&output=embed"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Revival Care Solutions Office Location - Polmont, Falkirk"
-              className="w-full"
-            />
-          </div>
-          <p className="text-center text-neutral-600 mt-4">
-            Office 3 Marchmont Avenue, Polmont, Falkirk, FK2 0NZ
-          </p>
         </div>
       </section>
 
@@ -481,24 +184,46 @@ export default function ContactPage() {
       <section className="py-24 bg-primary-700">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Prefer to Talk Now?</h2>
+            <h2 className="text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Our care coordinators are standing by to answer your questions 
-              and help you get started with a free consultation.
+              Schedule a free, no-obligation consultation with our care team.
+              We&apos;ll call you within 1 hour to discuss your needs.
             </p>
-            <a href="tel:+441324868987">
-              <Button 
-                variant="secondary" 
-                size="xl" 
-                leftIcon={<Phone className="w-5 h-5" />}
-              >
-                Call 01324868987
-              </Button>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/consultation">
+                <Button
+                  variant="secondary"
+                  size="xl"
+                  rightIcon={<ArrowRight className="w-5 h-5" />}
+                >
+                  Schedule Free Consultation
+                </Button>
+              </Link>
+              <a href="tel:+441324868987">
+                <Button
+                  variant="outline"
+                  size="xl"
+                  className="border-white text-white hover:bg-white/10"
+                  leftIcon={<Phone className="w-5 h-5" />}
+                >
+                  Call 01324868987
+                </Button>
+              </a>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6 mt-8 text-white/90 text-sm">
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5" /> Available 24/7
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5" /> Response within 1 hour
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5" /> No commitment required
+              </span>
+            </div>
           </div>
         </div>
       </section>
     </div>
   );
 }
-

@@ -126,9 +126,11 @@ export default function ServicesPage() {
               of their own homes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Schedule Free Assessment
-              </Button>
+              <Link href="/consultation">
+                <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Schedule Free Assessment
+                </Button>
+              </Link>
               <a href="tel:+441324868987">
                 <Button variant="outline" size="lg" leftIcon={<Phone className="w-5 h-5" />}>
                   01324868987
@@ -171,12 +173,17 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 
-                <Link 
-                  href={`/services/${service.slug}`}
-                  className="inline-flex items-center gap-2 text-primary-600 font-medium hover:gap-3 transition-all mt-auto"
-                >
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="flex items-center gap-4 mt-auto">
+                  <Link 
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center gap-2 text-primary-600 font-medium hover:gap-3 transition-all"
+                  >
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link href={`/consultation?service=${service.slug}`}>
+                    <Button variant="outline" size="sm">Get Started</Button>
+                  </Link>
+                </div>
               </Card>
             ))}
           </div>

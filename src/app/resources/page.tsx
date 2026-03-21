@@ -10,6 +10,7 @@ import {
   Calendar,
   Clock,
   User,
+  Phone,
 } from 'lucide-react';
 import { Button, Card, Badge } from '@/components/ui';
 
@@ -24,28 +25,24 @@ const resourceCategories = [
     title: 'Blog & Articles',
     description: 'Expert insights on elderly care, health tips, and family support.',
     href: '/resources/blog',
-    count: '50+ Articles',
   },
   {
     icon: FileText,
     title: 'Care Guides',
     description: 'Comprehensive guides for understanding and planning care.',
     href: '/resources/guides',
-    count: '12 Guides',
   },
   {
     icon: HelpCircle,
     title: 'FAQ',
     description: 'Answers to commonly asked questions about our services.',
     href: '/resources/faq',
-    count: '30+ Questions',
   },
   {
     icon: Download,
     title: 'Downloads',
     description: 'Printable checklists, forms, and reference materials.',
     href: '/resources/downloads',
-    count: '15+ Resources',
   },
 ];
 
@@ -155,8 +152,7 @@ export default function ResourcesPage() {
                     <category.icon className="w-7 h-7 text-primary-600" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{category.title}</h3>
-                  <p className="text-neutral-600 text-sm mb-3">{category.description}</p>
-                  <Badge variant="neutral" size="sm">{category.count}</Badge>
+                  <p className="text-neutral-600 text-sm">{category.description}</p>
                 </Card>
               </Link>
             ))}
@@ -281,7 +277,35 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Newsletter CTA removed (no subscriptions requested) */}
+      {/* Consultation CTA */}
+      <section className="py-24 bg-primary-700">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-white mb-6">Need Personalised Advice?</h2>
+            <p className="text-xl text-white/90 mb-8">
+              Every situation is different. Schedule a free consultation and our care team
+              will help you find the right solution for your family.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/consultation">
+                <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  Schedule Free Consultation
+                </Button>
+              </Link>
+              <a href="tel:+441324868987">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-white text-white hover:bg-white/10"
+                  leftIcon={<Phone className="w-5 h-5" />}
+                >
+                  Call 01324868987
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -198,12 +198,17 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-neutral-900">{service.title}</h3>
                 <p className="text-neutral-700 mb-5 leading-relaxed text-sm">{service.description}</p>
-                <Link
-                  href={service.href}
-                  className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:gap-3 transition-all"
-                >
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="flex items-center gap-4">
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:gap-3 transition-all"
+                  >
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link href={`/consultation?service=${service.href.split('/').pop()}`}>
+                    <Button variant="outline" size="sm">Get Started</Button>
+                  </Link>
+                </div>
               </Card>
             ))}
           </div>
@@ -299,49 +304,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us - simple feature grid */}
+      {/* How It Works - 3-step strip */}
       <section className="py-16 lg:py-24 bg-neutral-50">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-            <Badge variant="primary" className="mb-4">Why Choose Us</Badge>
-            <h2 className="mb-4">The Revival Care Difference</h2>
+            <Badge variant="primary" className="mb-4">How It Works</Badge>
+            <h2 className="mb-4">Getting Started Is Simple</h2>
             <p className="text-neutral-700 text-lg">
-              We go above and beyond to ensure the highest quality of care for your loved ones.
+              From your first call to a care plan tailored to your family &mdash; we make the process easy.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
-                icon: Shield,
-                title: 'Fully Vetted Caregivers',
+                step: '1',
+                title: 'Free Consultation',
                 description:
-                  'Comprehensive background checks including PVG checks through Disclosure Scotland, SSSC registration verification, and reference checks for every caregiver.',
+                  'Tell us about your care needs. We\u2019ll listen, answer questions, and help you understand your options.',
               },
               {
-                icon: Award,
-                title: 'Ongoing Training',
-                description: 'Continuous education and skills development to maintain the highest care standards.',
-              },
-              {
-                icon: Clock,
-                title: 'Flexible Scheduling',
-                description: 'From a few hours a week to 24/7 live-in care, we adapt to your needs.',
-              },
-              {
-                icon: Heart,
-                title: 'Personalized Care Plans',
+                step: '2',
+                title: 'Personalised Care Plan',
                 description:
-                  'Customized care strategies developed in collaboration with families and healthcare providers.',
+                  'We create a bespoke care plan together, matching you with the right caregiver for your family.',
               },
-            ].map((feature) => (
-              <Card key={feature.title} variant="elevated" className="bg-white border border-neutral-100 text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary-100 mb-4">
-                  <feature.icon className="w-7 h-7 text-primary-600" />
+              {
+                step: '3',
+                title: 'Care Begins',
+                description:
+                  'Your dedicated caregiver starts delivering compassionate, professional care at home.',
+              },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-600 text-white text-2xl font-bold mb-5 shadow-lg">
+                  {item.step}
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-neutral-900">{feature.title}</h3>
-                <p className="text-neutral-700 text-sm leading-relaxed">{feature.description}</p>
-              </Card>
+                <h3 className="text-lg font-semibold mb-3 text-neutral-900">{item.title}</h3>
+                <p className="text-neutral-700 text-sm leading-relaxed">{item.description}</p>
+              </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/consultation">
+              <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                Start with a Free Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

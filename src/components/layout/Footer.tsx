@@ -10,7 +10,8 @@ import {
   Facebook,
   Linkedin,
   ArrowRight,
-  Award
+  Award,
+  Calendar,
 } from 'lucide-react';
 import { Button } from '@/components/ui';
 
@@ -49,7 +50,8 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden">
+    <>
+    <footer className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden pb-16 lg:pb-0">
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary-400 rounded-full blur-3xl"></div>
@@ -197,5 +199,27 @@ export function Footer() {
         </div>
       </div>
     </footer>
+
+      {/* Sticky Mobile CTA Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-neutral-200 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] safe-area-bottom">
+        <div className="flex items-stretch">
+          <a
+            href="tel:+441324868987"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 text-primary-700 font-semibold text-sm hover:bg-primary-50 transition-colors"
+          >
+            <Phone className="w-5 h-5" />
+            Call Now
+          </a>
+          <div className="w-px bg-neutral-200" />
+          <Link
+            href="/consultation"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-primary-600 text-white font-semibold text-sm hover:bg-primary-700 transition-colors"
+          >
+            <Calendar className="w-5 h-5" />
+            Free Consultation
+          </Link>
+        </div>
+      </div>
+    </>
   );
 }

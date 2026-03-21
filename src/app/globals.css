@@ -507,3 +507,8 @@ img, video {
   background: var(--primary-200);
   color: var(--primary-900);
 }
+
+/* Safe area padding for sticky mobile CTA on notched phones */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

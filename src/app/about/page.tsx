@@ -87,9 +87,11 @@ export default function AboutPage() {
                 their own home.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                  Meet Our Team
-                </Button>
+                <Link href="/consultation">
+                  <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                    Schedule Free Consultation
+                  </Button>
+                </Link>
                 <Link href="/services">
                   <Button variant="outline" size="lg">
                     Our Services
