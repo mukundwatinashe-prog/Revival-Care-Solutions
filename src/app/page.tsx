@@ -18,6 +18,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { Button, Card, Badge } from '@/components/ui';
+import { TestimonialsCarousel } from '@/components/sections/TestimonialsCarousel';
 
 // Services data
 const services = [
@@ -353,6 +354,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <TestimonialsCarousel />
 
       {/* CTA - lead generation style */}
       <section className="py-16 lg:py-24 bg-primary-700">

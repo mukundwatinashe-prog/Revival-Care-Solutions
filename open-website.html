@@ -1,8 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0;url=http://localhost:3000">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Revival Care (local dev)</title>
+  <!-- Fallback if JavaScript is disabled -->
+  <meta http-equiv="refresh" content="1; url=http://localhost:3000/" />
+  <script>
+    // More reliable than meta refresh alone when opening this file via file://
+    window.location.replace('http://localhost:3000/');
+  </script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 36rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+      color: #333;
+    }
+    code {
+      background: #f3f1ed;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+    }
+    a {
+      color: #1f7aa8;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
+  <h1>Opening local site…</h1>
+  <p>
+    If you are not redirected automatically,
+    <a href="http://localhost:3000/">click here to open http://localhost:3000/</a>.
+  </p>
+  <p>
+    The Next.js app must be running. In the project folder, run
+    <code>npm run dev</code>, wait until the terminal shows the server is ready, then use the link above.
+  </p>
 </body>
 </html>
