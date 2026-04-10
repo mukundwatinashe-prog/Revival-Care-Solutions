@@ -53,30 +53,30 @@ export function TestimonialsCarousel() {
 
   return (
     <section
-      className="py-16 lg:py-24 bg-gradient-to-b from-primary-50 to-white border-y border-primary-100"
+      className="py-12 lg:py-16 bg-gradient-to-b from-primary-50 to-white border-y border-primary-100"
       aria-labelledby="testimonials-heading"
     >
       <div className="container-custom">
-        <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-14">
-          <Badge variant="secondary" className="mb-4">
+        <div className="text-center max-w-xl mx-auto mb-7 lg:mb-9">
+          <Badge variant="secondary" className="mb-3">
             Testimonials
           </Badge>
-          <h2 id="testimonials-heading" className="mb-4">
+          <h2 id="testimonials-heading" className="mb-2 text-2xl sm:text-3xl font-semibold tracking-tight">
             What families say
           </h2>
-          <p className="text-neutral-700 text-lg">
+          <p className="text-neutral-700 text-sm sm:text-base">
             Anonymous feedback from relatives—we are grateful for the trust families place in us.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto relative">
+        <div className="max-w-2xl mx-auto relative">
           <div
-            className="rounded-2xl bg-white border border-primary-100 shadow-lg shadow-primary-900/5 px-6 py-8 sm:px-10 sm:py-10 md:px-12 md:py-12"
+            className="rounded-xl bg-white border border-primary-100 shadow-md shadow-primary-900/5 px-5 py-6 sm:px-7 sm:py-7 md:px-8 md:py-8"
             aria-live="polite"
             aria-atomic="true"
           >
             <Quote
-              className="w-10 h-10 text-secondary-400 mb-6 opacity-90"
+              className="w-7 h-7 sm:w-8 sm:h-8 text-secondary-400 mb-4 opacity-90"
               aria-hidden
               strokeWidth={1.25}
             />
@@ -84,36 +84,36 @@ export function TestimonialsCarousel() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={current.id}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="space-y-4"
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="space-y-3"
               >
                 {current.paragraphs.map((p, i) => (
                   <p
                     key={i}
-                    className="text-neutral-700 leading-relaxed text-base sm:text-lg font-serif"
+                    className="text-neutral-700 leading-relaxed text-sm sm:text-base font-serif"
                   >
                     {p}
                   </p>
                 ))}
-                <p className="pt-4 text-sm font-medium text-primary-800 border-t border-neutral-100">
+                <p className="pt-3 text-xs sm:text-sm font-medium text-primary-800 border-t border-neutral-100">
                   — {current.attribution}
                 </p>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-6">
             {testimonials.map((item, i) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => goTo(i)}
                 className={`
-                  h-2.5 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
-                  ${i === index ? 'w-10 bg-primary-600' : 'w-2.5 bg-primary-200 hover:bg-primary-300'}
+                  h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
+                  ${i === index ? 'w-8 bg-primary-600' : 'w-2 bg-primary-200 hover:bg-primary-300'}
                 `}
                 aria-label={`Show testimonial ${i + 1} of ${testimonials.length}`}
                 aria-current={i === index ? 'true' : undefined}
