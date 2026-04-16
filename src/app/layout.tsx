@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleTag } from "@/components/GoogleTag";
 import { Header, Footer } from "@/components/layout";
 import "./globals.css";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <GoogleTag />
         {/* Skip to main content link for accessibility */}
         <a href="#main-content" className="skip-link">
           Skip to main content
