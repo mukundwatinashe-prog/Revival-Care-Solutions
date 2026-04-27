@@ -61,7 +61,7 @@ const services = [
 
 // Trust stats
 const stats = [
-  { value: 'Business Hours', label: 'Care Available', icon: Clock },
+  { value: 'Care', label: 'Available', icon: Clock },
   { value: '100%', label: 'Dedication', icon: Heart },
   { value: 'Care', label: 'Inspectorate Registered', icon: Award },
   { value: 'Local', label: 'Family-Owned', icon: Users },
@@ -141,7 +141,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-2 text-white text-sm font-medium">
                   <Clock className="w-5 h-5 text-secondary-300 flex-shrink-0" />
-                  Available Business Hours
+                  Care Available
                 </div>
               </div>
             </div>
@@ -392,7 +392,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-wrap justify-center gap-6 mt-8 text-white/90 text-sm">
               <span className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" /> Available Business Hours
+                <CheckCircle className="w-5 h-5" /> Care Available
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" /> Response within 1 hour
