@@ -112,7 +112,7 @@ const topFAQs = [
   },
   {
     question: 'What is the cost of home care services?',
-    answer: 'Costs vary based on the level of care needed, hours of service, and specific requirements. We provide free consultations with detailed, transparent pricing.',
+    answer: 'Costs vary based on the level of care needed, hours of service, and specific requirements. We provide free assessments with detailed, transparent pricing.',
   },
   {
     question: 'Are your caregivers insured and bonded?',
@@ -283,13 +283,13 @@ export default function ResourcesPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-white mb-6">Need Personalised Advice?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Every situation is different. Schedule a free consultation and our care team
+              Every situation is different. Schedule a free assessment and our care team
               will help you find the right solution for your family.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/consultation">
                 <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                  Schedule Free Consultation
+                  Schedule Free Assessment
                 </Button>
               </Link>
               <a href="tel:+441324868987">

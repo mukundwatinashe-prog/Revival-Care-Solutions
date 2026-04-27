@@ -373,13 +373,13 @@ export default async function ServicePage({ params }: PageProps) {
               <Card className="bg-primary-50 border-primary-100 mb-8 sticky top-24">
                 <h3 className="font-serif text-xl font-semibold mb-4">Get Started Today</h3>
                 <p className="text-neutral-600 mb-6">
-                  Schedule a free consultation to discuss how our {service.title.toLowerCase()} 
+                  Schedule a free assessment to discuss how our {service.title.toLowerCase()} 
                   services can help your loved one.
                 </p>
                 <div className="space-y-3">
                   <Link href="/consultation">
                     <Button fullWidth rightIcon={<ArrowRight className="w-4 h-4" />}>
-                      Free Consultation
+                      Free Assessment
                     </Button>
                   </Link>
                   <a href="tel:+441324868987">
@@ -391,7 +391,7 @@ export default async function ServicePage({ params }: PageProps) {
                 <div className="mt-6 pt-6 border-t border-primary-200 space-y-3">
                   <div className="flex items-center gap-3 text-sm text-neutral-600">
                     <Clock className="w-4 h-4 text-primary-600" />
-                    <span>24/7 Care Available</span>
+                    <span>Business Hours Care Available</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-neutral-600">
                     <Users className="w-4 h-4 text-primary-600" />

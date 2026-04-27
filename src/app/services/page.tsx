@@ -107,7 +107,7 @@ const benefits = [
   {
     icon: Clock,
     title: 'Flexible Scheduling',
-    description: 'From hourly visits to 24/7 live-in care, we adapt our services to fit your schedule.',
+    description: 'From hourly visits to Business Hours live-in care, we adapt our services to fit your schedule.',
   },
 ];
 
@@ -226,7 +226,7 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/consultation">
                 <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                  Schedule Free Consultation
+                  Schedule Free Assessment
                 </Button>
               </Link>
               <a href="tel:+441324868987">

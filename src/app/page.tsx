@@ -61,7 +61,7 @@ const services = [
 
 // Trust stats
 const stats = [
-  { value: '24/7', label: 'Care Available', icon: Clock },
+  { value: 'Business Hours', label: 'Care Available', icon: Clock },
   { value: '100%', label: 'Dedication', icon: Heart },
   { value: 'Care', label: 'Inspectorate Registered', icon: Award },
   { value: 'Local', label: 'Family-Owned', icon: Users },
@@ -116,7 +116,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/consultation">
                   <Button size="xl" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                    Schedule Free Consultation
+                    Schedule Free Assessment
                   </Button>
                 </Link>
                 <a href="tel:+441324868987">
@@ -141,7 +141,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-2 text-white text-sm font-medium">
                   <Clock className="w-5 h-5 text-secondary-300 flex-shrink-0" />
-                  Available 24/7
+                  Available Business Hours
                 </div>
               </div>
             </div>
@@ -319,7 +319,7 @@ export default function HomePage() {
             {[
               {
                 step: '1',
-                title: 'Free Consultation',
+                title: 'Free Assessment',
                 description:
                   'Tell us about your care needs. We\u2019ll listen, answer questions, and help you understand your options.',
               },
@@ -348,7 +348,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link href="/consultation">
               <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Start with a Free Consultation
+                Start with a Free Assessment
               </Button>
             </Link>
           </div>
@@ -376,7 +376,7 @@ export default function HomePage() {
                   className="shadow-lg"
                   rightIcon={<ArrowRight className="w-5 h-5" />}
                 >
-                  Schedule Free Consultation
+                  Schedule Free Assessment
                 </Button>
               </Link>
               <a href="tel:+441324868987">
@@ -392,7 +392,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-wrap justify-center gap-6 mt-8 text-white/90 text-sm">
               <span className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" /> Available 24/7
+                <CheckCircle className="w-5 h-5" /> Available Business Hours
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" /> Response within 1 hour

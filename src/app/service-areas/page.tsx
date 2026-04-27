@@ -27,7 +27,7 @@ const currentAreas = [
 
 const stats = [
   { value: '6', label: 'Areas Served' },
-  { value: '24/7', label: 'Service Availability' },
+  { value: 'Business Hours', label: 'Service Availability' },
   { value: 'Local', label: 'Family-Owned' },
   { value: 'Care', label: 'Inspectorate Registered' },
 ];
@@ -48,7 +48,7 @@ export default function ServiceAreasPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/consultation">
                 <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                  Schedule Free Consultation
+                  Schedule Free Assessment
                 </Button>
               </Link>
               <a href="tel:+441324868987">
@@ -264,7 +264,7 @@ export default function ServiceAreasPage() {
             <h2 className="text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-white/90 mb-8">
               Contact us today to confirm service availability in your area 
-              and schedule a free consultation.
+              and schedule a free assessment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/consultation">

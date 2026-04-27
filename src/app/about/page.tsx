@@ -65,7 +65,7 @@ const certifications = [
 ];
 
 const stats = [
-  { value: '24/7', label: 'Care Available' },
+  { value: 'Business Hours', label: 'Care Available' },
   { value: '100%', label: 'Dedication' },
   { value: 'Care', label: 'Inspectorate Registered' },
   { value: 'Local', label: 'Family-Owned' },
@@ -89,7 +89,7 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/consultation">
                   <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                    Schedule Free Consultation
+                    Schedule Free Assessment
                   </Button>
                 </Link>
                 <Link href="/services">

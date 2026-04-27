@@ -85,7 +85,7 @@ export function Header() {
             </a>
             <div className="hidden md:flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span>Available 24/7</span>
+              <span>Available Business Hours</span>
             </div>
           </div>
           <div className="flex items-center gap-5">
@@ -182,7 +182,7 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-3">
               <Link href="/consultation">
                 <Button variant="ghost" size="md" className="font-medium">
-                  Free Consultation
+                  Free Assessment
                 </Button>
               </Link>
               <a href="tel:+441324868987">
@@ -281,7 +281,7 @@ export function Header() {
                 <div className="mt-8 space-y-3">
                   <Link href="/consultation" onClick={() => setIsMobileMenuOpen(false)}>
                     <Button variant="ghost" fullWidth>
-                      Free Consultation
+                      Free Assessment
                     </Button>
                   </Link>
                   <a href="tel:+441324868987">
@@ -300,7 +300,7 @@ export function Header() {
                     01324868987
                   </a>
                   <p className="mt-2 text-sm text-neutral-500">
-                    Available 24 hours a day, 7 days a week
+                    Available during business hours
                   </p>
                 </div>
               </div>

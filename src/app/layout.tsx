@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: "Revival Care Solutions | Compassionate Home Care Services",
     template: "%s | Revival Care Solutions"
   },
-  description: "Providing compassionate, professional home care services for seniors. Personal care, companionship, medication management, and more. Available 24/7.",
+  description: "Providing compassionate, professional home care services for seniors. Personal care, companionship, medication management, and more. Available Business Hours.",
   keywords: ["home care", "senior care", "elderly care", "personal care", "companionship", "caregiver services", "in-home care", "assisted living alternative"],
   authors: [{ name: "Revival Care Solutions" }],
   creator: "Revival Care Solutions",

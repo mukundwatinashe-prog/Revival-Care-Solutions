@@ -48,7 +48,7 @@ const benefits = [
   {
     icon: Users,
     title: 'Supportive Team',
-    description: '24/7 support from care coordinators and a community of fellow caregivers.',
+    description: 'Business Hours support from care coordinators and a community of fellow caregivers.',
   },
 ];
 

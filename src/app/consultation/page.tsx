@@ -281,7 +281,7 @@ function ConsultationForm() {
                   disabled={formStatus === 'submitting'}
                   rightIcon={formStatus === 'submitting' ? undefined : <Send className="w-5 h-5" />}
                 >
-                  {formStatus === 'submitting' ? 'Sending...' : 'Request Free Consultation'}
+                  {formStatus === 'submitting' ? 'Sending...' : 'Request Free Assessment'}
                 </Button>
               </form>
             </>
@@ -397,8 +397,8 @@ export default function ConsultationPage() {
             Back to Home
           </Link>
 
-          <Badge variant="primary" className="mb-4">Free Consultation</Badge>
-          <h1 className="mb-4">Schedule Your <span className="text-gradient">Free Consultation</span></h1>
+          <Badge variant="primary" className="mb-4">Free Assessment</Badge>
+          <h1 className="mb-4">Schedule Your <span className="text-gradient">Free Assessment</span></h1>
           <p className="text-xl text-neutral-600 max-w-2xl">
             Take the first step towards quality care for your loved one.
             Fill in the short form and we&apos;ll call you back within 1 hour.

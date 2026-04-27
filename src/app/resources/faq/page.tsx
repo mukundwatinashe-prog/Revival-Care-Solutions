@@ -41,7 +41,7 @@ const faqs = [
       },
       {
         q: 'Is there a minimum number of hours required?',
-        a: 'We offer flexible scheduling to meet your needs. While our minimum visit is typically 4 hours, we can discuss options that work best for your situation. We offer everything from a few hours a week to 24/7 live-in care.',
+        a: 'We offer flexible scheduling to meet your needs. While our minimum visit is typically 4 hours, we can discuss options that work best for your situation. We offer everything from a few hours a week to Business Hours live-in care.',
       },
       {
         q: 'What areas do you serve?',
@@ -54,7 +54,7 @@ const faqs = [
     questions: [
       {
         q: 'What is the cost of home care services?',
-        a: 'Costs vary based on the level of care needed, hours of service, and specific requirements. We provide transparent pricing during your free consultation. Please contact us for current rates as pricing depends on the type of care required.',
+        a: 'Costs vary based on the level of care needed, hours of service, and specific requirements. We provide transparent pricing during your free assessment. Please contact us for current rates as pricing depends on the type of care required.',
       },
       {
         q: 'Does the NHS cover home care services?',
@@ -133,11 +133,11 @@ const faqs = [
       },
       {
         q: 'How do you ensure quality of care?',
-        a: 'We maintain quality through careful caregiver selection, comprehensive training, regular supervisory visits, client feedback surveys, and 24/7 on-call support. Our care coordinators regularly check in to ensure satisfaction.',
+        a: 'We maintain quality through careful caregiver selection, comprehensive training, regular supervisory visits, client feedback surveys, and Business Hours on-call support. Our care coordinators regularly check in to ensure satisfaction.',
       },
       {
         q: 'What happens if there\'s an emergency?',
-        a: 'Caregivers are trained in emergency response and will call 911 immediately if needed, then contact family members and our office. We have 24/7 on-call support for any urgent situations.',
+        a: 'Caregivers are trained in emergency response and will call 911 immediately if needed, then contact family members and our office. We have Business Hours on-call support for any urgent situations.',
       },
       {
         q: 'How do you protect client privacy?',
@@ -150,7 +150,7 @@ const faqs = [
     questions: [
       {
         q: 'How flexible is the scheduling?',
-        a: 'Very flexible! We offer care ranging from a few hours per week to 24/7 live-in care. You can adjust the schedule as needs change. We can accommodate regular schedules, occasional care, or varying weekly schedules.',
+        a: 'Very flexible! We offer care ranging from a few hours per week to Business Hours live-in care. You can adjust the schedule as needs change. We can accommodate regular schedules, occasional care, or varying weekly schedules.',
       },
       {
         q: 'What if I need to cancel or change a scheduled visit?',

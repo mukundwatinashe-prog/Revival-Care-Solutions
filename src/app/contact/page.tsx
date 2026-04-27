@@ -20,11 +20,11 @@ const officeInfo = {
   phone: '01324868987',
   email: 'info@revivalcare.co.uk',
   hours: [
-    { day: 'Monday', hours: '9:00 AM - 5:30 PM' },
-    { day: 'Tuesday', hours: '9:00 AM - 5:30 PM' },
-    { day: 'Wednesday', hours: '9:00 AM - 5:30 PM' },
-    { day: 'Thursday', hours: '9:00 AM - 5:30 PM' },
-    { day: 'Friday', hours: '9:00 AM - 5:30 PM' },
+    { day: 'Monday', hours: '9:00 AM - 5:00 PM' },
+    { day: 'Tuesday', hours: '9:00 AM - 5:00 PM' },
+    { day: 'Wednesday', hours: '9:00 AM - 5:00 PM' },
+    { day: 'Thursday', hours: '9:00 AM - 5:00 PM' },
+    { day: 'Friday', hours: '9:00 AM - 5:00 PM' },
     { day: 'Saturday', hours: 'On Call' },
     { day: 'Sunday', hours: 'On Call' },
   ],
@@ -87,7 +87,7 @@ export default function ContactPage() {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-600 mb-4">
                   <ArrowRight className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="font-semibold text-lg mb-1">Free Consultation</h3>
+                <h3 className="font-semibold text-lg mb-1">Free Assessment</h3>
                 <p className="text-sm text-neutral-600 mb-2">Book a care assessment</p>
                 <p className="font-medium text-primary-600 mb-4">No obligation</p>
                 <Button variant="primary" size="sm" fullWidth>
@@ -196,7 +196,7 @@ export default function ContactPage() {
                   size="xl"
                   rightIcon={<ArrowRight className="w-5 h-5" />}
                 >
-                  Schedule Free Consultation
+                  Schedule Free Assessment
                 </Button>
               </Link>
               <a href="tel:+441324868987">
@@ -212,7 +212,7 @@ export default function ContactPage() {
             </div>
             <div className="flex flex-wrap justify-center gap-6 mt-8 text-white/90 text-sm">
               <span className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" /> Available 24/7
+                <CheckCircle className="w-5 h-5" /> Available Business Hours
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" /> Response within 1 hour
