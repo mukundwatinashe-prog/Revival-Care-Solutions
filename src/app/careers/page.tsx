@@ -66,6 +66,7 @@ const openPositions = [
       'Ability to pass PVG check',
       'Good communication skills',
       'Right to work in the UK',
+      'We are currently not offering switches.',
     ],
   },
   {
@@ -92,6 +93,17 @@ const hiringSteps = [
   { step: '4', title: 'Background Check', description: 'Comprehensive screening for safety and compliance' },
   { step: '5', title: 'Paid Training', description: 'Complete our 40+ hour training program' },
   { step: '6', title: 'Start Caring', description: 'Begin making a difference in clients\' lives' },
+];
+
+const requiredDocuments = [
+  'Copy of your passport (photo page)',
+  'Copy of your NI number',
+  'Proof of address x2 (bank statement or utility bill)',
+  'Current PVG (Disclosure Scotland)',
+  'Home Office share code',
+  'Copy of SSSC registration',
+  'Proof of insurance',
+  'Driver’s licence',
 ];
 
 export default function CareersPage() {
@@ -319,6 +331,29 @@ export default function CareersPage() {
                     rows={4}
                     placeholder="Tell us about yourself and why you'd like to join our team..."
                   />
+                </div>
+
+                <div className="rounded-xl border border-neutral-200 p-4 bg-neutral-50">
+                  <label className="block text-sm font-medium text-neutral-700 mb-3">
+                    Mandatory documents (required for all applications) *
+                  </label>
+                  <p className="text-sm text-neutral-600 mb-4">
+                    Please confirm you can provide all of the following:
+                  </p>
+                  <div className="space-y-3">
+                    {requiredDocuments.map((doc, idx) => (
+                      <label key={doc} className="flex items-start gap-3 text-sm text-neutral-700">
+                        <input
+                          type="checkbox"
+                          name={`document_confirmation_${idx + 1}`}
+                          value={doc}
+                          required
+                          className="mt-0.5 w-4 h-4 rounded border-neutral-300 text-primary-600 focus:ring-primary-500"
+                        />
+                        <span>{doc}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="flex gap-4">
