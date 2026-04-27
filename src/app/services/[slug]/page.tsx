@@ -39,7 +39,7 @@ const servicesData: Record<string, ServiceData> = {
     icon: HandHeart,
     title: 'Personal Care Assistance',
     subtitle: 'Dignified support for daily living activities',
-    image: '/images/personal-care.jpg',
+    image: '/images/nurse-smiling-patient.jpg',
     heroDescription: 'Our personal care services help seniors maintain their independence and dignity while receiving compassionate assistance with essential daily activities.',
     fullDescription: [
       'Personal care is at the heart of what we do. Our trained caregivers provide respectful, dignified assistance with the activities of daily living that many seniors find challenging as they age.',
