@@ -187,7 +187,7 @@ export default function ContactPage() {
             <h2 className="text-white mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-white/90 mb-8">
               Schedule a free, no-obligation consultation with our care team.
-              We&apos;ll call you within 1 hour to discuss your needs.
+              We&apos;ll call you to discuss your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/consultation">
