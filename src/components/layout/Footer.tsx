@@ -30,13 +30,6 @@ const company = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const resources = [
-  { label: 'Blog', href: '/resources/blog' },
-  { label: 'Care Guides', href: '/resources/guides' },
-  { label: 'FAQ', href: '/resources/faq' },
-  { label: 'Insurance Info', href: '/resources/insurance' },
-];
-
 const legal = [
   { label: 'Privacy Policy', href: '/privacy' },
   { label: 'Terms of Service', href: '/terms' },
@@ -44,7 +37,7 @@ const legal = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+  { icon: Facebook, href: 'https://www.facebook.com/people/Revival-Care-Solutions/61588764682856/?rdid=fCmU07eFg0HV51uh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1GMi4QDQRN%2F', label: 'Facebook' },
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
 ];
 
@@ -60,7 +53,7 @@ export function Footer() {
       
       {/* Main Footer Content - Enhanced */}
       <div className="container-custom py-12 md:py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Column - Enhanced */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 md:mb-8 group">
@@ -157,23 +150,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Resources Column - Enhanced */}
-          <div>
-            <h4 className="font-semibold text-xl mb-6 text-white">Resources</h4>
-            <ul className="space-y-4">
-              {resources.map((item) => (
-                <li key={item.href}>
-                  <Link 
-                    href={item.href}
-                    className="text-white/90 hover:text-secondary-300 transition-all flex items-center gap-2 group"
-                  >
-                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-                    <span className="group-hover:translate-x-2 transition-transform">{item.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
 

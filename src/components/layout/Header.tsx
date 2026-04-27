@@ -11,12 +11,10 @@ import {
   Phone, 
   ChevronDown,
   Users,
-  BookOpen,
   Mail,
   Briefcase,
   Home,
   Shield,
-  Clock,
   Heart
 } from 'lucide-react';
 import { Button } from '@/components/ui';
@@ -43,7 +41,6 @@ const navigation: NavItem[] = [
     ],
   },
   { label: 'About Us', href: '/about', icon: <Users className="w-4 h-4" /> },
-  { label: 'Resources', href: '/resources', icon: <BookOpen className="w-4 h-4" /> },
   { label: 'Contact', href: '/contact', icon: <Mail className="w-4 h-4" /> },
   { label: 'Careers', href: '/careers', icon: <Briefcase className="w-4 h-4" /> },
 ];
@@ -83,10 +80,6 @@ export function Header() {
               <span className="hidden sm:inline">01324868987</span>
               <span className="sm:hidden">Call Us</span>
             </a>
-            <div className="hidden md:flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              <span>Available Business Hours</span>
-            </div>
           </div>
           <div className="flex items-center gap-5">
             <Link
