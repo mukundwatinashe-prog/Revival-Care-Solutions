@@ -391,7 +391,7 @@ export default async function ServicePage({ params }: PageProps) {
                 <div className="mt-6 pt-6 border-t border-primary-200 space-y-3">
                   <div className="flex items-center gap-3 text-sm text-neutral-600">
                     <Clock className="w-4 h-4 text-primary-600" />
-                    <span>Business Hours Care Available</span>
+                    <span>9am – 5pm, Monday to Friday</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-neutral-600">
                     <Users className="w-4 h-4 text-primary-600" />

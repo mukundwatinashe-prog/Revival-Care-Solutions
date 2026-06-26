@@ -408,7 +408,7 @@ export default function HomePage() {
       {/* Accreditation - logos and short copy */}
       <section className="py-16 bg-primary-50 border-t border-primary-200">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="text-center">
               <a
                 href="https://www.careinspectorate.com/"
@@ -467,6 +467,26 @@ export default function HomePage() {
               <p className="text-neutral-700 text-sm leading-relaxed">
                 All our carers are <strong>Protecting Vulnerable Groups (PVG) checked</strong> with
                 Disclosure Scotland, ensuring the highest levels of safety and protection for our clients.
+              </p>
+            </div>
+            <div className="text-center">
+              <a
+                href="https://www.livingwage.org.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mb-4"
+              >
+                <div className="h-24 bg-white rounded-lg shadow-md border border-primary-200 flex items-center justify-center p-4 hover:shadow-lg transition-shadow">
+                  <img
+                    src="/logos/living-wage-employer-logo.png"
+                    alt="Living Wage Employer"
+                    className="max-h-full w-auto object-contain"
+                  />
+                </div>
+              </a>
+              <p className="text-neutral-700 text-sm leading-relaxed">
+                We are a <strong>Living Wage Employer</strong>, committed to paying all our staff
+                a fair wage that reflects the real cost of living.
               </p>
             </div>
           </div>

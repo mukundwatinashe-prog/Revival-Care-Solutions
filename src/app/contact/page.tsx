@@ -212,7 +212,7 @@ export default function ContactPage() {
             </div>
             <div className="flex flex-wrap justify-center gap-6 mt-8 text-white/90 text-sm">
               <span className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" /> Available Business Hours
+                <CheckCircle className="w-5 h-5" /> Available 9am – 5pm
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" /> Response within 1 hour

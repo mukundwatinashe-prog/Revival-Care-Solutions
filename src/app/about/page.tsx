@@ -18,7 +18,7 @@ import { Button, Card, Badge } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about Revival Care Solutions - our mission, values, and commitment to providing compassionate home care services for seniors since 2023.',
+  description: 'Learn about Revival Care Solutions - our mission, values, and commitment to providing compassionate home care services for seniors since 2024.',
 };
 
 const values = [
@@ -65,7 +65,7 @@ const certifications = [
 ];
 
 const stats = [
-  { value: 'Business Hours', label: 'Care Available' },
+  { value: '9am – 5pm', label: 'Office Hours' },
   { value: '100%', label: 'Dedication' },
   { value: 'Care', label: 'Inspectorate Registered' },
   { value: 'Local', label: 'Family-Owned' },
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge variant="primary" className="mb-4">About Us</Badge>
-              <h1 className="mb-6">Caring for Families Since 2023</h1>
+              <h1 className="mb-6">Caring for Families Since 2024</h1>
               <p className="text-xl text-neutral-600 mb-8">
                 Revival Care Solutions was founded on a simple belief: everyone deserves 
                 to age with dignity, surrounded by compassionate care in the comfort of 

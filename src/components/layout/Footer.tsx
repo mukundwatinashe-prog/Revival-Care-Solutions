@@ -38,7 +38,7 @@ const legal = [
 
 const socialLinks = [
   { icon: Facebook, href: 'https://www.facebook.com/people/Revival-Care-Solutions/61588764682856/?rdid=fCmU07eFg0HV51uh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1GMi4QDQRN%2F', label: 'Facebook' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/revival-care-solutions-ltd/?viewAsMember=true', label: 'LinkedIn' },
 ];
 
 export function Footer() {
@@ -68,7 +68,7 @@ export function Footer() {
             </Link>
             <p className="text-white/90 mb-6 md:mb-8 max-w-md text-base sm:text-lg leading-relaxed">
               Providing compassionate, professional home care services that enhance the quality 
-              of life for seniors and their families. Trusted care since 2023.
+              of life for seniors and their families. Trusted care since 2024.
             </p>
             
             <div className="space-y-5 mb-10">
@@ -94,7 +94,7 @@ export function Footer() {
                 <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-secondary-400" />
                 </div>
-                <span className="font-medium">Business Hours Care Available</span>
+                <span className="font-medium">9am – 5pm, Monday to Friday</span>
               </div>
             </div>
 

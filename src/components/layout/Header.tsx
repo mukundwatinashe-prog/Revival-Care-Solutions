@@ -293,7 +293,7 @@ export function Header() {
                     01324868987
                   </a>
                   <p className="mt-2 text-sm text-neutral-500">
-                    Available during business hours
+                    Available 9am – 5pm, Monday to Friday
                   </p>
                 </div>
               </div>

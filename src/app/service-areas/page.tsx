@@ -27,7 +27,7 @@ const currentAreas = [
 
 const stats = [
   { value: '6', label: 'Areas Served' },
-  { value: 'Business Hours', label: 'Service Availability' },
+  { value: '9am – 5pm', label: 'Office Hours' },
   { value: 'Local', label: 'Family-Owned' },
   { value: 'Care', label: 'Inspectorate Registered' },
 ];
