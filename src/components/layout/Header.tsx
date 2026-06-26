@@ -107,7 +107,7 @@ export function Header() {
         <div className="container-custom">
           <nav className="flex items-center justify-between">
             <Link href="/" className="flex items-center group">
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 transition-transform group-hover:scale-[1.02]">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 transition-transform group-hover:scale-[1.02]">
                 <Image
                   src="/logo.png"
                   alt="Revival Care Solutions"
@@ -188,7 +188,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors"
+              className="lg:hidden touch-target p-2.5 rounded-lg hover:bg-neutral-100 transition-colors"
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
             >
@@ -218,7 +218,8 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[300px] bg-white z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-white z-50 lg:hidden overflow-y-auto safe-area-bottom"
+              style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
             >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-8">
@@ -235,7 +236,7 @@ export function Header() {
                   </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 rounded-lg hover:bg-neutral-100 transition-colors"
+                    className="touch-target p-2.5 rounded-lg hover:bg-neutral-100 transition-colors"
                     aria-label="Close menu"
                   >
                     <X className="w-6 h-6 text-neutral-700" />
@@ -248,7 +249,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => !item.children && setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-700 hover:bg-primary-50 transition-colors font-medium"
+                        className="flex items-center gap-3 px-4 py-3.5 min-h-[44px] rounded-lg text-primary-700 hover:bg-primary-50 transition-colors font-medium"
                       >
                         {item.icon}
                         <span>{item.label}</span>
@@ -260,7 +261,7 @@ export function Header() {
                               key={child.href}
                               href={child.href}
                               onClick={() => setIsMobileMenuOpen(false)}
-                              className="block px-4 py-2 text-sm text-primary-700 hover:bg-primary-50 transition-colors"
+                              className="block px-4 py-3 min-h-[44px] text-sm text-primary-700 hover:bg-primary-50 transition-colors"
                             >
                               {child.label}
                             </Link>

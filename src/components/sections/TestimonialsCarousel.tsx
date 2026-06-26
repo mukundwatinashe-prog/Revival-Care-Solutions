@@ -105,19 +105,24 @@ export function TestimonialsCarousel() {
             </AnimatePresence>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-6">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 mt-6">
             {testimonials.map((item, i) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => goTo(i)}
-                className={`
-                  h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
-                  ${i === index ? 'w-8 bg-primary-600' : 'w-2 bg-primary-200 hover:bg-primary-300'}
-                `}
+                className="touch-target flex items-center justify-center p-3"
                 aria-label={`Show testimonial ${i + 1} of ${testimonials.length}`}
                 aria-current={i === index ? 'true' : undefined}
-              />
+              >
+                <span
+                  className={`
+                    block h-2 rounded-full transition-all duration-300
+                    ${i === index ? 'w-8 bg-primary-600' : 'w-2 bg-primary-200 hover:bg-primary-300'}
+                  `}
+                  aria-hidden
+                />
+              </button>
             ))}
           </div>
         </div>

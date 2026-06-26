@@ -89,7 +89,7 @@ export default function RootLayout({
         
         <Header />
         
-        <main id="main-content" className="min-h-screen">
+        <main id="main-content" className="min-h-screen pb-[calc(3.75rem+env(safe-area-inset-bottom,0px))] lg:pb-0">
           {children}
         </main>
         

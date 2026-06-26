@@ -422,6 +422,12 @@ html, body {
     min-height: 44px;
     min-width: 44px;
   }
+
+  a.touch-target-inline {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 /* Safe area for notched devices (e.g. iPhone) - keep content inside safe area */

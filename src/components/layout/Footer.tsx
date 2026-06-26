@@ -57,7 +57,7 @@ export function Footer() {
           {/* Brand Column - Enhanced */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 md:mb-8 group">
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 transition-transform group-hover:scale-105 flex-shrink-0">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 transition-transform group-hover:scale-105 flex-shrink-0">
                 <Image
                   src="/logo.png"
                   alt="Revival Care Solutions"
@@ -90,11 +90,13 @@ export function Footer() {
                 </div>
                 <span className="leading-relaxed">Office 3 Marchmont Avenue<br />Polmont, Falkirk, FK2 0NZ</span>
               </div>
-              <div className="flex items-center gap-4 text-white/90">
-                <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center">
+              <div className="flex items-start gap-4 text-white/90">
+                <div className="w-12 h-12 rounded-xl bg-primary-800/50 flex items-center justify-center flex-shrink-0">
                   <Clock className="w-5 h-5 text-secondary-400" />
                 </div>
-                <span className="font-medium">9am – 5pm, Monday to Friday</span>
+                <span className="font-medium text-sm sm:text-base leading-relaxed">
+                  9am – 5pm, Monday to Friday
+                </span>
               </div>
             </div>
 
@@ -181,7 +183,7 @@ export function Footer() {
         <div className="flex items-stretch">
           <a
             href="tel:+441324868987"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 text-primary-700 font-semibold text-sm hover:bg-primary-50 transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 py-4 min-h-[48px] text-primary-700 font-semibold text-sm hover:bg-primary-50 transition-colors touch-target-inline"
           >
             <Phone className="w-5 h-5" />
             Call Now
@@ -189,7 +191,7 @@ export function Footer() {
           <div className="w-px bg-neutral-200" />
           <Link
             href="/consultation"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-primary-600 text-white font-semibold text-sm hover:bg-primary-700 transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 py-4 min-h-[48px] bg-primary-600 text-white font-semibold text-sm hover:bg-primary-700 transition-colors touch-target-inline"
           >
             <Calendar className="w-5 h-5" />
             Free Assessment

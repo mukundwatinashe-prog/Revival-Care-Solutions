@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -75,11 +76,50 @@ const values = [
   { icon: Users, title: 'Diversity', description: 'Celebrating all backgrounds and cultures' },
 ];
 
+function AccreditationCard({
+  href,
+  logoSrc,
+  alt,
+  logoContainerClassName = 'bg-white',
+  children,
+}: {
+  href: string;
+  logoSrc: string;
+  alt: string;
+  logoContainerClassName?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="text-center">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mb-3 sm:mb-4 w-full max-w-[280px] mx-auto"
+      >
+        <div
+          className={`h-20 sm:h-24 rounded-lg shadow-md border border-primary-200 flex items-center justify-center p-3 sm:p-4 hover:shadow-lg transition-shadow ${logoContainerClassName}`}
+        >
+          <img
+            src={logoSrc}
+            alt={alt}
+            className="max-h-full w-auto object-contain"
+            loading="lazy"
+          />
+        </div>
+      </a>
+      <p className="text-neutral-700 text-xs sm:text-sm leading-relaxed px-1">
+        {children}
+      </p>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* Hero - full-width fading video background */}
-      <section className="relative min-h-[85vh] flex items-center">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh] flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <video
             autoPlay
@@ -113,24 +153,25 @@ export default function HomePage() {
                 maintain independence and dignity while providing families with
                 peace of mind.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/consultation">
-                  <Button size="xl" rightIcon={<ArrowRight className="w-5 h-5" />}>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Link href="/consultation" className="w-full sm:w-auto">
+                  <Button size="xl" fullWidth className="sm:w-auto" rightIcon={<ArrowRight className="w-5 h-5" />}>
                     Schedule Free Assessment
                   </Button>
                 </Link>
-                <a href="tel:+441324868987">
+                <a href="tel:+441324868987" className="w-full sm:w-auto">
                   <Button
                     variant="outline"
                     size="xl"
-                    className="border-2 border-white text-white hover:bg-white/20"
+                    fullWidth
+                    className="border-2 border-white text-white hover:bg-white/20 sm:w-auto"
                     leftIcon={<Phone className="w-5 h-5" />}
                   >
                     01324868987
                   </Button>
                 </a>
               </div>
-              <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-white/30">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/30">
                 <div className="flex items-center gap-2 text-white text-sm font-medium">
                   <CheckCircle className="w-5 h-5 text-secondary-300 flex-shrink-0" />
                   Care Inspectorate Registered
@@ -177,7 +218,7 @@ export default function HomePage() {
               tailored to meet the unique needs of each individual.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <Card key={service.title} hover variant="elevated" className="h-full bg-white border border-neutral-100">
                 <div
@@ -199,15 +240,17 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-neutral-900">{service.title}</h3>
                 <p className="text-neutral-700 mb-5 leading-relaxed text-sm">{service.description}</p>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                   <Link
                     href={service.href}
-                    className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:gap-3 transition-all"
+                    className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:gap-3 transition-all min-h-[44px]"
                   >
                     Learn More <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <Link href={`/consultation?service=${service.href.split('/').pop()}`}>
-                    <Button variant="outline" size="sm">Get Started</Button>
+                  <Link href={`/consultation?service=${service.href.split('/').pop()}`} className="w-full sm:w-auto">
+                    <Button variant="outline" size="sm" fullWidth className="sm:w-auto">
+                      Get Started
+                    </Button>
                   </Link>
                 </div>
               </Card>
@@ -368,22 +411,24 @@ export default function HomePage() {
               Schedule a free, no-obligation consultation with our care team. We&apos;ll work
               together to create a personalized care plan that meets your family&apos;s unique needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/consultation">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link href="/consultation" className="w-full sm:w-auto">
                 <Button
                   variant="secondary"
                   size="xl"
-                  className="shadow-lg"
+                  fullWidth
+                  className="shadow-lg sm:w-auto"
                   rightIcon={<ArrowRight className="w-5 h-5" />}
                 >
                   Schedule Free Assessment
                 </Button>
               </Link>
-              <a href="tel:+441324868987">
+              <a href="tel:+441324868987" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="xl"
-                  className="border-2 border-white text-white hover:bg-white/10"
+                  fullWidth
+                  className="border-2 border-white text-white hover:bg-white/10 sm:w-auto"
                   leftIcon={<Phone className="w-5 h-5" />}
                 >
                   01324868987
@@ -406,89 +451,46 @@ export default function HomePage() {
       </section>
 
       {/* Accreditation - logos and short copy */}
-      <section className="py-16 bg-primary-50 border-t border-primary-200">
+      <section className="py-12 sm:py-16 bg-primary-50 border-t border-primary-200">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div className="text-center">
-              <a
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+            <div className="col-span-2 lg:col-span-1">
+              <AccreditationCard
                 href="https://www.careinspectorate.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mb-4"
+                logoSrc="/logos/care-inspectorate-logo.png"
+                alt="Care Inspectorate Registered"
               >
-                <div className="h-24 bg-white rounded-lg shadow-md border border-primary-200 flex items-center justify-center p-4 hover:shadow-lg transition-shadow">
-                  <img
-                    src="/logos/care-inspectorate-logo.png"
-                    alt="Care Inspectorate Registered"
-                    className="max-h-full w-auto object-contain"
-                  />
-                </div>
-              </a>
-              <p className="text-neutral-700 text-sm leading-relaxed">
                 Revival Care Solutions is proudly registered with the Care Inspectorate,
                 ensuring we meet Scotland&apos;s national care standards for quality and safety.
-              </p>
+              </AccreditationCard>
             </div>
-            <div className="text-center">
-              <a
+            <div className="col-span-2 lg:col-span-1">
+              <AccreditationCard
                 href="https://www.sssc.uk.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mb-4"
+                logoSrc="/logos/sssc-logo.png"
+                alt="SSSC Registered"
               >
-                <div className="h-24 bg-white rounded-lg shadow-md border border-primary-200 flex items-center justify-center p-4 hover:shadow-lg transition-shadow">
-                  <img
-                    src="/logos/sssc-logo.png"
-                    alt="SSSC Registered"
-                    className="max-h-full w-auto object-contain"
-                  />
-                </div>
-              </a>
-              <p className="text-neutral-700 text-sm leading-relaxed">
                 Our carers are <strong>SSSC registered</strong>, demonstrating their commitment to
                 professional standards and continuous development in social care.
-              </p>
+              </AccreditationCard>
             </div>
-            <div className="text-center">
-              <a
-                href="https://www.mygov.scot/organisations/disclosure-scotland"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mb-4"
-              >
-                <div className="h-24 bg-white rounded-lg shadow-md border border-primary-200 flex items-center justify-center p-4 hover:shadow-lg transition-shadow">
-                  <img
-                    src="/logos/pvg-logo.png"
-                    alt="PVG Checked - Disclosure Scotland"
-                    className="max-h-full w-auto object-contain"
-                  />
-                </div>
-              </a>
-              <p className="text-neutral-700 text-sm leading-relaxed">
-                All our carers are <strong>Protecting Vulnerable Groups (PVG) checked</strong> with
-                Disclosure Scotland, ensuring the highest levels of safety and protection for our clients.
-              </p>
-            </div>
-            <div className="text-center">
-              <a
-                href="https://www.livingwage.org.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mb-4"
-              >
-                <div className="h-24 bg-white rounded-lg shadow-md border border-primary-200 flex items-center justify-center p-4 hover:shadow-lg transition-shadow">
-                  <img
-                    src="/logos/living-wage-employer-logo.png"
-                    alt="Living Wage Employer"
-                    className="max-h-full w-auto object-contain"
-                  />
-                </div>
-              </a>
-              <p className="text-neutral-700 text-sm leading-relaxed">
-                We are a <strong>Living Wage Employer</strong>, committed to paying all our staff
-                a fair wage that reflects the real cost of living.
-              </p>
-            </div>
+            <AccreditationCard
+              href="https://www.mygov.scot/organisations/disclosure-scotland"
+              logoSrc="/logos/pvg-logo.png"
+              alt="PVG Checked - Disclosure Scotland"
+            >
+              All our carers are <strong>Protecting Vulnerable Groups (PVG) checked</strong> with
+              Disclosure Scotland, ensuring the highest levels of safety and protection for our clients.
+            </AccreditationCard>
+            <AccreditationCard
+              href="https://www.livingwage.org.uk/"
+              logoSrc="/logos/living-wage-employer-logo.png"
+              alt="Living Wage Employer"
+              logoContainerClassName="bg-black"
+            >
+              We are a <strong>Living Wage Employer</strong>, committed to paying all our staff
+              a fair wage that reflects the real cost of living.
+            </AccreditationCard>
           </div>
         </div>
       </section>
