@@ -33,6 +33,14 @@ const testimonials = [
     ],
     attribution: 'Anonymous family member',
   },
+  {
+    id: '4',
+    paragraphs: [
+      'A dedicated compassionate team who always offer a wealth of physical and emotional support. Building a relationship of trust and being able to adapt is this team’s strength.',
+      'I highly recommend this company.',
+    ],
+    attribution: 'BenandCaroline Moffat, family member',
+  },
 ] as const;
 
 export function TestimonialsCarousel() {
@@ -65,7 +73,7 @@ export function TestimonialsCarousel() {
             What families say
           </h2>
           <p className="text-neutral-700 text-sm sm:text-base">
-            Anonymous feedback from relatives—we are grateful for the trust families place in us.
+            Feedback from relatives—we are grateful for the trust families place in us.
           </p>
         </div>
 
