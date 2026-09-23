@@ -1,8 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
-import { Award, Quote } from 'lucide-react';
-import { Badge } from '@/components/ui';
+import { Award, Quote, ArrowRight } from 'lucide-react';
+import { Button, Badge } from '@/components/ui';
 
 const employeesOfTheQuarter = [
   {
@@ -16,17 +17,13 @@ const employeesOfTheQuarter = [
   },
 ] as const;
 
-export function OurTeam() {
+export function OurTeam({ viewAllHref }: { viewAllHref?: string } = {}) {
   return (
-    <section
-      id="our-team"
-      className="py-16 lg:py-24 bg-white scroll-mt-24 lg:scroll-mt-28"
-      aria-labelledby="our-team-heading"
-    >
+    <section className="py-16 lg:py-24 bg-white" aria-labelledby="our-team-heading">
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
           <Badge variant="primary" className="mb-4">
-            Our Team
+            Recognition
           </Badge>
           <h2 id="our-team-heading" className="mb-4">
             Employee of the Quarter
@@ -73,6 +70,16 @@ export function OurTeam() {
             </div>
           ))}
         </div>
+
+        {viewAllHref && (
+          <div className="text-center mt-12">
+            <Link href={viewAllHref}>
+              <Button variant="primary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                Meet Our Team
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

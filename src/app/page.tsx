@@ -399,7 +399,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <OurTeam />
+      <OurTeam viewAllHref="/our-team" />
 
       <TestimonialsCarousel />
 
