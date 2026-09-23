@@ -5,17 +5,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
-import { 
-  Menu, 
-  X, 
-  Phone, 
+import {
+  Menu,
+  X,
+  Phone,
   ChevronDown,
   Users,
   Mail,
   Briefcase,
   Home,
   Shield,
-  Heart
+  Heart,
+  Award
 } from 'lucide-react';
 import { Button } from '@/components/ui';
 
@@ -43,6 +44,7 @@ const navigation: NavItem[] = [
   { label: 'About Us', href: '/about', icon: <Users className="w-4 h-4" /> },
   { label: 'Contact', href: '/contact', icon: <Mail className="w-4 h-4" /> },
   { label: 'Careers', href: '/careers', icon: <Briefcase className="w-4 h-4" /> },
+  { label: 'Our Team', href: '/#our-team', icon: <Award className="w-4 h-4" /> },
 ];
 
 export function Header() {

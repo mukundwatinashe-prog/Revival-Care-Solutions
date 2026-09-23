@@ -18,7 +18,11 @@ const employeesOfTheQuarter = [
 
 export function OurTeam() {
   return (
-    <section className="py-16 lg:py-24 bg-white" aria-labelledby="our-team-heading">
+    <section
+      id="our-team"
+      className="py-16 lg:py-24 bg-white scroll-mt-24 lg:scroll-mt-28"
+      aria-labelledby="our-team-heading"
+    >
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
           <Badge variant="primary" className="mb-4">
