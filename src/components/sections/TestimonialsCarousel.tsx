@@ -47,7 +47,7 @@ const testimonials = [
       'Revival Care Solutions provide a full service for my elderly Mum. They help with washing, dressing, meal preparation and overseeing her medication. They provide an important link between the various health services, family and Mum herself. She could not manage without them.',
       'Their kindness and friendliness are crucial to her recovery and happiness. As a family we appreciate the way they keep in touch with us, and let us know if any problems emerge. Excellent service.',
     ],
-    attribution: 'Marian Jones, Facebook recommendation',
+    attribution: 'Marian, family member',
   },
 ] as const;
 
