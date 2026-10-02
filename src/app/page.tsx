@@ -20,7 +20,6 @@ import {
 } from 'lucide-react';
 import { Button, Card, Badge } from '@/components/ui';
 import { TestimonialsCarousel } from '@/components/sections/TestimonialsCarousel';
-import { OurTeam } from '@/components/sections/OurTeam';
 
 // Services data
 const services = [
@@ -398,8 +397,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <OurTeam viewAllHref="/our-team" />
 
       <TestimonialsCarousel />
 
