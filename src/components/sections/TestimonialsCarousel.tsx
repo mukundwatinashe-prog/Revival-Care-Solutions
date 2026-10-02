@@ -5,9 +5,25 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import { Badge } from '@/components/ui';
 
-const INTERVAL_MS = 12000;
+const INTERVAL_MS = 7000;
 
 const testimonials = [
+  {
+    id: '4',
+    paragraphs: [
+      'A dedicated compassionate team who always offer a wealth of physical and emotional support. Building a relationship of trust and being able to adapt is this team’s strength.',
+      'I highly recommend this company.',
+    ],
+    attribution: 'BenandCaroline Moffat, family member (Facebook recommendation)',
+  },
+  {
+    id: '5',
+    paragraphs: [
+      'Revival Care Solutions provide a full service for my elderly Mum. They help with washing, dressing, meal preparation and overseeing her medication. They provide an important link between the various health services, family and Mum herself. She could not manage without them.',
+      'Their kindness and friendliness are crucial to her recovery and happiness. As a family we appreciate the way they keep in touch with us, and let us know if any problems emerge. Excellent service.',
+    ],
+    attribution: 'Marian, family member (Facebook recommendation)',
+  },
   {
     id: '1',
     paragraphs: [
@@ -32,22 +48,6 @@ const testimonials = [
       'All managers and carers we have met are diligent, efficient, and caring. The team were outstanding on the day an ambulance was required. We are very grateful and appreciate all that they do. We know we will be contacted if anything is needed.',
     ],
     attribution: 'Anonymous family member',
-  },
-  {
-    id: '4',
-    paragraphs: [
-      'A dedicated compassionate team who always offer a wealth of physical and emotional support. Building a relationship of trust and being able to adapt is this team’s strength.',
-      'I highly recommend this company.',
-    ],
-    attribution: 'BenandCaroline Moffat, family member (Facebook recommendation)',
-  },
-  {
-    id: '5',
-    paragraphs: [
-      'Revival Care Solutions provide a full service for my elderly Mum. They help with washing, dressing, meal preparation and overseeing her medication. They provide an important link between the various health services, family and Mum herself. She could not manage without them.',
-      'Their kindness and friendliness are crucial to her recovery and happiness. As a family we appreciate the way they keep in touch with us, and let us know if any problems emerge. Excellent service.',
-    ],
-    attribution: 'Marian, family member (Facebook recommendation)',
   },
 ] as const;
 
