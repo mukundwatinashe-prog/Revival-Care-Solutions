@@ -98,7 +98,8 @@ const hiringSteps = [
 const requiredDocuments = [
   'Copy of your passport (photo page)',
   'Copy of your NI number',
-  'Proof of address x2 (bank statement or utility bill)',
+  'Proof of address 1 (bank statement or utility bill)',
+  'Proof of address 2 (bank statement or utility bill)',
   'Current PVG (Disclosure Scotland)',
   'Home Office share code',
   'Copy of SSSC registration',
@@ -138,6 +139,16 @@ export default function CareersPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const missingDoc = requiredDocuments.find((_, idx) => !docFiles[idx]?.length);
+    if (!cvFile || missingDoc) {
+      setSubmitError(
+        !cvFile
+          ? 'Please upload your CV before submitting.'
+          : `Please upload all mandatory documents before submitting. Missing: ${missingDoc}`
+      );
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError('');
 
@@ -370,7 +381,6 @@ export default function CareersPage() {
                             type="file"
                             name={`document_${idx + 1}_${doc.replace(/[^a-z0-9]+/gi, '_')}`}
                             accept=".pdf,.jpg,.jpeg,.png"
-                            multiple={doc.startsWith('Proof of address')}
                             onChange={(e) => handleDocChange(idx, e)}
                             required
                             className="hidden"
