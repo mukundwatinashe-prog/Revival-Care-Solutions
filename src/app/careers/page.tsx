@@ -110,8 +110,10 @@ export default function CareersPage() {
   type RoleKey = 'fulltime' | 'part-time';
   const [selectedRole, setSelectedRole] = useState<RoleKey | null>(null);
   const [cvFile, setCvFile] = useState<File | null>(null);
+  const [docFiles, setDocFiles] = useState<Record<number, File[]>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const selectedPosition = selectedRole
     ? openPositions.find((p) => p.key === selectedRole) || null
     : null;
@@ -122,9 +124,22 @@ export default function CareersPage() {
     }
   };
 
+  const handleDocChange = (idx: number, e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    setDocFiles((prev) => ({ ...prev, [idx]: files }));
+  };
+
+  const resetApplication = () => {
+    setSelectedRole(null);
+    setCvFile(null);
+    setDocFiles({});
+    setSubmitError('');
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
 
     const formData = new FormData(e.currentTarget);
 
@@ -135,11 +150,14 @@ export default function CareersPage() {
       });
 
       const data = await response.json();
-      if (data.success) {
+      if (data.success === true || data.success === 'true') {
         setSubmitted(true);
+      } else {
+        setSubmitError('We could not send your application. Please check your files are under 5MB in total and try again, or email info@revivalcare.co.uk.');
       }
     } catch (error) {
       console.error('Error submitting application:', error);
+      setSubmitError('We could not send your application. Please check your connection and try again, or email info@revivalcare.co.uk.');
     } finally {
       setIsSubmitting(false);
     }
@@ -180,8 +198,7 @@ export default function CareersPage() {
               <Button
                 onClick={() => {
                   setSubmitted(false);
-                  setSelectedRole(null);
-                  setCvFile(null);
+                  resetApplication();
                 }}
               >
                 Submit Another Application
@@ -192,7 +209,7 @@ export default function CareersPage() {
             <Card className="max-w-2xl mx-auto">
               <button
                 type="button"
-                onClick={() => { setSelectedRole(null); setCvFile(null); }}
+                onClick={resetApplication}
                 className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 mb-6 font-medium text-sm transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -206,6 +223,7 @@ export default function CareersPage() {
                 <input type="hidden" name="_subject" value={`New Job Application - ${selectedPosition.title}`} />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_cc" value="tinashe@revivalcare.co.uk" />
                 <input type="hidden" name="Job Role" value={selectedPosition.title} />
 
                 <div className="grid md:grid-cols-2 gap-4">
@@ -338,32 +356,61 @@ export default function CareersPage() {
                     Mandatory documents (required for all applications) *
                   </label>
                   <p className="text-sm text-neutral-600 mb-4">
-                    Please confirm you can provide all of the following:
+                    Please upload each of the following (PDF, JPG or PNG). Keep the total size of all
+                    files under 5MB.
                   </p>
-                  <div className="space-y-3">
-                    {requiredDocuments.map((doc, idx) => (
-                      <label key={doc} className="flex items-start gap-3 text-sm text-neutral-700">
-                        <input
-                          type="checkbox"
-                          name={`document_confirmation_${idx + 1}`}
-                          value={doc}
-                          required
-                          className="mt-0.5 w-4 h-4 rounded border-neutral-300 text-primary-600 focus:ring-primary-500"
-                        />
-                        <span>{doc}</span>
-                      </label>
-                    ))}
+                  <div className="space-y-4">
+                    {requiredDocuments.map((doc, idx) => {
+                      const files = docFiles[idx] ?? [];
+                      const inputId = `document-upload-${idx + 1}`;
+                      return (
+                        <div key={doc}>
+                          <p className="text-sm font-medium text-neutral-700 mb-2">{doc}</p>
+                          <input
+                            type="file"
+                            name={`document_${idx + 1}_${doc.replace(/[^a-z0-9]+/gi, '_')}`}
+                            accept=".pdf,.jpg,.jpeg,.png"
+                            multiple={doc.startsWith('Proof of address')}
+                            onChange={(e) => handleDocChange(idx, e)}
+                            required
+                            className="hidden"
+                            id={inputId}
+                          />
+                          <label
+                            htmlFor={inputId}
+                            className="flex items-center gap-3 cursor-pointer rounded-lg border border-dashed border-neutral-300 bg-white px-4 py-3 text-sm hover:border-primary-400 transition-colors"
+                          >
+                            {files.length > 0 ? (
+                              <>
+                                <FileText className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                                <span className="text-neutral-700 font-medium break-all">
+                                  {files.map((f) => f.name).join(', ')}
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                <Upload className="w-5 h-5 text-neutral-400 flex-shrink-0" />
+                                <span className="text-neutral-600">Upload document</span>
+                              </>
+                            )}
+                          </label>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
+
+                {submitError && (
+                  <p role="alert" className="text-sm text-red-600">
+                    {submitError}
+                  </p>
+                )}
 
                 <div className="flex gap-4">
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => {
-                      setSelectedRole(null);
-                      setCvFile(null);
-                    }}
+                    onClick={resetApplication}
                   >
                     Cancel
                   </Button>
@@ -385,8 +432,8 @@ export default function CareersPage() {
                   key={position.key}
                   type="button"
                   onClick={() => {
+                    resetApplication();
                     setSelectedRole(position.key);
-                    setCvFile(null);
                     setSubmitted(false);
                   }}
                   className="text-left group"
