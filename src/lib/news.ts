@@ -3,8 +3,7 @@ export const NEWS_REVALIDATE_SECONDS = 4 * 60 * 60;
 export type NewsSourceName =
   | 'SSSC'
   | 'Disclosure Scotland'
-  | 'Care Inspectorate'
-  | 'Carers Trust';
+  | 'Care Inspectorate';
 
 export interface NewsItem {
   id: string;
@@ -12,6 +11,7 @@ export interface NewsItem {
   title: string;
   summary?: string;
   tag?: string;
+  image?: string;
   url: string;
   date: string;
 }
@@ -29,6 +29,8 @@ export interface NewsFeed {
 }
 
 const PER_SOURCE_LIMIT = 10;
+const DISCLOSURE_SCOTLAND_CARD_IMAGE =
+  'https://www.disclosure.gov.scot/binaries/content/gallery/disclosure/disclosure-default-card-image-svg';
 const USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
 const PAGE_HEADERS = {
@@ -102,7 +104,13 @@ async function fetchSssc(): Promise<NewsItem[]> {
   );
   if (!searchRes.ok) throw new Error(`SSSC search ${searchRes.status}`);
   const data = (await searchRes.json()) as {
-    list: { id: string; displayDate: string; headLine: string; leadParagraph?: string }[];
+    list: {
+      id: string;
+      displayDate: string;
+      headLine: string;
+      leadParagraph?: string;
+      featureImageUri?: string;
+    }[];
   };
 
   return data.list.map((s) => ({
@@ -110,6 +118,7 @@ async function fetchSssc(): Promise<NewsItem[]> {
     source: 'SSSC' as const,
     title: cleanText(s.headLine),
     summary: s.leadParagraph ? cleanText(s.leadParagraph) : undefined,
+    image: s.featureImageUri || undefined,
     url: `https://news.sssc.uk.com/press-releases/${s.id}/${slugify(s.headLine)}`,
     date: new Date(s.displayDate).toISOString(),
   }));
@@ -142,71 +151,6 @@ async function fetchCareInspectorate(): Promise<NewsItem[]> {
   }));
 }
 
-async function fetchCarersTrustFromRss(): Promise<NewsItem[]> {
-  const res = await fetch('https://carers.org/blogfeed.xml', fetchOptions());
-  if (!res.ok) throw new Error(`Carers Trust RSS ${res.status}`);
-  const xml = await res.text();
-  const entries = xml.match(/<item>[\s\S]*?<\/item>/g) ?? [];
-
-  const items: NewsItem[] = [];
-  for (const entry of entries) {
-    const title = entry.match(/<title>([\s\S]*?)<\/title>/)?.[1];
-    const link = entry.match(/<link>\s*([\s\S]*?)\s*<\/link>/)?.[1];
-    const pubDate = entry.match(/<pubDate>\s*([\s\S]*?)\s*<\/pubDate>/)?.[1];
-    const date = pubDate ? new Date(pubDate) : null;
-    if (!title || !link || !date || Number.isNaN(date.getTime())) continue;
-    const description = entry.match(/<description>([\s\S]*?)<\/description>/)?.[1] ?? '';
-    const summary = cleanText(description.replace(/<!\[CDATA\[|\]\]>/g, ''));
-    items.push({
-      id: `ct-${link}`,
-      source: 'Carers Trust',
-      title: cleanText(title),
-      summary: summary ? summary.slice(0, 280) : undefined,
-      url: link,
-      date: date.toISOString(),
-    });
-  }
-  return items.slice(0, PER_SOURCE_LIMIT);
-}
-
-async function fetchCarersTrustFromPage(): Promise<NewsItem[]> {
-  const res = await fetch('https://carers.org/news-and-media/news', fetchOptions());
-  if (!res.ok) throw new Error(`Carers Trust ${res.status}`);
-  const html = await res.text();
-  const articles = html.match(/<article class="masonry-item">[\s\S]*?<\/article>/g) ?? [];
-
-  const items: NewsItem[] = [];
-  for (const block of articles) {
-    const href = block.match(/<a href="([^"]+)"/)?.[1];
-    const title = block.match(/<h3 class="[^"]*heading">([\s\S]*?)<\/h3>/)?.[1];
-    const dateText = block.match(/comment-card__date">([^<]+)</)?.[1];
-    const date = dateText ? parseHumanDate(dateText) : null;
-    if (!href || !title || !date) continue;
-    const summary = block.match(/<p>([\s\S]*?)<\/p>/)?.[1];
-    const tag = block.match(/comment-card__label">([^<]+)</)?.[1];
-    items.push({
-      id: `ct-${href}`,
-      source: 'Carers Trust',
-      title: cleanText(title),
-      summary: summary ? cleanText(summary) : undefined,
-      tag: tag ? cleanText(tag) : undefined,
-      url: new URL(href, 'https://carers.org/').toString(),
-      date,
-    });
-  }
-  return items.slice(0, PER_SOURCE_LIMIT);
-}
-
-async function fetchCarersTrust(): Promise<NewsItem[]> {
-  try {
-    const items = await fetchCarersTrustFromPage();
-    if (items.length > 0) return items;
-  } catch (error) {
-    console.error('Carers Trust page fetch failed, trying RSS:', error);
-  }
-  return fetchCarersTrustFromRss();
-}
-
 async function fetchDisclosureScotland(): Promise<NewsItem[]> {
   const res = await fetch('https://www.disclosure.gov.scot/news', fetchOptions());
   if (!res.ok) throw new Error(`Disclosure Scotland ${res.status}`);
@@ -225,6 +169,7 @@ async function fetchDisclosureScotland(): Promise<NewsItem[]> {
       source: 'Disclosure Scotland',
       title: cleanText(link[2]),
       summary: summary ? cleanText(summary) : undefined,
+      image: DISCLOSURE_SCOTLAND_CARD_IMAGE,
       url: new URL(link[1], 'https://www.disclosure.gov.scot').toString(),
       date,
     });
@@ -240,17 +185,37 @@ const SOURCES: {
   { name: 'SSSC', homepage: 'https://news.sssc.uk.com/press-releases', fetcher: fetchSssc },
   { name: 'Disclosure Scotland', homepage: 'https://www.disclosure.gov.scot/news', fetcher: fetchDisclosureScotland },
   { name: 'Care Inspectorate', homepage: 'https://www.careinspectorate.scot/news-and-media', fetcher: fetchCareInspectorate },
-  { name: 'Carers Trust', homepage: 'https://carers.org/news-and-media/news', fetcher: fetchCarersTrust },
 ];
+
+const FALLBACK_LIMIT = 5;
+
+function londonYearMonth(date: Date): string {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    year: 'numeric',
+    month: '2-digit',
+    timeZone: 'Europe/London',
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value;
+  return `${get('year')}-${get('month')}`;
+}
+
+// Current month's articles only; if a source has none this month, keep its latest earlier ones.
+function limitToCurrentMonth(items: NewsItem[], now: Date): NewsItem[] {
+  const sorted = [...items].sort((a, b) => b.date.localeCompare(a.date));
+  const thisMonth = londonYearMonth(now);
+  const current = sorted.filter((i) => londonYearMonth(new Date(i.date)) === thisMonth);
+  return current.length > 0 ? current : sorted.slice(0, FALLBACK_LIMIT);
+}
 
 export async function getNewsFeed(): Promise<NewsFeed> {
   const settled = await Promise.allSettled(SOURCES.map((s) => s.fetcher()));
+  const now = new Date();
 
   const items: NewsItem[] = [];
   const sources: NewsSourceStatus[] = settled.map((result, i) => {
     const { name, homepage } = SOURCES[i];
     if (result.status === 'fulfilled') {
-      items.push(...result.value);
+      items.push(...limitToCurrentMonth(result.value, now));
       if (result.value.length === 0) console.error(`News fetch for ${name} returned no articles`);
       return { name, homepage, ok: result.value.length > 0 };
     }
@@ -259,5 +224,5 @@ export async function getNewsFeed(): Promise<NewsFeed> {
   });
 
   items.sort((a, b) => b.date.localeCompare(a.date));
-  return { items, sources, fetchedAt: new Date().toISOString() };
+  return { items, sources, fetchedAt: now.toISOString() };
 }

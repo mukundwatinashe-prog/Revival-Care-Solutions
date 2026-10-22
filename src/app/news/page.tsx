@@ -9,7 +9,7 @@ export const revalidate = 14400;
 export const metadata: Metadata = {
   title: 'News',
   description:
-    'The latest news from the SSSC, Disclosure Scotland, the Care Inspectorate and Carers Trust, gathered in one place for carers and families.',
+    'This month\u2019s news from the SSSC, Disclosure Scotland and the Care Inspectorate, gathered in one place for carers and families.',
 };
 
 export default async function NewsPage() {
@@ -29,8 +29,8 @@ export default async function NewsPage() {
             <Badge variant="primary" className="mb-4">News</Badge>
             <h1 className="mb-6">Latest Care Sector News</h1>
             <p className="text-xl text-neutral-600">
-              The latest updates from the SSSC, Disclosure Scotland, the Care Inspectorate and
-              Carers Trust, all in one place.
+              This month&apos;s updates from the SSSC, Disclosure Scotland and the Care Inspectorate,
+              all in one place. If a source hasn&apos;t posted this month, we show its most recent articles.
             </p>
           </div>
         </div>

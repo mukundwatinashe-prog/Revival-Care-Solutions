@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Newspaper } from 'lucide-react';
 import { Badge, Card } from '@/components/ui';
 import type { NewsItem, NewsSourceName } from '@/lib/news';
 
@@ -48,7 +48,22 @@ export function NewsList({ items, sources }: { items: NewsItem[]; sources: NewsS
               rel="noopener noreferrer"
               className="group block"
             >
-              <Card hover variant="elevated" className="h-full bg-white border border-neutral-100">
+              <Card hover variant="elevated" padding="none" className="h-full bg-white border border-neutral-100 overflow-hidden">
+                <div className="aspect-[16/9] bg-primary-50 flex items-center justify-center overflow-hidden">
+                  {item.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={item.image}
+                      alt=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <Newspaper className="w-10 h-10 text-primary-300" aria-hidden />
+                  )}
+                </div>
+                <div className="p-6">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
                   <Badge variant="primary" size="sm">{item.source}</Badge>
                   <time dateTime={item.date} className="text-xs text-neutral-500">
@@ -65,6 +80,7 @@ export function NewsList({ items, sources }: { items: NewsItem[]; sources: NewsS
                 <span className="inline-flex items-center gap-1 text-primary-600 font-semibold text-sm">
                   Read on {item.source} <ArrowUpRight className="w-4 h-4" />
                 </span>
+                </div>
               </Card>
             </a>
           ))}
