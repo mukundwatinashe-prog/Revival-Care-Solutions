@@ -13,13 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default async function NewsPage() {
-  const { items, sources, fetchedAt } = await getNewsFeed();
+  const { items, sources } = await getNewsFeed();
   const unavailable = sources.filter((s) => !s.ok);
-  const updated = new Intl.DateTimeFormat('en-GB', {
-    dateStyle: 'long',
-    timeStyle: 'short',
-    timeZone: 'Europe/London',
-  }).format(new Date(fetchedAt));
 
   return (
     <div>
@@ -57,7 +52,6 @@ export default async function NewsPage() {
 
           <p className="text-center text-xs text-neutral-500 mt-8 max-w-2xl mx-auto">
             Articles belong to the organisations named on each card and open on their own websites.
-            This page checks for new articles every 4 hours. Last checked {updated}.
           </p>
         </div>
       </section>
