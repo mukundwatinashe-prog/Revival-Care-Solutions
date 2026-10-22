@@ -142,7 +142,34 @@ async function fetchCareInspectorate(): Promise<NewsItem[]> {
   }));
 }
 
-async function fetchCarersTrust(): Promise<NewsItem[]> {
+async function fetchCarersTrustFromRss(): Promise<NewsItem[]> {
+  const res = await fetch('https://carers.org/blogfeed.xml', fetchOptions());
+  if (!res.ok) throw new Error(`Carers Trust RSS ${res.status}`);
+  const xml = await res.text();
+  const entries = xml.match(/<item>[\s\S]*?<\/item>/g) ?? [];
+
+  const items: NewsItem[] = [];
+  for (const entry of entries) {
+    const title = entry.match(/<title>([\s\S]*?)<\/title>/)?.[1];
+    const link = entry.match(/<link>\s*([\s\S]*?)\s*<\/link>/)?.[1];
+    const pubDate = entry.match(/<pubDate>\s*([\s\S]*?)\s*<\/pubDate>/)?.[1];
+    const date = pubDate ? new Date(pubDate) : null;
+    if (!title || !link || !date || Number.isNaN(date.getTime())) continue;
+    const description = entry.match(/<description>([\s\S]*?)<\/description>/)?.[1] ?? '';
+    const summary = cleanText(description.replace(/<!\[CDATA\[|\]\]>/g, ''));
+    items.push({
+      id: `ct-${link}`,
+      source: 'Carers Trust',
+      title: cleanText(title),
+      summary: summary ? summary.slice(0, 280) : undefined,
+      url: link,
+      date: date.toISOString(),
+    });
+  }
+  return items.slice(0, PER_SOURCE_LIMIT);
+}
+
+async function fetchCarersTrustFromPage(): Promise<NewsItem[]> {
   const res = await fetch('https://carers.org/news-and-media/news', fetchOptions());
   if (!res.ok) throw new Error(`Carers Trust ${res.status}`);
   const html = await res.text();
@@ -168,6 +195,16 @@ async function fetchCarersTrust(): Promise<NewsItem[]> {
     });
   }
   return items.slice(0, PER_SOURCE_LIMIT);
+}
+
+async function fetchCarersTrust(): Promise<NewsItem[]> {
+  try {
+    const items = await fetchCarersTrustFromPage();
+    if (items.length > 0) return items;
+  } catch (error) {
+    console.error('Carers Trust page fetch failed, trying RSS:', error);
+  }
+  return fetchCarersTrustFromRss();
 }
 
 async function fetchDisclosureScotland(): Promise<NewsItem[]> {
