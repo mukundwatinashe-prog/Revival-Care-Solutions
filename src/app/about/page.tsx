@@ -15,6 +15,7 @@ import {
   Handshake,
 } from 'lucide-react';
 import { Button, Card, Badge } from '@/components/ui';
+import { ContactSection } from '@/components/sections/ContactSection';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -265,6 +266,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <ContactSection />
 
       {/* CTA Section */}
       <section className="py-24 bg-primary-700">

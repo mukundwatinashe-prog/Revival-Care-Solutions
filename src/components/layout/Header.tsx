@@ -16,7 +16,8 @@ import {
   Home,
   Shield,
   Heart,
-  Award
+  Award,
+  Newspaper
 } from 'lucide-react';
 import { Button } from '@/components/ui';
 
@@ -42,9 +43,9 @@ const navigation: NavItem[] = [
     ],
   },
   { label: 'About Us', href: '/about', icon: <Users className="w-4 h-4" /> },
-  { label: 'Contact', href: '/contact', icon: <Mail className="w-4 h-4" /> },
   { label: 'Careers', href: '/careers', icon: <Briefcase className="w-4 h-4" /> },
   { label: 'Our Team', href: '/our-team', icon: <Award className="w-4 h-4" /> },
+  { label: 'News', href: '/news', icon: <Newspaper className="w-4 h-4" /> },
 ];
 
 export function Header() {
@@ -85,7 +86,7 @@ export function Header() {
           </div>
           <div className="flex items-center gap-5">
             <Link
-              href="/contact"
+              href="/about#contact"
               className="flex items-center gap-2 text-white hover:text-white/90 font-medium"
             >
               <Mail className="w-4 h-4" />

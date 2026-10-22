@@ -1,19 +1,6 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  ArrowRight,
-  CheckCircle,
-} from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { Button, Card, Badge } from '@/components/ui';
-
-export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with Revival Care Solutions. Call, email, or visit us in Polmont, Falkirk.',
-};
 
 const officeInfo = {
   address: 'Office 3 Marchmont Avenue\nPolmont, Falkirk, FK2 0NZ',
@@ -30,16 +17,15 @@ const officeInfo = {
   ],
 };
 
-export default function ContactPage() {
+export function ContactSection() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-primary-50 to-white">
+    <div id="contact" className="scroll-mt-24 lg:scroll-mt-28">
+      <section className="pt-16 lg:pt-24 bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <Badge variant="primary" className="mb-4">Contact Us</Badge>
-            <h1 className="mb-6">We&apos;re Here to Help</h1>
-            <p className="text-xl text-neutral-600 mb-8">
+            <h2 className="mb-4">We&apos;re Here to Help</h2>
+            <p className="text-lg text-neutral-600">
               Have questions about our care services? Ready to get started?
               Reach out to our friendly team &mdash; we respond within 1 hour during business hours.
             </p>
@@ -175,51 +161,6 @@ export default function ContactPage() {
                   className="w-full"
                 />
               </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-primary-700">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-white mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-white/90 mb-8">
-              Schedule a free, no-obligation consultation with our care team.
-              We&apos;ll call you to discuss your needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/consultation">
-                <Button
-                  variant="secondary"
-                  size="xl"
-                  rightIcon={<ArrowRight className="w-5 h-5" />}
-                >
-                  Schedule Free Assessment
-                </Button>
-              </Link>
-              <a href="tel:+441324868987">
-                <Button
-                  variant="outline"
-                  size="xl"
-                  className="border-white text-white hover:bg-white/10"
-                  leftIcon={<Phone className="w-5 h-5" />}
-                >
-                  Call 01324868987
-                </Button>
-              </a>
-            </div>
-            <div className="flex flex-wrap justify-center gap-6 mt-8 text-white/90 text-sm">
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" /> Available 9am – 5pm
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" /> Response within 1 hour
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5" /> No commitment required
-              </span>
             </div>
           </div>
         </div>

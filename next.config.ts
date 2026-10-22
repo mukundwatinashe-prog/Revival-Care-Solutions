@@ -67,7 +67,7 @@ const nextConfig: NextConfig = {
 
   // Redirect www to non-www (or vice versa) for SEO
   async redirects() {
-    return [];
+    return [{ source: '/contact', destination: '/about#contact', permanent: true }];
   },
 
   // Enable React strict mode for better development

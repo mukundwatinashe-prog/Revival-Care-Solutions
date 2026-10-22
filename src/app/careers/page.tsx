@@ -550,7 +550,7 @@ export default function CareersPage() {
               <Button variant="secondary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} onClick={scrollToPositions}>
                 Apply Now
               </Button>
-              <Link href="/contact">
+              <Link href="/about#contact">
                 <Button
                   variant="outline"
                   size="lg"
