@@ -87,7 +87,6 @@ async function fetchSssc(): Promise<NewsItem[]> {
     },
     body: 'hostDomainName=news.sssc.uk.com',
     signal: AbortSignal.timeout(10000),
-    cache: 'no-store',
   });
   if (!authRes.ok) throw new Error(`SSSC auth ${authRes.status}`);
   const { token } = (await authRes.json()) as { token: string };

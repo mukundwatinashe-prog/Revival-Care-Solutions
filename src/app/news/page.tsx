@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import { Badge } from '@/components/ui';
 import { NewsList } from '@/components/sections/NewsList';
-import { getNewsFeed, NEWS_REVALIDATE_SECONDS } from '@/lib/news';
+import { getNewsFeed } from '@/lib/news';
 
-export const revalidate = NEWS_REVALIDATE_SECONDS;
+// Must be a literal: 4 hours (keep in sync with NEWS_REVALIDATE_SECONDS in src/lib/news.ts)
+export const revalidate = 14400;
 
 export const metadata: Metadata = {
   title: 'News',
