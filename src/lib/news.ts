@@ -29,7 +29,12 @@ export interface NewsFeed {
 }
 
 const PER_SOURCE_LIMIT = 10;
-const USER_AGENT = 'Mozilla/5.0 (compatible; RevivalCareNewsBot/1.0; +https://revivalcare.co.uk)';
+const USER_AGENT =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+const PAGE_HEADERS = {
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en-GB,en;q=0.9',
+};
 
 const MONTHS: Record<string, number> = {
   january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
@@ -71,7 +76,7 @@ function slugify(text: string): string {
 function fetchOptions(extra: RequestInit = {}): RequestInit & { next: { revalidate: number } } {
   return {
     ...extra,
-    headers: { 'User-Agent': USER_AGENT, ...(extra.headers ?? {}) },
+    headers: { 'User-Agent': USER_AGENT, ...PAGE_HEADERS, ...(extra.headers ?? {}) },
     signal: AbortSignal.timeout(10000),
     next: { revalidate: NEWS_REVALIDATE_SECONDS },
   };
@@ -209,6 +214,7 @@ export async function getNewsFeed(): Promise<NewsFeed> {
     const { name, homepage } = SOURCES[i];
     if (result.status === 'fulfilled') {
       items.push(...result.value);
+      if (result.value.length === 0) console.error(`News fetch for ${name} returned no articles`);
       return { name, homepage, ok: result.value.length > 0 };
     }
     console.error(`News fetch failed for ${name}:`, result.reason);
