@@ -39,7 +39,7 @@ export function NewsList({ items, sources }: { items: NewsItem[]; sources: NewsS
       {visible.length === 0 ? (
         <p className="text-center text-neutral-600">No articles available right now. Please check back soon.</p>
       ) : (
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 items-start max-w-5xl mx-auto">
           {visible.map((item) => (
             <a
               key={item.id}
@@ -48,7 +48,7 @@ export function NewsList({ items, sources }: { items: NewsItem[]; sources: NewsS
               rel="noopener noreferrer"
               className="group block"
             >
-              <Card hover variant="elevated" padding="none" className="h-full bg-white border border-neutral-100 overflow-hidden">
+              <Card hover variant="elevated" padding="none" className="bg-white border border-neutral-100 overflow-hidden">
                 {item.image && (
                   <div className="aspect-[16/9] bg-primary-50 overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -29,8 +29,6 @@ export interface NewsFeed {
 }
 
 const PER_SOURCE_LIMIT = 10;
-const DISCLOSURE_SCOTLAND_CARD_IMAGE =
-  'https://www.disclosure.gov.scot/binaries/content/gallery/disclosure/disclosure-default-card-image-svg';
 const USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
 const PAGE_HEADERS = {
@@ -169,7 +167,6 @@ async function fetchDisclosureScotland(): Promise<NewsItem[]> {
       source: 'Disclosure Scotland',
       title: cleanText(link[2]),
       summary: summary ? cleanText(summary) : undefined,
-      image: DISCLOSURE_SCOTLAND_CARD_IMAGE,
       url: new URL(link[1], 'https://www.disclosure.gov.scot').toString(),
       date,
     });
