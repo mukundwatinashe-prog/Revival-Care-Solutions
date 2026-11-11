@@ -162,6 +162,16 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/80 text-sm text-center md:text-left font-medium">
               © {new Date().getFullYear()} Revival Care Solutions. All rights reserved.
+              <span aria-hidden="true" className="mx-2">·</span>
+              Website by{' '}
+              <a
+                href="https://www.tmmdesigns.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-secondary-300 transition-colors"
+              >
+                TMM Designs
+              </a>
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               {legal.map((item) => (
@@ -175,17 +185,6 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <p className="mt-6 text-center text-xs text-white/70">
-            Website by{' '}
-            <a
-              href="https://www.tmmdesigns.uk/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-white/90 hover:text-secondary-300 transition-colors"
-            >
-              TMM Designs
-            </a>
-          </p>
         </div>
       </div>
     </footer>
