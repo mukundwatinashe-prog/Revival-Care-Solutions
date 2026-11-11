@@ -175,6 +175,17 @@ export function Footer() {
               ))}
             </div>
           </div>
+          <p className="mt-6 text-center text-xs text-white/70">
+            Website by{' '}
+            <a
+              href="https://www.tmmdesigns.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-white/90 hover:text-secondary-300 transition-colors"
+            >
+              TMM Designs
+            </a>
+          </p>
         </div>
       </div>
     </footer>
