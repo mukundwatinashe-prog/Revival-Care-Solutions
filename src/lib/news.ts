@@ -3,7 +3,10 @@ export const NEWS_REVALIDATE_SECONDS = 4 * 60 * 60;
 export type NewsSourceName =
   | 'SSSC'
   | 'Disclosure Scotland'
-  | 'Care Inspectorate';
+  | 'Care Inspectorate'
+  | 'Scottish Care'
+  | 'Falkirk HSCP'
+  | 'NHS Forth Valley';
 
 export interface NewsItem {
   id: string;
@@ -174,6 +177,64 @@ async function fetchDisclosureScotland(): Promise<NewsItem[]> {
   return items.slice(0, PER_SOURCE_LIMIT);
 }
 
+function decodeCdata(text: string): string {
+  return text.replace(/<!\[CDATA\[|\]\]>/g, '');
+}
+
+async function fetchOgImage(url: string): Promise<string | undefined> {
+  try {
+    const res = await fetch(url, fetchOptions());
+    if (!res.ok) return undefined;
+    const html = await res.text();
+    const tag = html.match(/<meta[^>]*property="og:image"[^>]*>/i)?.[0];
+    const content = tag?.match(/content="([^"]+)"/i)?.[1];
+    return content ? decodeEntities(content) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function wordPressFeedFetcher(
+  source: NewsSourceName,
+  feedUrl: string,
+  options: { withImages?: boolean } = {}
+): () => Promise<NewsItem[]> {
+  return async () => {
+    const res = await fetch(feedUrl, fetchOptions());
+    if (!res.ok) throw new Error(`${source} feed ${res.status}`);
+    const xml = await res.text();
+    const entries = xml.match(/<item>[\s\S]*?<\/item>/g) ?? [];
+
+    const items: NewsItem[] = [];
+    for (const entry of entries.slice(0, PER_SOURCE_LIMIT)) {
+      const title = entry.match(/<title>([\s\S]*?)<\/title>/)?.[1];
+      const link = entry.match(/<link>\s*([\s\S]*?)\s*<\/link>/)?.[1];
+      const pubDate = entry.match(/<pubDate>\s*([\s\S]*?)\s*<\/pubDate>/)?.[1];
+      const date = pubDate ? new Date(pubDate) : null;
+      if (!title || !link || !date || Number.isNaN(date.getTime())) continue;
+      const rawSummary = cleanText(decodeCdata(entry.match(/<description>([\s\S]*?)<\/description>/)?.[1] ?? ''));
+      const summary = /^read more/i.test(rawSummary) ? '' : rawSummary.replace(/\s*(\[\u2026\]|\u2026|\.\.\.)$/, '');
+      items.push({
+        id: `${source}-${link}`,
+        source,
+        title: cleanText(decodeCdata(title)),
+        summary: summary ? summary.slice(0, 280) : undefined,
+        url: link,
+        date: date.toISOString(),
+      });
+    }
+
+    if (options.withImages) {
+      await Promise.all(
+        items.map(async (item) => {
+          item.image = await fetchOgImage(item.url);
+        })
+      );
+    }
+    return items;
+  };
+}
+
 const SOURCES: {
   name: NewsSourceName;
   homepage: string;
@@ -182,6 +243,21 @@ const SOURCES: {
   { name: 'SSSC', homepage: 'https://news.sssc.uk.com/press-releases', fetcher: fetchSssc },
   { name: 'Disclosure Scotland', homepage: 'https://www.disclosure.gov.scot/news', fetcher: fetchDisclosureScotland },
   { name: 'Care Inspectorate', homepage: 'https://www.careinspectorate.scot/news-and-media', fetcher: fetchCareInspectorate },
+  {
+    name: 'Scottish Care',
+    homepage: 'https://scottishcare.org/news/',
+    fetcher: wordPressFeedFetcher('Scottish Care', 'https://scottishcare.org/feed/', { withImages: true }),
+  },
+  {
+    name: 'Falkirk HSCP',
+    homepage: 'https://falkirkhscp.org/news/',
+    fetcher: wordPressFeedFetcher('Falkirk HSCP', 'https://falkirkhscp.org/feed/'),
+  },
+  {
+    name: 'NHS Forth Valley',
+    homepage: 'https://nhsforthvalley.com/',
+    fetcher: wordPressFeedFetcher('NHS Forth Valley', 'https://nhsforthvalley.com/feed/'),
+  },
 ];
 
 const FALLBACK_LIMIT = 5;
